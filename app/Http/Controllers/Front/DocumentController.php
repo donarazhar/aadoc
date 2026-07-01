@@ -12,11 +12,12 @@ class DocumentController extends Controller
 {
     public function index()
     {
-        $categories = Category::withCount(['documents' => function($q) {
-            $q->where('is_published', true);
-        }])->orderBy('order')->get();
+        $firstCategory = Category::orderBy('order')->first();
+        if ($firstCategory) {
+            return redirect()->route('docs.category', $firstCategory->slug);
+        }
         
-        return view('front.home', compact('categories'));
+        return response('No categories found. Please create one in admin panel.');
     }
 
     public function category($categorySlug)

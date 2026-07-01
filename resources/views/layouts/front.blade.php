@@ -5,81 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Al Azhar Apps Documentation')</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
 
-    <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
-        }
-        /* Prose Typography for TinyMCE HTML Output */
-        .prose h1 { font-size: 2.25rem; font-weight: 800; margin-top: 2rem; margin-bottom: 1rem; color: #111827; }
-        .prose h2 { font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: #111827; }
-        .prose h3 { font-size: 1.5rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #111827; }
-        .prose p { margin-top: 1.25em; margin-bottom: 1.25em; line-height: 1.75; color: #374151; }
-        .prose a { color: #2563eb; text-decoration: underline; font-weight: 500; }
-        .prose ul { list-style-type: disc; padding-left: 1.625em; margin-top: 1.25em; margin-bottom: 1.25em; }
-        .prose ol { list-style-type: decimal; padding-left: 1.625em; margin-top: 1.25em; margin-bottom: 1.25em; }
+        body { font-family: 'Inter', sans-serif; background-color: #fff; color: #334155; overflow-y: scroll; }
+        .text-laravel { color: #1885C4; }
+        .bg-laravel { background-color: #1885C4; }
+        .border-laravel { border-color: #1885C4; }
+        .focus-ring-laravel:focus { --tw-ring-color: #1885C4; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; border: 2px solid #fff; }
+
+        /* Prose Typography */
+        .prose { max-width: none; }
+        .prose h1 { font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 2rem; letter-spacing: -0.025em; }
+        .prose h2 { font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; letter-spacing: -0.025em; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; color: #0f172a; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .prose p { margin-top: 1.25em; margin-bottom: 1.25em; line-height: 1.75; color: #475569; }
+        .prose a { color: #1885C4; text-decoration: none; font-weight: 600; }
+        .prose a:hover { text-decoration: underline; }
+        .prose ul { list-style-type: disc; padding-left: 1.625em; margin-top: 1.25em; margin-bottom: 1.25em; color: #475569; }
+        .prose ol { list-style-type: decimal; padding-left: 1.625em; margin-top: 1.25em; margin-bottom: 1.25em; color: #475569; }
         .prose li { margin-top: 0.5em; margin-bottom: 0.5em; }
-        .prose img { border-radius: 0.5rem; max-width: 100%; height: auto; margin-top: 2em; margin-bottom: 2em; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
-        .prose table { width: 100%; text-align: left; border-collapse: collapse; margin-top: 2em; margin-bottom: 2em; }
-        .prose thead { border-bottom: 2px solid #d1d5db; }
-        .prose th { font-weight: 600; padding: 0.75em; color: #111827; }
-        .prose td { padding: 0.75em; border-bottom: 1px solid #e5e7eb; }
-        .prose blockquote { border-left: 4px solid #e5e7eb; padding-left: 1em; font-style: italic; color: #4b5563; margin-top: 1.6em; margin-bottom: 1.6em; }
+        .prose code { background-color: #f1f5f9; padding: 0.2em 0.4em; border-radius: 0.375rem; font-size: 0.875em; color: #1885C4; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+        .prose pre { background-color: #0f172a; color: #f8fafc; padding: 1.25rem 1.5rem; border-radius: 0.75rem; overflow-x: auto; margin-top: 1.5em; margin-bottom: 1.5em; font-size: 0.875em; line-height: 1.7142857; }
+        .prose pre code { background-color: transparent; color: inherit; padding: 0; font-size: inherit; }
+        .prose img { border-radius: 0.5rem; max-width: 100%; height: auto; margin-top: 2em; margin-bottom: 2em; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); }
+        .prose blockquote { border-left: 4px solid #1885C4; padding-left: 1rem; font-style: normal; color: #334155; background-color: #f0f9ff; padding-top: 0.75rem; padding-bottom: 0.75rem; padding-right: 1rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 1.6em; margin-bottom: 1.6em; }
     </style>
 </head>
-<body class="antialiased text-gray-800">
+<body class="antialiased">
 
-    <!-- Navbar -->
-    <nav class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="{{ route('home') }}" class="flex items-center gap-2">
-                        <!-- Placeholder Logo -->
-                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                            A
-                        </div>
-                        <span class="font-bold text-xl text-blue-900">Al Azhar <span class="font-light">Docs</span></span>
+    <!-- Top Navbar -->
+    <div class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 bg-white/95 supports-backdrop-blur:bg-white/60">
+        <div class="max-w-8xl mx-auto">
+            <div class="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 mx-4 lg:mx-0">
+                <div class="relative flex items-center">
+                    <a href="{{ route('home') }}" class="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto flex items-center gap-2">
+                        <img src="{{ asset('img/logo.png') }}" class="w-8 h-8 object-contain" alt="Logo Al Azhar">
+                        <span class="sr-only">Al Azhar Apps Docs home page</span>
+                        <span class="font-bold text-xl tracking-tight text-slate-900 hidden sm:block">Al Azhar Apps <span class="font-normal text-slate-500">Docs</span></span>
                     </a>
-                </div>
-                
-                <div class="flex items-center gap-4">
-                    <form action="{{ route('docs.search') }}" method="GET" class="relative hidden md:block">
-                        <input type="text" name="q" placeholder="Cari dokumentasi..." class="w-64 pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm transition-shadow shadow-sm hover:shadow-md" required>
-                        <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                    </form>
-                    
-                    @auth
-                        <a href="{{ route('dashboard') }}" class="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">Admin Panel</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">Login Admin</a>
-                    @endauth
+                    <div class="relative hidden lg:flex items-center ml-auto">
+                        <nav class="text-sm leading-6 font-semibold text-slate-700">
+                            <ul class="flex space-x-8">
+                                <li>
+                                    <form action="{{ route('docs.search') }}" method="GET" class="relative group">
+                                        <input type="text" name="q" placeholder="Search docs..." class="w-64 pl-10 pr-4 py-1.5 bg-slate-50 border border-slate-200 rounded-md focus:bg-white focus:ring-1 focus:ring-laravel focus:border-laravel text-sm transition-colors text-slate-900 placeholder-slate-400" required>
+                                        <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 group-focus-within:text-laravel" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                    </form>
+                                </li>
+                                <li>
+                                    @auth
+                                        <a href="{{ route('dashboard') }}" class="hover:text-laravel transition-colors flex items-center pt-1.5">Admin Panel</a>
+                                    @else
+                                        <a href="{{ route('login') }}" class="hover:text-laravel transition-colors flex items-center pt-1.5">Login</a>
+                                    @endauth
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <!-- Main Content -->
-    <main>
-        @yield('content')
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 mt-12 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
-            &copy; {{ date('Y') }} Al Azhar Apps. Hak cipta dilindungi.
+    <!-- Main Wrapper -->
+    <div class="overflow-hidden">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
+            @yield('content')
         </div>
-    </footer>
+    </div>
 
+    @stack('scripts')
 </body>
 </html>
