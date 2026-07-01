@@ -43,6 +43,11 @@ class DocumentController extends Controller
         return redirect()->route('admin.documents.index')->with('success', 'Dokumen berhasil ditambahkan.');
     }
 
+    public function show(\App\Models\Document $document)
+    {
+        return view('admin.documents.show', compact('document'));
+    }
+
     public function edit(\App\Models\Document $document)
     {
         $categories = \App\Models\Category::all();

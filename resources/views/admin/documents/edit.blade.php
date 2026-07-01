@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-slate-800 leading-tight">
-            {{ __('Tambah Dokumen Baru') }}
+            {{ __('Edit Dokumen') }}
         </h2>
     </x-slot>
 
@@ -9,12 +9,13 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-xl border border-slate-100">
                 <div class="p-6 text-slate-900">
-                    <form action="{{ route('admin.documents.store') }}" method="POST">
+                    <form action="{{ route('admin.documents.update', $document->id) }}" method="POST">
                         @csrf
+                        @method('PUT')
                         
                         <div class="mb-4">
                             <x-input-label for="title" :value="__('Judul Dokumen')" />
-                            <x-text-input type="text" name="title" id="title" class="mt-1 block w-full" required autofocus />
+                            <x-text-input type="text" name="title" id="title" class="mt-1 block w-full" value="{{ old('title', $document->title) }}" required autofocus />
                         </div>
 
                         <div class="mb-4">
@@ -22,18 +23,18 @@
                             <select name="category_id" id="category_id" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-alazhar focus:ring-alazhar sm:text-sm" required>
                                 <option value="">-- Pilih Kategori --</option>
                                 @foreach($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}" {{ (old('category_id', $document->category_id) == $category->id) ? 'selected' : '' }}>{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="mb-4">
                             <x-input-label for="content-editor" :value="__('Isi Dokumen (TinyMCE)')" />
-                            <textarea name="content" id="content-editor" class="mt-1 block w-full"></textarea>
+                            <textarea name="content" id="content-editor" class="mt-1 block w-full">{{ old('content', $document->content) }}</textarea>
                         </div>
 
                         <div class="mb-6 flex items-center">
-                            <input type="checkbox" name="is_published" id="is_published" value="1" class="rounded border-slate-300 text-alazhar shadow-sm focus:ring-alazhar focus:ring-offset-0 focus:ring-2">
+                            <input type="checkbox" name="is_published" id="is_published" value="1" {{ old('is_published', $document->is_published) ? 'checked' : '' }} class="rounded border-slate-300 text-alazhar shadow-sm focus:ring-alazhar focus:ring-offset-0 focus:ring-2">
                             <label for="is_published" class="ml-2 block text-sm text-slate-700">Publikasikan Langsung</label>
                         </div>
 
@@ -42,7 +43,7 @@
                                 Batal
                             </a>
                             <button type="submit" class="inline-flex items-center px-6 py-2 bg-alazhar border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-alazhar focus:ring-offset-2 transition ease-in-out duration-150 shadow-md shadow-blue-500/20">
-                                Simpan Dokumen
+                                Simpan Perubahan
                             </button>
                         </div>
                     </form>
