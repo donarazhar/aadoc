@@ -11,7 +11,9 @@ Route::get('/docs/{categorySlug}/{documentSlug}', [FrontDocumentController::clas
 Route::get('/search', [FrontDocumentController::class, 'search'])->name('docs.search');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $totalCategories = \App\Models\Category::count();
+    $totalDocuments = \App\Models\Document::count();
+    return view('dashboard', compact('totalCategories', 'totalDocuments'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

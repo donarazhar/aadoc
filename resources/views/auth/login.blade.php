@@ -32,16 +32,16 @@
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="flex items-center justify-end mt-6">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                <a class="underline text-sm text-slate-600 hover:text-alazhar rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-alazhar transition-colors" href="{{ route('password.request') }}">
+                    {{ __('Lupa password?') }}
                 </a>
             @endif
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
+            <button type="submit" class="ms-4 inline-flex items-center px-6 py-2.5 bg-alazhar border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-widest hover-bg-alazhar-dark focus:bg-alazhar focus:outline-none focus:ring-2 focus-ring-alazhar focus:ring-offset-2 active:bg-alazhar transition ease-in-out duration-150 shadow-md shadow-blue-500/20">
+                {{ __('Masuk') }}
+            </button>
         </div>
     </form>
 </x-guest-layout>
