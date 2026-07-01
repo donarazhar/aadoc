@@ -24,6 +24,7 @@
                     <table class="w-full text-sm text-left text-slate-500">
                         <thead class="text-xs text-slate-700 uppercase bg-slate-50 border-b border-slate-100">
                             <tr>
+                                <th scope="col" class="px-6 py-4 w-12 text-center">No</th>
                                 <th scope="col" class="px-6 py-4">Judul Dokumen</th>
                                 <th scope="col" class="px-6 py-4">Kategori</th>
                                 <th scope="col" class="px-6 py-4">Status</th>
@@ -33,6 +34,7 @@
                         <tbody>
                             @forelse ($documents as $document)
                                 <tr class="bg-white border-b border-slate-50 hover:bg-slate-50">
+                                    <td class="px-6 py-4 text-center text-slate-500">{{ $loop->iteration }}</td>
                                     <td class="px-6 py-4 font-medium text-slate-900">{{ $document->title }}</td>
                                     <td class="px-6 py-4">
                                         <span class="bg-slate-100 text-slate-800 text-xs font-medium px-2.5 py-0.5 rounded border border-slate-200">
@@ -64,7 +66,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4" class="px-6 py-8 text-center text-slate-500">Belum ada dokumen yang ditulis.</td>
+                                    <td colspan="5" class="px-6 py-8 text-center text-slate-500">Belum ada dokumen yang ditulis.</td>
                                 </tr>
                             @endforelse
                         </tbody>
