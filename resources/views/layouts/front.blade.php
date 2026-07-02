@@ -60,7 +60,7 @@
                     </a>
                     <div class="relative hidden lg:flex items-center ml-auto">
                         <nav class="text-sm leading-6 font-semibold text-slate-700">
-                            <ul class="flex items-center space-x-6">
+                            <ul class="flex items-center space-x-8">
                                 <li>
                                     <form action="{{ route('docs.search') }}" method="GET" class="relative group">
                                         <input type="text" name="q" placeholder="Search docs..." class="w-64 pl-10 pr-4 py-1.5 bg-slate-50 border border-slate-200 rounded-md focus:bg-white focus:ring-1 focus:ring-laravel focus:border-laravel text-sm transition-colors text-slate-900 placeholder-slate-400" required>
