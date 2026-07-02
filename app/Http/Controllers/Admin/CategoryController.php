@@ -62,7 +62,6 @@ class CategoryController extends Controller
 
         $category->update([
             'name' => $request->name,
-            'slug' => \Illuminate\Support\Str::slug($request->name),
             'description' => $request->description,
             'parent_id' => $request->parent_id,
             'order' => $request->order ?? 0,

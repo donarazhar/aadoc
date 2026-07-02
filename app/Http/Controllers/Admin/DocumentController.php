@@ -64,7 +64,6 @@ class DocumentController extends Controller
 
         $document->update([
             'title' => $request->title,
-            'slug' => \Illuminate\Support\Str::slug($request->title) . '-' . time(),
             'category_id' => $request->category_id,
             'content' => $request->content,
             'is_published' => $request->has('is_published'),
