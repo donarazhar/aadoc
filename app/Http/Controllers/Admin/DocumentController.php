@@ -12,7 +12,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        $documents = \App\Models\Document::with(['category', 'author'])->orderBy('id', 'desc')->get();
+        $documents = \App\Models\Document::with(['category', 'author'])->orderBy('order')->orderBy('id', 'desc')->get();
         return view('admin.documents.index', compact('documents'));
     }
 
@@ -77,5 +77,20 @@ class DocumentController extends Controller
     {
         $document->delete();
         return redirect()->route('admin.documents.index')->with('success', 'Dokumen berhasil dihapus.');
+    }
+
+    public function reorder(Request $request)
+    {
+        $request->validate([
+            'order' => 'required|array',
+            'order.*' => 'integer|exists:documents,id',
+        ]);
+
+        $order = $request->input('order');
+        foreach ($order as $index => $id) {
+            \App\Models\Document::where('id', $id)->update(['order' => $index + 1]);
+        }
+
+        return response()->json(['success' => true, 'message' => 'Urutan dokumen berhasil diperbarui.']);
     }
 }

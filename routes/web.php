@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
         Route::post('upload-image', [\App\Http\Controllers\Admin\ImageUploadController::class, 'store'])->name('upload-image');
         Route::post('categories/reorder', [\App\Http\Controllers\Admin\CategoryController::class, 'reorder'])->name('categories.reorder');
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
+        Route::post('documents/reorder', [\App\Http\Controllers\Admin\DocumentController::class, 'reorder'])->name('documents.reorder');
         Route::resource('documents', \App\Http\Controllers\Admin\DocumentController::class);
     });
 });

@@ -20,6 +20,17 @@
             @endif
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-xl border border-slate-100">
+                <style>
+                    #sortable-table-body {
+                        counter-reset: rowNumber;
+                    }
+                    #sortable-table-body tr.document-row {
+                        counter-increment: rowNumber;
+                    }
+                    #sortable-table-body tr.document-row .row-num::before {
+                        content: counter(rowNumber);
+                    }
+                </style>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-slate-500">
                         <thead class="text-xs text-slate-700 uppercase bg-slate-50 border-b border-slate-100">
@@ -31,10 +42,15 @@
                                 <th scope="col" class="px-6 py-4 text-right">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="sortable-table-body">
                             @forelse ($documents as $document)
-                                <tr class="bg-white border-b border-slate-50 hover:bg-slate-50">
-                                    <td class="px-6 py-4 text-center text-slate-500">{{ $loop->iteration }}</td>
+                                <tr class="document-row bg-white border-b border-slate-50 hover:bg-slate-50" data-id="{{ $document->id }}">
+                                    <td class="px-6 py-4 text-center text-slate-500 whitespace-nowrap">
+                                        <span class="drag-handle cursor-grab active:cursor-grabbing mr-2 text-slate-400 hover:text-slate-600 inline-block align-middle" title="Geser untuk mengubah urutan">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path></svg>
+                                        </span>
+                                        <span class="row-num inline-block align-middle font-medium"></span>
+                                    </td>
                                     <td class="px-6 py-4 font-medium text-slate-900">{{ $document->title }}</td>
                                     <td class="px-6 py-4">
                                         <span class="bg-slate-100 text-slate-800 text-xs font-medium px-2.5 py-0.5 rounded border border-slate-200">
@@ -75,4 +91,52 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var el = document.getElementById('sortable-table-body');
+            var sortable = Sortable.create(el, {
+                handle: '.drag-handle',
+                animation: 150,
+                ghostClass: 'bg-slate-100',
+                onEnd: function (evt) {
+                    var order = [];
+                    el.querySelectorAll('tr[data-id]').forEach(function (row) {
+                        order.push(row.getAttribute('data-id'));
+                    });
+
+                    fetch('{{ route('admin.documents.reorder') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({ order: order })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data.success) {
+                            console.log('Urutan berhasil diperbarui.');
+                            let toast = document.createElement('div');
+                            toast.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded shadow-lg transition-opacity duration-300 z-50';
+                            toast.innerText = 'Urutan dokumen berhasil diperbarui';
+                            document.body.appendChild(toast);
+                            setTimeout(() => {
+                                toast.style.opacity = '0';
+                                setTimeout(() => toast.remove(), 300);
+                            }, 3000);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Terjadi kesalahan saat memperbarui urutan.');
+                    });
+                }
+            });
+        });
+    </script>
+    @endpush
 </x-app-layout>
