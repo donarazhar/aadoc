@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('upload-image', [\App\Http\Controllers\Admin\ImageUploadController::class, 'store'])->name('upload-image');
+        Route::post('categories/reorder', [\App\Http\Controllers\Admin\CategoryController::class, 'reorder'])->name('categories.reorder');
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
         Route::resource('documents', \App\Http\Controllers\Admin\DocumentController::class);
     });

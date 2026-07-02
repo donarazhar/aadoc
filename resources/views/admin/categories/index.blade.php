@@ -24,16 +24,18 @@
                     <table class="w-full text-sm text-left text-slate-500">
                         <thead class="text-xs text-slate-700 uppercase bg-slate-50 border-b border-slate-100">
                             <tr>
-                                <th scope="col" class="px-6 py-4">Urutan</th>
+                                <th scope="col" class="px-6 py-4 w-16"></th>
                                 <th scope="col" class="px-6 py-4">Nama Kategori</th>
                                 <th scope="col" class="px-6 py-4">Slug</th>
                                 <th scope="col" class="px-6 py-4 text-right">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="sortable-table-body">
                             @forelse ($categories as $category)
-                                <tr class="bg-white border-b border-slate-50 hover:bg-slate-50">
-                                    <td class="px-6 py-4 font-medium text-slate-900">{{ $category->order }}</td>
+                                <tr class="bg-white border-b border-slate-50 hover:bg-slate-50" data-id="{{ $category->id }}">
+                                    <td class="px-6 py-4 cursor-grab active:cursor-grabbing text-slate-400 hover:text-slate-600 drag-handle">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path></svg>
+                                    </td>
                                     <td class="px-6 py-4">
                                         {{ $category->name }}
                                         @if($category->is_hidden)
@@ -68,4 +70,54 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var el = document.getElementById('sortable-table-body');
+            var sortable = Sortable.create(el, {
+                handle: '.drag-handle',
+                animation: 150,
+                ghostClass: 'bg-slate-100',
+                onEnd: function (evt) {
+                    var order = [];
+                    el.querySelectorAll('tr[data-id]').forEach(function (row) {
+                        order.push(row.getAttribute('data-id'));
+                    });
+
+                    fetch('{{ route('admin.categories.reorder') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({ order: order })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data.success) {
+                            // Optional: Show a subtle toast or alert here
+                            console.log('Urutan berhasil diperbarui.');
+                            // Create a temporary toast notification
+                            let toast = document.createElement('div');
+                            toast.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded shadow-lg transition-opacity duration-300';
+                            toast.innerText = 'Urutan berhasil diperbarui';
+                            document.body.appendChild(toast);
+                            setTimeout(() => {
+                                toast.style.opacity = '0';
+                                setTimeout(() => toast.remove(), 300);
+                            }, 3000);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Terjadi kesalahan saat memperbarui urutan.');
+                    });
+                }
+            });
+        });
+    </script>
+    @endpush
 </x-app-layout>
