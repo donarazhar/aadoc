@@ -22,7 +22,7 @@
         .focus-ring-alazhar:focus { --tw-ring-color: #1885C4; border-color: #1885C4; }
         .hover-bg-alazhar-dark:hover { background-color: #146a9d; }
     </style>
-    <body class="font-sans text-slate-900 antialiased bg-slate-50 relative overflow-hidden">
+    <body class="font-sans text-slate-900 antialiased bg-slate-50 relative overflow-x-hidden">
         <!-- Subtle Background Decoration -->
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
             <div class="absolute -top-[30%] -right-[10%] w-[70%] h-[70%] rounded-full bg-[#1885C4] opacity-5 blur-[100px]"></div>
