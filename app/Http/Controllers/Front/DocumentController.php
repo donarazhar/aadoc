@@ -12,7 +12,7 @@ class DocumentController extends Controller
 {
     public function index()
     {
-        $firstCategory = Category::orderBy('order')->first();
+        $firstCategory = Category::where('is_hidden', false)->orderBy('order')->first();
         if ($firstCategory) {
             return redirect()->route('docs.category', $firstCategory->slug);
         }
@@ -22,31 +22,33 @@ class DocumentController extends Controller
 
     public function category($categorySlug)
     {
-        $category = Category::where('slug', $categorySlug)->firstOrFail();
+        $category = Category::where('slug', $categorySlug)->where('is_hidden', false)->firstOrFail();
         $document = Document::where('category_id', $category->id)->where('is_published', true)->orderBy('order')->first();
 
         if ($document) {
             return redirect()->route('docs.show', [$categorySlug, $document->slug]);
         }
 
-        $allCategories = Category::with(['documents' => function($q) {
-            $q->where('is_published', true)->orderBy('order');
-        }])->orderBy('order')->get();
+        $allCategories = Category::where('is_hidden', false)
+            ->with(['documents' => function($q) {
+                $q->where('is_published', true)->orderBy('order');
+            }])->orderBy('order')->get();
 
         return view('front.show', compact('category', 'document', 'allCategories'));
     }
 
     public function show($categorySlug, $documentSlug)
     {
-        $category = Category::where('slug', $categorySlug)->firstOrFail();
+        $category = Category::where('slug', $categorySlug)->where('is_hidden', false)->firstOrFail();
         $document = Document::where('category_id', $category->id)
                             ->where('slug', $documentSlug)
                             ->where('is_published', true)
                             ->firstOrFail();
 
-        $allCategories = Category::with(['documents' => function($q) {
-            $q->where('is_published', true)->orderBy('order');
-        }])->orderBy('order')->get();
+        $allCategories = Category::where('is_hidden', false)
+            ->with(['documents' => function($q) {
+                $q->where('is_published', true)->orderBy('order');
+            }])->orderBy('order')->get();
 
         return view('front.show', compact('category', 'document', 'allCategories'));
     }

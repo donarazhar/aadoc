@@ -34,7 +34,12 @@
                             @forelse ($categories as $category)
                                 <tr class="bg-white border-b border-slate-50 hover:bg-slate-50">
                                     <td class="px-6 py-4 font-medium text-slate-900">{{ $category->order }}</td>
-                                    <td class="px-6 py-4">{{ $category->name }}</td>
+                                    <td class="px-6 py-4">
+                                        {{ $category->name }}
+                                        @if($category->is_hidden)
+                                            <span class="ml-2 inline-flex items-center rounded-md bg-amber-50 px-2 py-1 text-xs font-medium text-amber-700 ring-1 ring-inset ring-amber-600/20">Tersembunyi</span>
+                                        @endif
+                                    </td>
                                     <td class="px-6 py-4">{{ $category->slug }}</td>
                                     <td class="px-6 py-4 text-right space-x-3">
                                         <a href="{{ route('admin.categories.show', $category->id) }}" class="text-slate-500 hover:text-slate-900 transition-colors inline-block" title="Lihat">

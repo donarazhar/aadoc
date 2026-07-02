@@ -36,6 +36,7 @@ class CategoryController extends Controller
             'description' => $request->description,
             'parent_id' => $request->parent_id,
             'order' => $request->order ?? 0,
+            'is_hidden' => $request->has('is_hidden'),
         ]);
 
         return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil ditambahkan.');
@@ -65,6 +66,7 @@ class CategoryController extends Controller
             'description' => $request->description,
             'parent_id' => $request->parent_id,
             'order' => $request->order ?? 0,
+            'is_hidden' => $request->has('is_hidden'),
         ]);
 
         return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil diperbarui.');

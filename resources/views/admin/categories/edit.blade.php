@@ -34,6 +34,12 @@
                             <x-input-error :messages="$errors->get('order')" class="mt-2" />
                         </div>
 
+                        <!-- Is Hidden -->
+                        <div class="mb-6 flex items-center">
+                            <input type="checkbox" name="is_hidden" id="is_hidden" value="1" {{ old('is_hidden', $category->is_hidden) ? 'checked' : '' }} class="rounded border-slate-300 text-alazhar shadow-sm focus:ring-alazhar focus:ring-offset-0 focus:ring-2">
+                            <label for="is_hidden" class="ml-2 block text-sm text-slate-700">Sembunyikan Kategori dari Publik</label>
+                        </div>
+
                         <div class="flex items-center justify-end mt-4">
                             <a href="{{ route('admin.categories.index') }}" class="inline-flex items-center px-4 py-2 bg-white border border-slate-300 rounded-md font-semibold text-xs text-slate-700 uppercase tracking-widest shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-alazhar focus:ring-offset-2 disabled:opacity-25 transition ease-in-out duration-150 mr-3">
                                 Batal
