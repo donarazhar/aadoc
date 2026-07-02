@@ -15,13 +15,13 @@ class PmbWorkflowSeeder extends Seeder
     public function run(): void
     {
         // Pastikan kategori ada
-        $categoryName = 'Penerimaan Murid Baru (PMB)';
+        $categoryName = 'Panduan Penggunaan Aplikasi bagi OTM';
         $category = Category::firstOrCreate(
             ['slug' => Str::slug($categoryName)],
             [
                 'name' => $categoryName, 
-                'description' => 'Informasi dan panduan seputar proses Penerimaan Murid Baru Al Azhar.', 
-                'order' => 2 
+                'description' => 'Kumpulan panduan dan tutorial penggunaan Al Azhar Apps khusus untuk Orang Tua Murid.', 
+                'order' => 6 
             ]
         );
 
