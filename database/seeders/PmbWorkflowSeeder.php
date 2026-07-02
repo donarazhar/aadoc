@@ -33,8 +33,8 @@ class PmbWorkflowSeeder extends Seeder
 <p>Berikut adalah langkah-langkah lengkap proses Penerimaan Murid Baru (PMB) melalui Al Azhar Apps, mulai dari mengunduh aplikasi hingga proses pelunasan pembayaran.</p>
 
 <h3 class="text-lg font-bold text-slate-800 mb-4 mt-8">Bagan Alur PMB</h3>
-<div class="w-full overflow-x-auto pb-8 pt-4 mb-8">
-    <div class="flex items-center w-max px-2">
+<div class="w-full pb-8 pt-4 mb-8">
+    <div class="flex flex-wrap items-center justify-center gap-y-8 px-2">
         
         <!-- Langkah 1 -->
         <div class="w-40 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative flex-shrink-0">
