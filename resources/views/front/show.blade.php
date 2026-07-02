@@ -6,9 +6,19 @@
 <div class="hidden lg:block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto">
     <nav id="nav" class="lg:text-sm lg:leading-6 relative pt-10 pb-8">
         @foreach($allCategories as $cat)
-            <div class="mb-8">
-                <h5 class="mb-3 font-semibold text-slate-900">{{ $cat->name }}</h5>
-                <ul class="space-y-3 border-l border-slate-100">
+            @php
+                $isActiveCat = isset($category) && $category->id === $cat->id;
+            @endphp
+            <div class="mb-8" x-data="{ open: {{ $isActiveCat ? 'true' : 'false' }} }">
+                <button @click="open = !open" class="w-full flex items-center justify-between mb-3 group focus:outline-none">
+                    <h5 class="font-semibold text-slate-900 group-hover:text-laravel transition-colors">{{ $cat->name }}</h5>
+                    <svg class="w-4 h-4 text-slate-400 transform transition-transform duration-200 group-hover:text-laravel" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <ul x-show="open" 
+                    x-transition:enter="transition ease-out duration-200" 
+                    x-transition:enter-start="opacity-0 -translate-y-2" 
+                    x-transition:enter-end="opacity-100 translate-y-0" 
+                    class="space-y-3 border-l border-slate-100">
                     @foreach($cat->documents as $doc)
                         <li>
                             <a href="{{ route('docs.show', [$cat->slug, $doc->slug]) }}" 

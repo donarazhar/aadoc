@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             InfrastructureSeeder::class,
             UpgradingSeeder::class,
+            RegistrasiAkunSeeder::class,
         ]);
     }
 }
