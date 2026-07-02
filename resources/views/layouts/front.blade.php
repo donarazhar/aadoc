@@ -68,11 +68,7 @@
                                     </form>
                                 </li>
                                 @auth
-                                    @if(auth()->user()->isSuperadmin())
-                                        <li>
-                                            <a href="{{ route('dashboard') }}" class="hover:text-laravel transition-colors">Dashboard Admin</a>
-                                        </li>
-                                    @endif
+
                                     <li>
                                         <a href="{{ route('profile.edit') }}" class="hover:text-laravel transition-colors">Profil</a>
                                     </li>
