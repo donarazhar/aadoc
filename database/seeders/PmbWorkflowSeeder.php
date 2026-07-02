@@ -32,6 +32,96 @@ class PmbWorkflowSeeder extends Seeder
 <h2>Alur Pendaftaran Murid Baru (PMB)</h2>
 <p>Berikut adalah langkah-langkah lengkap proses Penerimaan Murid Baru (PMB) melalui Al Azhar Apps, mulai dari mengunduh aplikasi hingga proses pelunasan pembayaran.</p>
 
+<h3 class="text-lg font-bold text-slate-800 mb-4 mt-8">Bagan Alur PMB</h3>
+<div class="w-full overflow-x-auto pb-8 pt-4 mb-8">
+    <div class="flex items-center w-max px-2">
+        
+        <!-- Langkah 1 -->
+        <div class="w-40 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative flex-shrink-0">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">1</div>
+            <div class="font-semibold text-slate-700 text-sm mt-1">Download APP</div>
+        </div>
+        
+        <!-- Arrow -->
+        <div class="px-2 text-alazhar flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </div>
+        
+        <!-- Langkah 2 -->
+        <div class="w-40 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative flex-shrink-0">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">2</div>
+            <div class="font-semibold text-slate-700 text-sm mt-1">Registrasi</div>
+        </div>
+        
+        <!-- Arrow -->
+        <div class="px-2 text-alazhar flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </div>
+        
+        <!-- Langkah 3 -->
+        <div class="w-48 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative flex-shrink-0">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">3</div>
+            <div class="font-semibold text-slate-700 text-sm mt-1">Isi Data & Pilih Sekolah</div>
+        </div>
+        
+        <!-- Arrow -->
+        <div class="px-2 text-alazhar flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </div>
+        
+        <!-- Langkah 4 -->
+        <div class="w-48 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative flex-shrink-0">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">4</div>
+            <div class="font-semibold text-slate-700 text-sm mt-1">Bayar Biaya Formulir</div>
+        </div>
+        
+        <!-- Arrow -->
+        <div class="px-2 text-alazhar flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </div>
+        
+        <!-- Langkah 5 -->
+        <div class="w-40 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative flex-shrink-0">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">5</div>
+            <div class="font-semibold text-slate-700 text-sm mt-1">Jadwal Ujian</div>
+        </div>
+        
+        <!-- Arrow -->
+        <div class="px-2 text-alazhar flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </div>
+        
+        <!-- Langkah 6 -->
+        <div class="w-48 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative flex-shrink-0">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">6</div>
+            <div class="font-semibold text-slate-700 text-sm mt-1">SK Lulus & Tagihan</div>
+        </div>
+        
+        <!-- Arrow -->
+        <div class="px-2 text-alazhar flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </div>
+        
+        <!-- Langkah 7 -->
+        <div class="w-48 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative flex-shrink-0">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">7</div>
+            <div class="font-semibold text-slate-700 text-sm mt-1">Pengajuan Diskon</div>
+        </div>
+        
+        <!-- Arrow -->
+        <div class="px-2 text-alazhar flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </div>
+        
+        <!-- Langkah 8 -->
+        <div class="w-48 bg-white border-2 border-green-500 shadow-md rounded-lg p-4 text-center relative flex-shrink-0">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">8</div>
+            <div class="font-bold text-slate-800 text-sm mt-1">Melakukan Pembayaran</div>
+        </div>
+        
+    </div>
+</div>
+
 <ol>
     <li>
         <strong>Download APP:</strong> Unduh aplikasi resmi Al Azhar Apps melalui <em>App Store</em> (untuk pengguna iOS) atau <em>Google Play Store</em> (untuk pengguna Android).
