@@ -107,7 +107,7 @@
                         order.push(row.getAttribute('data-id'));
                     });
 
-                    fetch('{{ route('admin.documents.reorder') }}', {
+                    fetch('/admin/documents/reorder', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
