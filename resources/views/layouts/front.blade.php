@@ -41,17 +41,21 @@
         .prose blockquote { border-left: 4px solid #1885C4; padding-left: 1rem; font-style: normal; color: #334155; background-color: #f0f9ff; padding-top: 0.75rem; padding-bottom: 0.75rem; padding-right: 1rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 1.6em; margin-bottom: 1.6em; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased" x-data="{ mobileMenuOpen: false }" :class="{ 'overflow-hidden': mobileMenuOpen }">
 
     <!-- Top Navbar -->
     <div class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 bg-white/95 supports-backdrop-blur:bg-white/60">
         <div class="max-w-[90rem] mx-auto">
             <div class="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 mx-4 lg:mx-0">
                 <div class="relative flex items-center">
-                    <a href="{{ route('home') }}" class="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto flex items-center gap-2">
+                    <button type="button" @click="mobileMenuOpen = true" class="mr-4 flex items-center justify-center w-10 h-10 rounded-md text-slate-500 hover:text-slate-600 hover:bg-slate-100 lg:hidden focus:outline-none focus:ring-2 focus:ring-laravel">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                    <a href="{{ route('home') }}" class="mr-3 flex-none overflow-hidden md:w-auto flex items-center gap-2">
                         <img src="{{ asset('img/logo.png') }}" class="w-8 h-8 object-contain" alt="Logo Al Azhar">
                         <span class="sr-only">Al Azhar Apps Docs home page</span>
-                        <span class="font-bold text-xl tracking-tight text-slate-900 hidden sm:block">Al Azhar Apps <span class="font-normal text-slate-500">Docs</span></span>
+                        <span class="font-bold text-xl tracking-tight text-slate-900">Al Azhar Apps <span class="font-normal text-slate-500 hidden sm:inline">Docs</span></span>
                     </a>
                     <div class="relative hidden lg:flex items-center ml-auto">
                         <nav class="text-sm leading-6 font-semibold text-slate-700">

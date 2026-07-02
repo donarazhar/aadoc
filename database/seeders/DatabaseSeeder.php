@@ -26,10 +26,10 @@ class DatabaseSeeder extends Seeder
         // Create Categories
         $categories = [
             'Dashboard',
-            'Transaksi PMB',
-            'Laporan Keuangan',
-            'Sekolah',
-            'Administrasi'
+            // 'Transaksi PMB',
+            // 'Laporan Keuangan',
+            // 'Sekolah',
+            // 'Administrasi'
         ];
 
         foreach ($categories as $i => $catName) {

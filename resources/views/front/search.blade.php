@@ -3,8 +3,34 @@
 @section('title', 'Pencarian: ' . $query . ' - Al Azhar Apps')
 
 @section('content')
-<div class="hidden lg:block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto">
-    <nav id="nav" class="lg:text-sm lg:leading-6 relative pt-10 pb-8">
+<!-- Mobile Overlay -->
+<div x-show="mobileMenuOpen" class="fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm lg:hidden" @click="mobileMenuOpen = false" x-transition.opacity style="display: none;"></div>
+
+<!-- Sidebar -->
+<div :class="mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed z-50 inset-y-0 left-0 w-80 bg-white px-6 pb-10 overflow-y-auto transition-transform duration-300 lg:translate-x-0 lg:block lg:z-20 lg:top-[3.8125rem] lg:left-[max(0px,calc(50%-45rem))] lg:right-auto lg:w-[19.5rem] lg:bg-transparent lg:px-8 shadow-xl lg:shadow-none">
+    
+    <!-- Mobile Header inside Sidebar -->
+    <div class="flex items-center justify-between pt-6 pb-4 lg:hidden">
+        <a href="{{ route('home') }}" class="flex items-center gap-2">
+            <img src="{{ asset('img/logo.png') }}" class="w-8 h-8 object-contain" alt="Logo Al Azhar">
+            <span class="font-bold text-xl tracking-tight text-slate-900">Al Azhar Apps <span class="font-normal text-slate-500">Docs</span></span>
+        </a>
+        <button type="button" @click="mobileMenuOpen = false" class="text-slate-500 hover:text-slate-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+    </div>
+
+    <!-- Mobile Search & Login -->
+    <div class="lg:hidden mt-4 mb-8">
+        @auth
+            <a href="{{ route('dashboard') }}" class="block text-slate-700 font-semibold hover:text-laravel mb-2">Admin Panel</a>
+        @else
+            <a href="{{ route('login') }}" class="block text-slate-700 font-semibold hover:text-laravel mb-2">Login</a>
+        @endauth
+        <hr class="my-6 border-slate-100">
+    </div>
+
+    <nav id="nav" class="lg:text-sm lg:leading-6 relative lg:pt-10 pb-8">
         <h5 class="mb-3 font-semibold text-slate-900 uppercase tracking-wider text-xs">Pencarian</h5>
         <ul class="space-y-3 border-l border-slate-100">
             <li><a href="{{ route('home') }}" class="block border-l -ml-px pl-4 border-transparent hover:border-slate-400 text-slate-700 hover:text-slate-900">&larr; Kembali ke Dokumen</a></li>
@@ -13,7 +39,7 @@
 </div>
 
 <div class="lg:pl-[19.5rem]">
-    <main class="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16 pb-24">
+    <main class="max-w-3xl mx-auto pt-8 lg:pt-10 px-4 sm:px-6 lg:px-8 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16 pb-24">
         
         <header id="header" class="relative z-20 mb-10">
             <div>

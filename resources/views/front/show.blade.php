@@ -3,8 +3,38 @@
 @section('title', ($document->title ?? $category->name) . ' - Al Azhar Apps')
 
 @section('content')
-<div class="hidden lg:block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto">
-    <nav id="nav" class="lg:text-sm lg:leading-6 relative pt-10 pb-8">
+<!-- Mobile Overlay -->
+<div x-show="mobileMenuOpen" class="fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm lg:hidden" @click="mobileMenuOpen = false" x-transition.opacity style="display: none;"></div>
+
+<!-- Sidebar -->
+<div :class="mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed z-50 inset-y-0 left-0 w-80 bg-white px-6 pb-10 overflow-y-auto transition-transform duration-300 lg:translate-x-0 lg:block lg:z-20 lg:top-[3.8125rem] lg:left-[max(0px,calc(50%-45rem))] lg:right-auto lg:w-[19.5rem] lg:bg-transparent lg:px-8 shadow-xl lg:shadow-none">
+    
+    <!-- Mobile Header inside Sidebar -->
+    <div class="flex items-center justify-between pt-6 pb-4 lg:hidden">
+        <a href="{{ route('home') }}" class="flex items-center gap-2">
+            <img src="{{ asset('img/logo.png') }}" class="w-8 h-8 object-contain" alt="Logo Al Azhar">
+            <span class="font-bold text-xl tracking-tight text-slate-900">Al Azhar Apps <span class="font-normal text-slate-500">Docs</span></span>
+        </a>
+        <button type="button" @click="mobileMenuOpen = false" class="text-slate-500 hover:text-slate-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+    </div>
+
+    <!-- Mobile Search & Login -->
+    <div class="lg:hidden mt-4 mb-8">
+        <form action="{{ route('docs.search') }}" method="GET" class="relative group mb-6">
+            <input type="text" name="q" placeholder="Search docs..." class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-md focus:bg-white focus:ring-1 focus:ring-laravel focus:border-laravel text-sm transition-colors text-slate-900 placeholder-slate-400" required>
+            <svg class="w-4 h-4 text-slate-400 absolute left-3 top-3 group-focus-within:text-laravel" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </form>
+        @auth
+            <a href="{{ route('dashboard') }}" class="block text-slate-700 font-semibold hover:text-laravel mb-2">Admin Panel</a>
+        @else
+            <a href="{{ route('login') }}" class="block text-slate-700 font-semibold hover:text-laravel mb-2">Login</a>
+        @endauth
+        <hr class="my-6 border-slate-100">
+    </div>
+
+    <nav id="nav" class="lg:text-sm lg:leading-6 relative lg:pt-10 pb-8">
         @foreach($allCategories as $cat)
             @php
                 $isActiveCat = isset($category) && $category->id === $cat->id;
@@ -38,7 +68,7 @@
 </div>
 
 <div class="lg:pl-[19.5rem]">
-    <main class="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16 pb-24">
+    <main class="max-w-3xl mx-auto pt-8 lg:pt-10 px-4 sm:px-6 lg:px-8 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16 pb-24">
         @if(isset($document))
             <!-- Document Header -->
             <header id="header" class="relative z-20">
