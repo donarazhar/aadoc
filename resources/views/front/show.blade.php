@@ -7,18 +7,7 @@
 <div x-show="mobileMenuOpen" class="fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm lg:hidden" @click="mobileMenuOpen = false" x-transition.opacity style="display: none;"></div>
 
 <!-- Sidebar -->
-<div :class="mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed z-50 inset-y-0 left-0 w-80 bg-white px-6 pb-10 overflow-y-auto transition-transform duration-300 lg:translate-x-0 lg:block lg:z-20 lg:top-[3.8125rem] lg:left-[max(0px,calc(50%-45rem))] lg:right-auto lg:w-[19.5rem] lg:bg-transparent lg:px-8 shadow-xl lg:shadow-none">
-    
-    <!-- Mobile Header inside Sidebar -->
-    <div class="flex items-center justify-between pt-6 pb-4 lg:hidden">
-        <a href="{{ route('home') }}" class="flex items-center gap-2">
-            <img src="{{ asset('img/logo.png') }}" class="w-8 h-8 object-contain" alt="Logo Al Azhar">
-            <span class="font-bold text-xl tracking-tight text-slate-900">Al Azhar Apps <span class="font-normal text-slate-500">Docs</span></span>
-        </a>
-        <button type="button" @click="mobileMenuOpen = false" class="text-slate-500 hover:text-slate-600 focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-    </div>
+<div :class="mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed z-40 inset-y-0 top-[4rem] left-0 w-80 bg-white px-6 pb-10 overflow-y-auto transition-transform duration-300 lg:translate-x-0 lg:block lg:z-20 lg:top-[4rem] lg:left-[max(0px,calc(50%-45rem))] lg:right-auto lg:w-[19.5rem] lg:bg-transparent lg:px-8 shadow-xl lg:shadow-none">
 
     <!-- Mobile Search & Login -->
     <div class="lg:hidden mt-4 mb-8">
