@@ -34,7 +34,7 @@ class PmbWorkflowSeeder extends Seeder
 
 <h3 class="text-lg font-bold text-slate-800 mb-4 mt-8">Bagan Alur PMB</h3>
 <div class="w-full pb-8 pt-4 mb-8">
-    <div class="flex flex-wrap items-center justify-center gap-y-8 px-2">
+    <div class="flex items-center justify-center px-2" style="flex-wrap: wrap; row-gap: 2rem; column-gap: 0.5rem;">
         
         <!-- Langkah 1 -->
         <div class="w-40 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative flex-shrink-0">
