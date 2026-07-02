@@ -27,7 +27,7 @@ class ArticleSeeder extends Seeder
             [
                 'category_id' => $category->id,
                 'title' => $title,
-                'content' => '<p>Salam Al-Azhar merupakan platform resmi yang dihadirkan oleh Yayasan Pesantren Islam Al-Azhar untuk memudahkan aktivitas peserta didik. Salam Al-Azhar dirancang untuk memudahkan dan mempercepat proses penerimaan peserta didik baru PPDB & pindahan, pembayaran uang sekolah, informasi akademik dan komunikasi layanan yang terbaik yang disajikan khusus untuk komunitas Al Azhar.</p>',
+                'content' => '<p>Al Azhar Apps merupakan platform digital resmi dari Yayasan Pesantren Islam Al-Azhar yang dirancang untuk mengintegrasikan seluruh ekosistem pendidikan ke dalam satu genggaman. Mengusung semangat #OnePlatformAllSolutions, kami menghadirkan kemudahan mulai dari proses Penerimaan Murid Baru (PMB) yang cepat, hingga pemenuhan semua kebutuhan sekolah dalam satu aplikasi. Kini, Anda dapat memantau perkembangan anak, mengecek tagihan pendidikan, menerima pengumuman, melihat jadwal pelajaran, hingga berkomunikasi dengan sekolah secara mulus langsung dari smartphone Anda. Layanan terbaik, khusus untuk komunitas Al Azhar.</p>',
                 'is_published' => true,
                 'order' => 1
             ]
