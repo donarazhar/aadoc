@@ -11,9 +11,7 @@ Route::get('/docs/{categorySlug}/{documentSlug}', [FrontDocumentController::clas
 Route::get('/search', [FrontDocumentController::class, 'search'])->name('docs.search');
 
 Route::get('/dashboard', function () {
-    $totalCategories = \App\Models\Category::count();
-    $totalDocuments = \App\Models\Document::count();
-    return view('dashboard', compact('totalCategories', 'totalDocuments'));
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -22,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::prefix('admin')->name('admin.')->group(function () {
+        Route::post('upload-image', [\App\Http\Controllers\Admin\ImageUploadController::class, 'store'])->name('upload-image');
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
         Route::resource('documents', \App\Http\Controllers\Admin\DocumentController::class);
     });

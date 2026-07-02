@@ -41,7 +41,29 @@
             </header>
 
             <!-- Document Body -->
-            <div class="mt-8 prose">
+            <style>
+                /* Menghilangkan bingkai, shadow, dan background dari kontainer hero, membiarkan gambar tampil utuh */
+                .prose div[style*="max-width: 350px"],
+                .prose div[style*="width: 120px"] {
+                    border: none !important;
+                    box-shadow: none !important;
+                    background: transparent !important;
+                }
+                .prose div[style*="max-width: 350px"] p,
+                .prose div[style*="width: 120px"] p {
+                    margin: 0 !important;
+                    width: 100%;
+                }
+                .prose div[style*="max-width: 350px"] img,
+                .prose div[style*="width: 120px"] img {
+                    margin: 0 !important;
+                    width: 100% !important;
+                    height: auto !important;
+                    object-fit: contain !important;
+                    border-radius: 1.5rem !important;
+                }
+            </style>
+            <div class="mt-8 prose max-w-none">
                 {!! $document->content !!}
             </div>
             

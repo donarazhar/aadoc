@@ -22,6 +22,9 @@
                     <x-nav-link :href="route('admin.documents.index')" :active="request()->routeIs('admin.documents.*')">
                         Dokumen
                     </x-nav-link>
+                    <x-nav-link :href="route('home')" target="_blank">
+                        Lihat Portal Publik
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -82,6 +85,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.documents.index')" :active="request()->routeIs('admin.documents.*')">
                 Dokumen
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('home')" target="_blank">
+                Lihat Portal Publik
             </x-responsive-nav-link>
         </div>
 

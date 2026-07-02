@@ -45,6 +45,7 @@ class DatabaseSeeder extends Seeder
 
         // Memanggil seeder lainnya agar datanya ikut masuk
         $this->call([
+            DashboardArticleSeeder::class,
             ArchitectureSeeder::class,
             ArticleSeeder::class,
             InfrastructureSeeder::class,
