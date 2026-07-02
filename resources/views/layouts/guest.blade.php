@@ -29,20 +29,20 @@
             <div class="absolute -bottom-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#1885C4] opacity-10 blur-[100px]"></div>
         </div>
 
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 relative z-10">
-            <div class="text-center mb-8">
+        <div class="min-h-screen flex flex-col justify-center items-center py-8 relative z-10">
+            <div class="text-center mb-5 mt-auto">
                 <a href="/" class="inline-block">
-                    <img src="{{ asset('img/logo.png') }}" alt="Logo Al Azhar" class="w-24 h-24 object-contain mx-auto mb-4 drop-shadow-sm">
+                    <img src="{{ asset('img/logo.png') }}" alt="Logo Al Azhar" class="w-20 h-20 object-contain mx-auto mb-2 drop-shadow-sm">
                 </a>
-                <h1 class="text-2xl font-bold text-slate-800">Admin Portal</h1>
-                <p class="text-sm text-slate-500 mt-1">Masuk untuk mengelola dokumentasi</p>
+                <h1 class="text-xl font-bold text-slate-800">Admin Portal</h1>
+                <p class="text-xs text-slate-500 mt-1">Masuk untuk mengelola dokumentasi</p>
             </div>
 
-            <div class="w-full sm:max-w-md px-8 py-8 bg-white shadow-xl shadow-slate-200/50 sm:rounded-2xl border border-slate-100">
+            <div class="w-full sm:max-w-sm px-6 py-6 bg-white shadow-xl shadow-slate-200/50 sm:rounded-2xl border border-slate-100">
                 {{ $slot }}
             </div>
             
-            <div class="mt-8 text-center text-xs text-slate-400">
+            <div class="mt-6 mb-auto text-center text-xs text-slate-400">
                 &copy; {{ date('Y') }} Yayasan Pesantren Islam Al-Azhar
             </div>
         </div>
