@@ -53,8 +53,8 @@
     </div>
 
     @push('scripts')
-    <!-- Integrasi TinyMCE -->
-    <script src="https://cdn.tiny.cloud/1/ke2yr843uv7kjydevaiblj2mi0zm9uwvu9tikkn3sph5wdpc/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+    <!-- Integrasi TinyMCE tanpa API Key (Community Edition) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
     <script>
         tinymce.init({
             selector: '#content-editor',
