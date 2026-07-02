@@ -56,7 +56,7 @@
                     <a href="{{ route('home') }}" class="mr-3 flex-none overflow-hidden md:w-auto flex items-center gap-2">
                         <img src="{{ asset('img/logo.png') }}" class="w-8 h-8 object-contain" alt="Logo Al Azhar">
                         <span class="sr-only">Al Azhar Apps Docs home page</span>
-                        <span class="font-bold text-xl tracking-tight text-slate-900">Al Azhar Apps <span class="font-normal text-slate-500 hidden sm:inline">Docs</span></span>
+                        <span class="font-bold text-xl tracking-tight text-slate-900">Al Azhar Apps <span class="font-normal text-slate-500">Docs</span></span>
                     </a>
                     <div class="relative hidden lg:flex items-center ml-auto">
                         <nav class="text-sm leading-6 font-semibold text-slate-700">
