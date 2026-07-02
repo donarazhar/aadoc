@@ -30,15 +30,15 @@
         </div>
 
         <div class="min-h-screen flex flex-col justify-center items-center py-8 relative z-10">
-            <div class="text-center mb-5 mt-auto">
+            <div class="text-center mb-4 mt-auto">
                 <a href="/" class="inline-block">
-                    <img src="{{ asset('img/logo.png') }}" alt="Logo Al Azhar" class="w-20 h-20 object-contain mx-auto mb-2 drop-shadow-sm">
+                    <img src="{{ asset('img/logo.png') }}" alt="Logo Al Azhar" class="object-contain mx-auto mb-2 drop-shadow-sm" style="width: 5rem; height: 5rem;">
                 </a>
                 <h1 class="text-xl font-bold text-slate-800">Admin Portal</h1>
                 <p class="text-xs text-slate-500 mt-1">Masuk untuk mengelola dokumentasi</p>
             </div>
 
-            <div class="w-full sm:max-w-sm px-6 py-6 bg-white shadow-xl shadow-slate-200/50 sm:rounded-2xl border border-slate-100">
+            <div class="w-full px-6 py-6 bg-white shadow-xl shadow-slate-200/50 sm:rounded-2xl border border-slate-100" style="max-width: 24rem;">
                 {{ $slot }}
             </div>
             
