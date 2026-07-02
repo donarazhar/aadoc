@@ -94,6 +94,13 @@
                                                 Profil Saya
                                             </a>
 
+                                            @if(auth()->user()->isSuperadmin())
+                                            <!-- Dashboard Admin Link -->
+                                            <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 transition-colors border-t border-slate-100">
+                                                Dashboard Admin
+                                            </a>
+                                            @endif
+
                                             <!-- Logout Link -->
                                             <form method="POST" action="{{ route('logout') }}">
                                                 @csrf
