@@ -67,17 +67,6 @@
                                         <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 group-focus-within:text-laravel" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                                     </form>
                                 </li>
-                                <li>
-                                    @auth
-                                        <a href="{{ route('dashboard') }}" class="text-slate-500 hover:text-laravel transition-colors flex items-center pt-1" title="Admin Panel">
-                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                        </a>
-                                    @else
-                                        <a href="{{ route('login') }}" class="text-slate-500 hover:text-laravel transition-colors flex items-center pt-1" title="Login">
-                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
-                                        </a>
-                                    @endauth
-                                </li>
                             </ul>
                         </nav>
                     </div>

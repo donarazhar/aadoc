@@ -9,20 +9,9 @@
 <!-- Sidebar -->
 <div :class="mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed z-40 inset-y-0 top-[4rem] left-0 w-80 bg-white px-6 pb-10 overflow-y-auto transition-transform duration-300 lg:translate-x-0 lg:block lg:z-20 lg:top-[4rem] lg:left-[max(0px,calc(50%-45rem))] lg:right-auto lg:w-[19.5rem] lg:bg-transparent lg:px-8 shadow-xl lg:shadow-none">
 
-    <!-- Mobile Search & Login -->
-    <div class="lg:hidden mt-4 mb-8">
-        @auth
-            <a href="{{ route('dashboard') }}" class="flex items-center text-slate-700 font-semibold hover:text-laravel mb-3">
-                <svg class="w-5 h-5 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                Admin Panel
-            </a>
-        @else
-            <a href="{{ route('login') }}" class="flex items-center text-slate-700 font-semibold hover:text-laravel mb-3">
-                <svg class="w-5 h-5 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
-                Login
-            </a>
-        @endauth
-        <hr class="my-6 border-slate-100">
+    <!-- Spacer for mobile if needed -->
+    <div class="lg:hidden mt-4 mb-2">
+        <hr class="border-slate-100">
     </div>
 
     <nav id="nav" class="lg:text-sm lg:leading-6 relative lg:pt-10 pb-8">
