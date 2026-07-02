@@ -12,9 +12,15 @@
     <!-- Mobile Search & Login -->
     <div class="lg:hidden mt-4 mb-8">
         @auth
-            <a href="{{ route('dashboard') }}" class="block text-slate-700 font-semibold hover:text-laravel mb-2">Admin Panel</a>
+            <a href="{{ route('dashboard') }}" class="flex items-center text-slate-700 font-semibold hover:text-laravel mb-3">
+                <svg class="w-5 h-5 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Admin Panel
+            </a>
         @else
-            <a href="{{ route('login') }}" class="block text-slate-700 font-semibold hover:text-laravel mb-2">Login</a>
+            <a href="{{ route('login') }}" class="flex items-center text-slate-700 font-semibold hover:text-laravel mb-3">
+                <svg class="w-5 h-5 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
+                Login
+            </a>
         @endauth
         <hr class="my-6 border-slate-100">
     </div>
