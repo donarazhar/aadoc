@@ -23,6 +23,9 @@
                         <x-nav-link :href="route('admin.documents.index')" :active="request()->routeIs('admin.documents.*')">
                             Dokumen
                         </x-nav-link>
+                        <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.*')">
+                            Pengguna
+                        </x-nav-link>
                     @endif
                     <x-nav-link :href="route('home')" target="_blank" title="Lihat Portal Publik">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -91,6 +94,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.documents.index')" :active="request()->routeIs('admin.documents.*')">
                     Dokumen
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.*')">
+                    Pengguna
                 </x-responsive-nav-link>
             @endif
             <x-responsive-nav-link :href="route('home')" target="_blank">

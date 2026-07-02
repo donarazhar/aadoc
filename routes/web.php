@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
             Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
             Route::post('documents/reorder', [\App\Http\Controllers\Admin\DocumentController::class, 'reorder'])->name('documents.reorder');
             Route::resource('documents', \App\Http\Controllers\Admin\DocumentController::class);
+            Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
         });
     });
 });
