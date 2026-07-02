@@ -22,7 +22,25 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'google_id',
     ];
+
+    /**
+     * Check if user is superadmin
+     */
+    public function isSuperadmin(): bool
+    {
+        return $this->role === 'superadmin';
+    }
+
+    /**
+     * Check if user is a normal user
+     */
+    public function isUser(): bool
+    {
+        return $this->role === 'user';
+    }
 
     /**
      * The attributes that should be hidden for serialization.

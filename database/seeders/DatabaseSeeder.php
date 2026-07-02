@@ -12,13 +12,13 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Create Admin
+        // Create Superadmin
         User::updateOrCreate(
-            ['email' => 'admin@alazhar.com'],
+            ['email' => 'donarazhar@gmail.com'],
             [
-                'name' => 'Admin Al Azhar',
-                'password' => Hash::make('password'),
-                'role' => 'admin',
+                'name' => 'Donar Azhar',
+                'password' => Hash::make('password123'),
+                'role' => 'superadmin',
                 'email_verified_at' => now(),
             ]
         );

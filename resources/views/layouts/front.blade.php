@@ -60,13 +60,29 @@
                     </a>
                     <div class="relative hidden lg:flex items-center ml-auto">
                         <nav class="text-sm leading-6 font-semibold text-slate-700">
-                            <ul class="flex space-x-8">
+                            <ul class="flex items-center space-x-6">
                                 <li>
                                     <form action="{{ route('docs.search') }}" method="GET" class="relative group">
                                         <input type="text" name="q" placeholder="Search docs..." class="w-64 pl-10 pr-4 py-1.5 bg-slate-50 border border-slate-200 rounded-md focus:bg-white focus:ring-1 focus:ring-laravel focus:border-laravel text-sm transition-colors text-slate-900 placeholder-slate-400" required>
                                         <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 group-focus-within:text-laravel" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                                     </form>
                                 </li>
+                                @auth
+                                    @if(auth()->user()->isSuperadmin())
+                                        <li>
+                                            <a href="{{ route('dashboard') }}" class="hover:text-laravel transition-colors">Dashboard Admin</a>
+                                        </li>
+                                    @endif
+                                    <li>
+                                        <a href="{{ route('profile.edit') }}" class="hover:text-laravel transition-colors">Profil</a>
+                                    </li>
+                                    <li>
+                                        <form method="POST" action="{{ route('logout') }}" class="inline">
+                                            @csrf
+                                            <button type="submit" class="hover:text-laravel transition-colors">Logout</button>
+                                        </form>
+                                    </li>
+                                @endauth
                             </ul>
                         </nav>
                     </div>
