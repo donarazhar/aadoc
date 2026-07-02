@@ -64,7 +64,7 @@
                 return new Promise((resolve, reject) => {
                     const xhr = new XMLHttpRequest();
                     xhr.withCredentials = true;
-                    xhr.open('POST', '{{ route('admin.upload-image') }}');
+                    xhr.open('POST', '/admin/upload-image');
                     xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
                     xhr.upload.onprogress = (e) => {
                         progress(e.loaded / e.total * 100);
