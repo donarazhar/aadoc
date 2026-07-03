@@ -142,8 +142,12 @@ HTML;
         Panel informasi khusus untuk transparansi donasi, menampilkan Total Keseluruhan Infaq Sekolah. Anda dapat menekan tombol <strong>Infaq</strong> untuk berpartisipasi atau <strong>Detail</strong> untuk melihat riwayat secara lengkap.
     </li>
     <li>
-        <strong>Jadwal Sholat:</strong><br>
-        Menampilkan pengingat waktu sholat secara <em>real-time</em> yang menyesuaikan dengan lokasi Anda saat ini (contoh: Jakarta Selatan).
+        <strong>Jadwal Shalat:</strong><br>
+        Menampilkan jadwal shalat lima waktu (Subuh, Dzuhur, Ashar, Maghrib, Isya) secara <em>real-time</em> yang menyesuaikan dengan lokasi Anda saat ini (contoh: Kota Adm. Jakarta Selatan). Terdapat juga ikon ilustrasi waktu pada masing-masing jadwal dan ikon perbarui (refresh) di sudut kanan.
+    </li>
+    <li>
+        <strong>Majalah Digital:</strong><br>
+        Di bagian bawah layar, terdapat rak virtual untuk <em>Majalah Al Azhar</em>. Anda dapat menggesernya ke samping (horizontal) untuk melihat edisi-edisi majalah (ditandai dengan label "NEW" untuk edisi terbaru). Tersedia pula tautan <strong>Lihat Semua</strong> untuk menjelajahi koleksi majalah secara lengkap.
     </li>
     <li>
         <strong>Bilah Navigasi Bawah (Bottom Navigation):</strong><br>
@@ -165,7 +169,7 @@ HTML;
             ['slug' => 'halaman-beranda-utama'],
             [
                 'category_id' => $category->id,
-                'title' => 'Halaman Beranda (Dasbor Utama)',
+                'title' => 'Dasbor Beranda',
                 'content' => $berandaContent,
                 'is_published' => true,
                 'created_by' => 1,
