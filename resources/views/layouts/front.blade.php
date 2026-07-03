@@ -58,61 +58,63 @@
                         <span class="sr-only">Al Azhar Apps Docs home page</span>
                         <span class="font-bold text-xl tracking-tight text-slate-900">Al Azhar Apps <span class="font-normal text-slate-500">Docs</span></span>
                     </a>
-                    <div class="relative hidden lg:flex items-center ml-auto">
-                        <nav class="text-sm leading-6 font-semibold text-slate-700">
-                            <ul class="flex items-center space-x-8">
-                                <li>
-                                    <form action="{{ route('docs.search') }}" method="GET" class="relative group">
-                                        <input type="text" name="q" placeholder="Search docs..." class="w-64 pl-10 pr-4 py-1.5 bg-slate-50 border border-slate-200 rounded-md focus:bg-white focus:ring-1 focus:ring-laravel focus:border-laravel text-sm transition-colors text-slate-900 placeholder-slate-400" required>
-                                        <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 group-focus-within:text-laravel" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                                    </form>
-                                </li>
-                                @auth
+                    <div class="relative flex items-center ml-auto space-x-4 lg:space-x-8">
+                        <!-- Desktop Search Form -->
+                        <div class="hidden lg:block">
+                            <form action="{{ route('docs.search') }}" method="GET" class="relative group">
+                                <input type="text" name="q" placeholder="Search docs..." class="w-64 pl-10 pr-4 py-1.5 bg-slate-50 border border-slate-200 rounded-md focus:bg-white focus:ring-1 focus:ring-laravel focus:border-laravel text-sm transition-colors text-slate-900 placeholder-slate-400" required>
+                                <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 group-focus-within:text-laravel" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            </form>
+                        </div>
+                        
+                        @auth
+                            <!-- Profile Dropdown (Visible on all screens) -->
+                            <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
+                                <button @click="open = ! open" type="button" class="flex items-center space-x-2 focus:outline-none hover:text-laravel transition-colors text-sm leading-6 font-semibold text-slate-700">
+                                    <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 overflow-hidden border border-slate-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                    </div>
+                                    <span class="hidden sm:block truncate max-w-[100px]">{{ explode(' ', auth()->user()->name)[0] }}</span>
+                                    <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
 
-                                    <!-- Profile Dropdown -->
-                                    <li class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
-                                        <button @click="open = ! open" type="button" class="flex items-center space-x-2 focus:outline-none hover:text-laravel transition-colors">
-                                            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 overflow-hidden border border-slate-300">
-                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                                            </div>
-                                            <span class="hidden md:block truncate max-w-[100px]">{{ explode(' ', auth()->user()->name)[0] }}</span>
-                                            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                <div x-show="open"
+                                    x-transition:enter="transition ease-out duration-200"
+                                    x-transition:enter-start="transform opacity-0 scale-95"
+                                    x-transition:enter-end="transform opacity-100 scale-100"
+                                    x-transition:leave="transition ease-in duration-75"
+                                    x-transition:leave-start="transform opacity-100 scale-100"
+                                    x-transition:leave-end="transform opacity-0 scale-95"
+                                    class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    style="display: none;">
+                                    
+                                    <!-- Mobile User Info -->
+                                    <div class="block px-4 py-2 text-xs text-slate-500 sm:hidden border-b border-slate-100 mb-1">
+                                        {{ auth()->user()->name }}
+                                    </div>
+
+                                    <!-- Profil Link -->
+                                    <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 transition-colors">
+                                        Profil Saya
+                                    </a>
+
+                                    @if(auth()->user()->isSuperadmin())
+                                    <!-- Dashboard Admin Link -->
+                                    <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 transition-colors border-t border-slate-100">
+                                        Dashboard Admin
+                                    </a>
+                                    @endif
+
+                                    <!-- Logout Link -->
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 transition-colors">
+                                            Logout
                                         </button>
-
-                                        <div x-show="open"
-                                            x-transition:enter="transition ease-out duration-200"
-                                            x-transition:enter-start="transform opacity-0 scale-95"
-                                            x-transition:enter-end="transform opacity-100 scale-100"
-                                            x-transition:leave="transition ease-in duration-75"
-                                            x-transition:leave-start="transform opacity-100 scale-100"
-                                            x-transition:leave-end="transform opacity-0 scale-95"
-                                            class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                            style="display: none;">
-                                            
-                                            <!-- Profil Link -->
-                                            <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 transition-colors">
-                                                Profil Saya
-                                            </a>
-
-                                            @if(auth()->user()->isSuperadmin())
-                                            <!-- Dashboard Admin Link -->
-                                            <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 transition-colors border-t border-slate-100">
-                                                Dashboard Admin
-                                            </a>
-                                            @endif
-
-                                            <!-- Logout Link -->
-                                            <form method="POST" action="{{ route('logout') }}">
-                                                @csrf
-                                                <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 transition-colors">
-                                                    Logout
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </li>
-                                @endauth
-                            </ul>
-                        </nav>
+                                    </form>
+                                </div>
+                            </div>
+                        @endauth
                     </div>
                 </div>
             </div>
