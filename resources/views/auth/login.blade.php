@@ -3,7 +3,7 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <div class="text-center">
-        <p class="text-sm text-gray-600 mb-8">Silakan masuk menggunakan akun Gmail (Google) Anda untuk melanjutkan ke dasbor admin.</p>
+        <p class="text-sm text-gray-600 mb-8">Silakan masuk menggunakan akun Gmail (Google) untuk melihat dokumentasi lengkap Al Azhar Apps</p>
         
         <a href="{{ route('auth.google') }}" class="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg shadow-sm text-sm font-semibold text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-alazhar transition-all hover:shadow-md">
             <svg class="h-5 w-5 mr-3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
