@@ -96,7 +96,7 @@
                 <x-responsive-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.*')">
                     Kategori
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('admin.documents.index')" :active="request()->requestIs('admin/documents*')">
+                <x-responsive-nav-link :href="route('admin.documents.index')" :active="request()->routeIs('admin.documents.*')">
                     Dokumen
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.*')">
