@@ -108,5 +108,69 @@ HTML;
                 'order' => 2,
             ]
         );
+
+        // 6. Create Article Content for "Halaman Beranda"
+        $berandaContent = <<<HTML
+<p>Setelah berhasil melewati verifikasi PIN, Anda akan diarahkan ke <strong>Halaman Beranda</strong>. Halaman ini adalah pusat kendali utama (dasbor) dari aplikasi Al Azhar Apps yang didesain agar Anda dapat mengakses semua fitur dan informasi penting dengan cepat.</p>
+
+<h3>Komponen Utama Halaman Beranda</h3>
+<p>Berikut adalah rincian elemen dan fitur yang tersedia di halaman ini:</p>
+
+<ul>
+    <li>
+        <strong>Sapaan Pengguna:</strong><br>
+        Di bagian atas halaman, Anda akan melihat sapaan "Assalamualaikum" diikuti dengan nama Anda, memberikan sentuhan personal pada aplikasi.
+    </li>
+    <li>
+        <strong>Menu Akses Cepat (Grid Ikon):</strong><br>
+        Kumpulan ikon menu utama yang paling sering digunakan, meliputi:
+        <ul>
+            <li><strong>PMB:</strong> Informasi Penerimaan Murid Baru.</li>
+            <li><strong>Tagihan:</strong> Pengecekan tagihan sekolah (titik merah menandakan adanya notifikasi atau tagihan yang perlu diperhatikan).</li>
+            <li><strong>Lokasi:</strong> Informasi dan peta sekolah.</li>
+            <li><strong>Aktifitas:</strong> Laporan kegiatan dan aktivitas.</li>
+            <li><strong>Layanan Islami:</strong> Fitur penunjang ibadah harian seperti panduan Sholat, arah Qiblah, kumpulan Doa, dan Al Quran digital.</li>
+        </ul>
+        Terdapat juga tombol <strong>Menu Lainnya</strong> untuk menampilkan menu-menu tambahan.
+    </li>
+    <li>
+        <strong>Banner Informasi (Carousel):</strong><br>
+        Sebuah <em>slider</em> gambar dinamis yang menampilkan informasi terkini, pengumuman sekolah, kegiatan, atau peringatan hari besar (seperti Hari Anak Nasional). Anda dapat menggesernya ke samping untuk melihat gambar lainnya.
+    </li>
+    <li>
+        <strong>Widget Infaq:</strong><br>
+        Panel informasi khusus untuk transparansi donasi, menampilkan Total Keseluruhan Infaq Sekolah. Anda dapat menekan tombol <strong>Infaq</strong> untuk berpartisipasi atau <strong>Detail</strong> untuk melihat riwayat secara lengkap.
+    </li>
+    <li>
+        <strong>Jadwal Sholat:</strong><br>
+        Menampilkan pengingat waktu sholat secara <em>real-time</em> yang menyesuaikan dengan lokasi Anda saat ini (contoh: Jakarta Selatan).
+    </li>
+    <li>
+        <strong>Bilah Navigasi Bawah (Bottom Navigation):</strong><br>
+        Menu utama aplikasi yang selalu tampil di bagian bawah layar:
+        <ul>
+            <li><strong>Beranda:</strong> Kembali ke halaman dasbor utama ini.</li>
+            <li><strong>Anak:</strong> Menu khusus untuk memantau profil, nilai, dan perkembangan anak Anda di sekolah.</li>
+            <li><strong>Chat:</strong> Fitur pesan untuk berkomunikasi langsung dengan pihak sekolah atau guru.</li>
+            <li><strong>Akun:</strong> Menu untuk mengatur profil, pengaturan privasi, dan keamanan.</li>
+        </ul>
+    </li>
+</ul>
+
+<p>Semua informasi dirancang dalam tata letak yang bersih dan modern agar Anda merasa nyaman menggunakan Al Azhar Apps sebagai solusi pendidikan terpadu.</p>
+HTML;
+
+        // 7. Create Document: Halaman Beranda
+        Document::updateOrCreate(
+            ['slug' => 'halaman-beranda-utama'],
+            [
+                'category_id' => $category->id,
+                'title' => 'Halaman Beranda (Dasbor Utama)',
+                'content' => $berandaContent,
+                'is_published' => true,
+                'created_by' => 1,
+                'order' => 3,
+            ]
+        );
     }
 }
