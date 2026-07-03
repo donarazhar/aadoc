@@ -35,7 +35,7 @@
         <p class="mt-4 text-gray-600">Pilih modul aplikasi yang ingin Anda pelajari lebih lanjut.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         @foreach($categories as $category)
             <a href="{{ route('docs.category', $category->slug) }}" class="group block bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-xl hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-1">
                 <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">

@@ -23,8 +23,8 @@
             @php
                 $isActiveCat = isset($category) && $category->id === $cat->id;
             @endphp
-            <div class="mb-8" x-data="{ open: {{ $isActiveCat ? 'true' : 'false' }} }">
-                <button @click="open = !open" class="w-full flex items-center justify-between mb-3 group focus:outline-none text-left">
+            <div class="mb-4" x-data="{ open: {{ $isActiveCat ? 'true' : 'false' }} }">
+                <button @click="open = !open" class="w-full flex items-center justify-between mb-2 group focus:outline-none text-left">
                     <h5 class="font-semibold text-slate-900 group-hover:text-laravel transition-colors pr-4">{{ $cat->name }}</h5>
                     <svg class="w-4 h-4 text-slate-400 flex-shrink-0 transform transition-transform duration-200 group-hover:text-laravel" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
@@ -32,7 +32,7 @@
                     x-transition:enter="transition ease-out duration-200" 
                     x-transition:enter-start="opacity-0 -translate-y-2" 
                     x-transition:enter-end="opacity-100 translate-y-0" 
-                    class="space-y-3 border-l border-slate-100">
+                    class="space-y-1 border-l border-slate-100">
                     @foreach($cat->documents as $doc)
                         <li>
                             <a href="{{ route('docs.show', [$cat->slug, $doc->slug]) }}" 
