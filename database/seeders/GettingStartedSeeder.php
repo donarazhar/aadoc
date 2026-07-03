@@ -57,7 +57,7 @@ class GettingStartedSeeder extends Seeder
 <p>Jika perangkat Anda memenuhi persyaratan di atas, Anda siap untuk menginstal dan menggunakan aplikasi Al Azhar Apps tanpa hambatan.</p>
 HTML;
 
-        // 3. Create Document
+        // 3. Create Document: Instalasi Mobile App
         Document::updateOrCreate(
             ['slug' => 'instalasi-mobile-app'],
             [
@@ -65,8 +65,53 @@ HTML;
                 'title' => 'Instalasi Mobile App',
                 'content' => $content,
                 'is_published' => true,
-                'created_by' => 1, // Assuming user 1 is the admin
+                'created_by' => 1,
                 'order' => 1,
+            ]
+        );
+
+        // 4. Create Article Content: Akses Halaman Backoffice
+        $backofficeContent = <<<HTML
+<p>Sistem Back Office Al Azhar Apps (One Platform, All Solutions) digunakan oleh pengelola, guru, dan staf administrasi untuk mengelola data sekolah secara terpusat.</p>
+
+<h3>Cara Mengakses dan Login ke Backoffice</h3>
+<ol>
+    <li>
+        <strong>Buka Tautan:</strong><br>
+        Silakan buka peramban (browser) Anda seperti Google Chrome, Safari, atau Firefox, kemudian akses tautan berikut:<br>
+        <a href="https://apps.alazhar.or.id/" target="_blank"><strong>https://apps.alazhar.or.id/</strong></a>
+    </li>
+    <li>
+        <strong>Masukkan Kredensial:</strong><br>
+        Pada halaman login utama, silakan masukkan <strong>Username</strong> atau <strong>Email</strong> yang telah didaftarkan pada kolom pertama.
+    </li>
+    <li>
+        <strong>Masukkan Kata Sandi:</strong><br>
+        Masukkan <strong>Password</strong> Anda pada kolom kedua. Pastikan kombinasi huruf besar, kecil, dan angka sudah benar.
+    </li>
+    <li>
+        <strong>Verifikasi Keamanan (reCAPTCHA):</strong><br>
+        Centang kotak yang bertuliskan <em>"I'm not a robot"</em> untuk verifikasi keamanan.
+    </li>
+    <li>
+        <strong>Masuk ke Sistem:</strong><br>
+        Klik tombol biru <strong>Login</strong> untuk masuk ke dalam dasbor sistem Back Office.
+    </li>
+</ol>
+
+<p><em>Catatan: Jika Anda melupakan kata sandi Anda, klik tautan "Lupa password?" di bawah tombol Login untuk melakukan pengaturan ulang kata sandi.</em></p>
+HTML;
+
+        // 5. Create Document: Akses Halaman Backoffice
+        Document::updateOrCreate(
+            ['slug' => 'akses-halaman-backoffice'],
+            [
+                'category_id' => $category->id,
+                'title' => 'Akses Halaman Backoffice',
+                'content' => $backofficeContent,
+                'is_published' => true,
+                'created_by' => 1, // Assuming user 1 is the admin
+                'order' => 2,
             ]
         );
     }
