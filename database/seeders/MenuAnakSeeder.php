@@ -56,6 +56,10 @@ class MenuAnakSeeder extends Seeder
 <p>Setelah seluruh kolom formulir Anda pastikan terisi dengan data yang valid dan lengkap, ketuk tombol <strong>Daftar PMB</strong> berwarna biru di bagian bawah layar. Jika Anda ingin membatalkan atau kembali, tekan tombol <strong>Batalkan</strong>. Setelah pendaftaran berhasil dikirim, sistem akan memberikan panduan langkah selanjutnya kepada Anda.</p>
 HTML;
 
+        // Get the first user or default to 1 (in case no users exist yet)
+        $user = \App\Models\User::first();
+        $userId = $user ? $user->id : 1;
+
         // 3. Create Document
         Document::updateOrCreate(
             ['slug' => 'menu-anak-dan-pmb'],
@@ -64,7 +68,7 @@ HTML;
                 'title' => 'Menu Anak & Formulir Pendaftaran (PMB)',
                 'content' => $content,
                 'is_published' => true,
-                'created_by' => 1,
+                'created_by' => $userId,
                 'order' => 4,
             ]
         );
