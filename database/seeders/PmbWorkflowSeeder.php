@@ -14,7 +14,6 @@ class PmbWorkflowSeeder extends Seeder
      */
     public function run(): void
     {
-        // Pastikan kategori ada
         $categoryName = 'Panduan Penggunaan Aplikasi bagi OTM';
         $category = Category::firstOrCreate(
             ['slug' => Str::slug($categoryName)],
@@ -25,130 +24,80 @@ class PmbWorkflowSeeder extends Seeder
             ]
         );
 
-        // Buat artikel Workflow PMB
-        $title = 'Workflow Jalur PMB';
+        $title = 'Alur Lengkap PMB (Pendaftaran Murid Baru)';
         
         $content = '
-<h2>Alur Pendaftaran Murid Baru (PMB)</h2>
-<p>Berikut adalah langkah-langkah lengkap proses Penerimaan Murid Baru (PMB) melalui Al Azhar Apps, mulai dari mengunduh aplikasi hingga proses pelunasan pembayaran.</p>
+<h2 style="color: #0f172a; font-weight: bold; font-size: 1.5rem; margin-bottom: 0.5rem; text-align: center;">Alur Lengkap Penerimaan Murid Baru (PMB)</h2>
+<p style="color: #64748b; margin-bottom: 2rem; text-align: center;">Berikut adalah representasi proses pendaftaran dari awal hingga selesai.</p>
 
-<h3 class="text-lg font-bold text-slate-800 mb-4 mt-8">Bagan Alur PMB</h3>
-<div class="w-full pb-8 pt-4 mb-8">
-    <div class="flex items-center justify-center px-2" style="flex-wrap: wrap; row-gap: 2rem; column-gap: 0.5rem;">
-        
-        <!-- Langkah 1 -->
-        <div class="w-40 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative flex-shrink-0">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">1</div>
-            <div class="font-semibold text-slate-700 text-sm mt-1">Download APP</div>
-        </div>
-        
-        <!-- Langkah 2 -->
-        <div class="flex items-center flex-shrink-0">
-            <div class="px-2 text-alazhar">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </div>
-            <div class="w-40 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">2</div>
-                <div class="font-semibold text-slate-700 text-sm mt-1">Registrasi</div>
-            </div>
-        </div>
-        
-        <!-- Langkah 3 -->
-        <div class="flex items-center flex-shrink-0">
-            <div class="px-2 text-alazhar">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </div>
-            <div class="w-48 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">3</div>
-                <div class="font-semibold text-slate-700 text-sm mt-1">Isi Data & Pilih Sekolah</div>
-            </div>
-        </div>
-        
-        <!-- Langkah 4 -->
-        <div class="flex items-center flex-shrink-0">
-            <div class="px-2 text-alazhar">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </div>
-            <div class="w-48 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">4</div>
-                <div class="font-semibold text-slate-700 text-sm mt-1">Bayar Biaya Formulir</div>
-            </div>
-        </div>
-        
-        <!-- Langkah 5 -->
-        <div class="flex items-center flex-shrink-0">
-            <div class="px-2 text-alazhar">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </div>
-            <div class="w-40 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">5</div>
-                <div class="font-semibold text-slate-700 text-sm mt-1">Jadwal Ujian</div>
-            </div>
-        </div>
-        
-        <!-- Langkah 6 -->
-        <div class="flex items-center flex-shrink-0">
-            <div class="px-2 text-alazhar">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </div>
-            <div class="w-48 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">6</div>
-                <div class="font-semibold text-slate-700 text-sm mt-1">SK Lulus & Tagihan</div>
-            </div>
-        </div>
-        
-        <!-- Langkah 7 -->
-        <div class="flex items-center flex-shrink-0">
-            <div class="px-2 text-alazhar">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </div>
-            <div class="w-48 bg-white border border-slate-200 shadow-md rounded-lg p-4 text-center relative">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-alazhar text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">7</div>
-                <div class="font-semibold text-slate-700 text-sm mt-1">Pengajuan Diskon</div>
-            </div>
-        </div>
-        
-        <!-- Langkah 8 -->
-        <div class="flex items-center flex-shrink-0">
-            <div class="px-2 text-alazhar">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </div>
-            <div class="w-48 bg-white border-2 border-green-500 shadow-md rounded-lg p-4 text-center relative">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-sm">8</div>
-                <div class="font-bold text-slate-800 text-sm mt-1">Melakukan Pembayaran</div>
-            </div>
-        </div>
-        
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 2.5rem; font-family: sans-serif;">
+    <div style="width: 140px; background-color: #f8fafc; border: 2px solid #1885C4; border-radius: 8px; padding: 12px; text-align: center;">
+        <div style="background-color: #1885C4; color: white; width: 24px; height: 24px; border-radius: 50%; font-weight: bold; font-size: 0.8rem; line-height: 24px; margin: 0 auto 8px;">1</div>
+        <div style="color: #0f172a; font-weight: bold; font-size: 0.85rem; line-height: 1.3;">Akses &<br>Daftar Awal</div>
+    </div>
+    <div style="display: flex; align-items: center; color: #cbd5e1;">&#10142;</div>
+    <div style="width: 140px; background-color: #f8fafc; border: 2px solid #1885C4; border-radius: 8px; padding: 12px; text-align: center;">
+        <div style="background-color: #1885C4; color: white; width: 24px; height: 24px; border-radius: 50%; font-weight: bold; font-size: 0.8rem; line-height: 24px; margin: 0 auto 8px;">2</div>
+        <div style="color: #0f172a; font-weight: bold; font-size: 0.85rem; line-height: 1.3;">Bayar & Lengkapi<br>Formulir</div>
+    </div>
+    <div style="display: flex; align-items: center; color: #cbd5e1;">&#10142;</div>
+    <div style="width: 140px; background-color: #f8fafc; border: 2px solid #1885C4; border-radius: 8px; padding: 12px; text-align: center;">
+        <div style="background-color: #1885C4; color: white; width: 24px; height: 24px; border-radius: 50%; font-weight: bold; font-size: 0.8rem; line-height: 24px; margin: 0 auto 8px;">3</div>
+        <div style="color: #0f172a; font-weight: bold; font-size: 0.85rem; line-height: 1.3;">Ujian Masuk &<br>Kelulusan</div>
+    </div>
+    <div style="display: flex; align-items: center; color: #cbd5e1;">&#10142;</div>
+    <div style="width: 140px; background-color: #f0fdf4; border: 2px solid #22c55e; border-radius: 8px; padding: 12px; text-align: center;">
+        <div style="background-color: #22c55e; color: white; width: 24px; height: 24px; border-radius: 50%; font-weight: bold; font-size: 0.8rem; line-height: 24px; margin: 0 auto 8px;">4</div>
+        <div style="color: #0f172a; font-weight: bold; font-size: 0.85rem; line-height: 1.3;">Daftar Ulang &<br>Biodata Akhir</div>
     </div>
 </div>
 
-<ol>
-    <li>
-        <strong>Download APP:</strong> Unduh aplikasi resmi Al Azhar Apps melalui <em>App Store</em> (untuk pengguna iOS) atau <em>Google Play Store</em> (untuk pengguna Android).
-    </li>
-    <li>
-        <strong>Registrasi:</strong> Buka aplikasi dan lakukan pendaftaran akun (registrasi) menggunakan nomor WhatsApp aktif Anda, lalu verifikasi menggunakan kode OTP.
-    </li>
-    <li>
-        <strong>Memasukkan Data Anak & Memilih Sekolah:</strong> Setelah login, tambahkan profil calon murid (data anak). Kemudian, pilih unit sekolah tujuan dan jalur pendaftaran yang sesuai dengan jenjang pendidikan anak.
-    </li>
-    <li>
-        <strong>Bayar Biaya Formulir:</strong> Lakukan pembayaran biaya formulir pendaftaran. Setelah pembayaran terverifikasi, proses pendaftaran akan berlanjut ke tahap seleksi.
-    </li>
-    <li>
-        <strong>Jadwal Ujian:</strong> Anda akan mendapatkan informasi mengenai jadwal ujian atau observasi (seleksi masuk) sesuai dengan sekolah yang telah dipilih. Silakan ikuti proses seleksi tersebut.
-    </li>
-    <li>
-        <strong>SK Lulus dengan Rincian Tagihan:</strong> Jika calon murid dinyatakan lulus, Anda akan menerima pengumuman kelulusan berupa SK (Surat Keputusan) Lulus yang memuat rincian tagihan pendidikan, termasuk Uang Pangkal dan Uang Sekolah (SPP).
-    </li>
-    <li>
-        <strong>Pengajuan Diskon (Opsional):</strong> Pada tahap ini, apabila Anda memenuhi syarat khusus (misal: anak pegawai, alumni, atau jalur prestasi), Anda dapat melakukan pengajuan diskon terhadap tagihan pendidikan.
-    </li>
-    <li>
-        <strong>Melakukan Pembayaran:</strong> Lakukan pelunasan atau cicilan tagihan pendidikan sesuai dengan metode pembayaran yang tersedia di dalam aplikasi untuk menyelesaikan tahapan PMB dan meresmikan status penerimaan.
-    </li>
-</ol>
-<p><em>Catatan: Pastikan Anda selalu mengecek notifikasi secara berkala pada aplikasi Al Azhar Apps untuk pembaruan status pendaftaran.</em></p>
+<div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2.5rem; font-family: sans-serif; color: #334155; line-height: 1.6;">
+    <h3 style="color: #0f172a; font-size: 1.15rem; margin-top: 0; margin-bottom: 1rem; border-bottom: 1px solid #cbd5e1; padding-bottom: 8px;">Penjelasan Singkat</h3>
+    <ul style="margin: 0; padding-left: 1.2rem;">
+        <li style="margin-bottom: 8px;"><strong>Tahap 1:</strong> Orang tua masuk ke aplikasi Al Azhar Apps dan mengisi data dasar untuk membuat profil calon murid.</li>
+        <li style="margin-bottom: 8px;"><strong>Tahap 2:</strong> Melakukan pembayaran biaya formulir pendaftaran agar sistem membuka akses untuk melengkapi formulir data asal sekolah dan profil detail murid.</li>
+        <li style="margin-bottom: 8px;"><strong>Tahap 3:</strong> Calon murid mengikuti tes menggunakan Kartu Ujian di aplikasi. Setelah pengumuman kelulusan terbit, orang tua menyetujui surat ketentuan keuangan sekolah.</li>
+        <li><strong>Tahap 4:</strong> Melakukan pelunasan biaya pendidikan (Daftar Ulang/Uang Pangkal). Setelah lunas, anak resmi terdaftar dan orang tua wajib melengkapi biodata akhir (data kesehatan, orang tua, prestasi).</li>
+    </ul>
+</div>
+
+<div style="font-family: sans-serif; color: #334155; line-height: 1.5; font-size: 0.95rem;">
+    <h3 style="color: #0f172a; font-size: 1.25rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 1.5rem;">Keterangan Lengkap Langkah Pendaftaran</h3>
+    
+    <h4 style="color: #1885C4; font-size: 1.05rem; margin-bottom: 10px;">Tahap 1: Akses & Pendaftaran Awal (Langkah 1 - 11)</h4>
+    <ul style="margin-bottom: 1.5rem; padding-left: 1.2rem;">
+        <li>Login ke aplikasi dengan memasukkan nomor handphone dan PIN Anda.</li>
+        <li>Pada halaman Beranda, pilih menu <strong>PMB</strong>, lalu tekan tombol <strong>Daftar Sekarang</strong>.</li>
+        <li>Isi form biodata awal (Tahun Ajaran, Jenjang, Sekolah Tujuan, Nama Anak, dll) lalu tekan <strong>Daftar PMB</strong>.</li>
+        <li>Tekan <strong>Oke</strong> pada notifikasi verifikasi berhasil, lalu pilih nama calon murid yang baru didaftarkan pada daftar yang muncul.</li>
+    </ul>
+
+    <h4 style="color: #1885C4; font-size: 1.05rem; margin-bottom: 10px;">Tahap 2: Bayar Formulir & Lengkapi Data (Langkah 12 - 26)</h4>
+    <ul style="margin-bottom: 1.5rem; padding-left: 1.2rem;">
+        <li>Status anak akan berada pada "Menunggu Pembayaran Formulir". Tekan tombol <strong>Ke Halaman Tagihan</strong>.</li>
+        <li>Centang opsi tagihan <strong>Formulir Pendaftaran</strong>, tekan <strong>Bayar</strong>, lalu <strong>Lanjutkan</strong>.</li>
+        <li>Pilih metode pembayaran yang diinginkan (misal: QRIS), unduh QR Code, dan lakukan pelunasan via aplikasi perbankan Anda.</li>
+        <li>Setelah pembayaran sukses, kembali ke menu PMB. Status anak kini berubah menjadi "Silahkan Lengkapi Formulir PMB".</li>
+        <li>Klik nama anak tersebut, lengkapi data <strong>Asal Sekolah</strong> dan <strong>Profil Murid</strong> secara menyeluruh, lalu tekan <strong>Ajukan</strong>.</li>
+    </ul>
+
+    <h4 style="color: #1885C4; font-size: 1.05rem; margin-bottom: 10px;">Tahap 3: Ujian Masuk & Pengumuman (Langkah 27 - 36)</h4>
+    <ul style="margin-bottom: 1.5rem; padding-left: 1.2rem;">
+        <li>Kembali buka profil anak di menu PMB untuk melihat <strong>Kartu Peserta Ujian Masuk</strong>. Kartu ini wajib ditunjukkan saat jadwal ujian berlangsung.</li>
+        <li>Tinjau pop-up Syarat & Ketentuan yang muncul, lalu tekan <strong>Download Surat</strong> Pernyataan.</li>
+        <li>Bila anak dinyatakan <strong>LULUS</strong> seleksi, pengumuman kelulusan akan otomatis muncul di dalam aplikasi.</li>
+        <li>Buka halaman Syarat & Ketentuan pembayaran keuangan, centang kotak persetujuan, lalu tekan <strong>Setuju & Lanjutkan</strong>.</li>
+    </ul>
+
+    <h4 style="color: #22c55e; font-size: 1.05rem; margin-bottom: 10px;">Tahap 4: Daftar Ulang & Biodata Akhir (Langkah 37 - 44)</h4>
+    <ul style="margin-bottom: 1.5rem; padding-left: 1.2rem;">
+        <li>Masuk ke menu Tagihan untuk melunasi biaya keuangan sekolah (seperti DSP dan Uang SPP) menggunakan QRIS atau metode pembayaran lain yang tersedia.</li>
+        <li>Setelah pembayaran uang pangkal berhasil dikonfirmasi, profil/card anak akan muncul di halaman <strong>Beranda (Home)</strong> aplikasi.</li>
+        <li>Klik profil anak tersebut, lalu masuk ke menu <strong>Biodata</strong>.</li>
+        <li>Lengkapi data riwayat akhir secara komprehensif, meliputi: Data Ayah, Ibu, Wali, Riwayat Kesehatan, Dokumen pendukung, dan Prestasi anak.</li>
+    </ul>
+</div>
 ';
 
         Document::updateOrCreate(
@@ -158,7 +107,7 @@ class PmbWorkflowSeeder extends Seeder
                 'title' => $title,
                 'content' => $content,
                 'is_published' => true,
-                'order' => 1
+                'order' => 2
             ]
         );
     }
