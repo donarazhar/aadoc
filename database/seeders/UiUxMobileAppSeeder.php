@@ -62,7 +62,7 @@ HTML;
             ['slug' => 'halaman-selamat-datang-login'],
             [
                 'category_id' => $category->id,
-                'title' => 'Halaman Selamat Datang (Login & Registrasi)',
+                'title' => 'Login & Registrasi',
                 'content' => $content,
                 'is_published' => true,
                 'created_by' => 1,
@@ -101,7 +101,7 @@ HTML;
             ['slug' => 'halaman-masukkan-pin'],
             [
                 'category_id' => $category->id,
-                'title' => 'Halaman Masukkan PIN (Verifikasi Keamanan)',
+                'title' => 'Verifikasi PIN',
                 'content' => $pinContent,
                 'is_published' => true,
                 'created_by' => 1,
