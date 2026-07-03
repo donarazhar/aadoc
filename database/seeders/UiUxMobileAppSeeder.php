@@ -57,7 +57,7 @@ class UiUxMobileAppSeeder extends Seeder
 </ol>
 HTML;
 
-        // 3. Create Document
+        // 3. Create Document: Halaman Selamat Datang
         Document::updateOrCreate(
             ['slug' => 'halaman-selamat-datang-login'],
             [
@@ -67,6 +67,45 @@ HTML;
                 'is_published' => true,
                 'created_by' => 1,
                 'order' => 1,
+            ]
+        );
+
+        // 4. Create Article Content for "Halaman Masukkan PIN"
+        $pinContent = <<<HTML
+<p>Setelah Anda memasukkan nomor handphone atau melewati tahap awal login, langkah pengamanan selanjutnya adalah halaman <strong>Masukkan PIN</strong>. Halaman ini berfungsi sebagai lapisan keamanan untuk melindungi data pribadi dan aktivitas Anda di dalam aplikasi Al Azhar Apps.</p>
+
+<h3>Fitur dan Komponen Halaman</h3>
+<p>Berikut adalah komponen utama pada antarmuka ini:</p>
+<ul>
+    <li><strong>Tombol Kembali (Panah Kiri):</strong> Berada di pojok kiri atas, berfungsi untuk membatalkan proses dan kembali ke halaman Selamat Datang.</li>
+    <li><strong>Indikator PIN (6 Digit):</strong> Terdapat enam buah titik yang akan berubah warna ketika Anda mengetikkan angka. Aplikasi ini mewajibkan penggunaan PIN sepanjang 6 digit untuk keamanan maksimal.</li>
+    <li><strong>Tautan Reset PIN:</strong> Jika Anda melupakan PIN Anda, Anda dapat menekan tautan <em>"Lupa PIN? klik Reset PIN"</em>. Sistem akan memandu Anda melakukan prosedur pemulihan (umumnya dengan mengirimkan kode OTP ke WhatsApp Anda).</li>
+    <li><strong>Keypad Angka Virtual:</strong> Terdapat tombol angka 0 hingga 9 yang didesain ergonomis, besar, dan jelas agar mudah ditekan di layar ponsel.</li>
+    <li><strong>Ikon Mata (Sembunyikan/Tampilkan PIN):</strong> Terletak di pojok kiri bawah keypad, fitur ini sangat berguna jika Anda ingin mengintip/memastikan angka PIN yang Anda tekan sudah benar.</li>
+    <li><strong>Ikon Hapus (Backspace):</strong> Terletak di pojok kanan bawah keypad, digunakan untuk menghapus angka terakhir yang Anda masukkan jika terjadi kesalahan ketik.</li>
+    <li><strong>Tombol Masuk:</strong> Tombol biru di bagian bawah layar yang digunakan untuk memproses login Anda setelah seluruh digit PIN dimasukkan.</li>
+</ul>
+
+<h3>Panduan Penggunaan Singkat</h3>
+<ol>
+    <li>Perhatikan 6 titik indikator di atas keypad. Gunakan keypad angka yang tersedia di layar untuk memasukkan 6 digit PIN rahasia akun Anda.</li>
+    <li>Jika ragu, Anda bisa menekan tombol <strong>ikon mata</strong> untuk melihat angka yang Anda ketik.</li>
+    <li>Jika salah ketik, tekan ikon <strong>Hapus (Backspace)</strong>.</li>
+    <li>Jika Anda benar-benar lupa PIN, langsung klik tulisan <strong>Reset PIN</strong>.</li>
+    <li>Setelah 6 digit terisi penuh, ketuk tombol <strong>Masuk</strong> untuk memverifikasi. Jika PIN benar, Anda akan diarahkan ke dasbor utama aplikasi.</li>
+</ol>
+HTML;
+
+        // 5. Create Document: Halaman Masukkan PIN
+        Document::updateOrCreate(
+            ['slug' => 'halaman-masukkan-pin'],
+            [
+                'category_id' => $category->id,
+                'title' => 'Halaman Masukkan PIN (Verifikasi Keamanan)',
+                'content' => $pinContent,
+                'is_published' => true,
+                'created_by' => 1,
+                'order' => 2,
             ]
         );
     }
