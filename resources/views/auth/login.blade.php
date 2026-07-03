@@ -2,6 +2,12 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    @if(session('error'))
+        <div class="mb-4 font-medium text-sm text-red-600 bg-red-50 p-3 rounded-lg border border-red-200 text-center">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <div class="text-center">
         <p class="text-sm text-gray-600 mb-8">Silakan masuk menggunakan akun Gmail (Google) untuk melihat dokumentasi lengkap Al Azhar Apps</p>
         

@@ -43,15 +43,8 @@ class SocialiteController extends Controller
                     ]);
                     Auth::login($existingUser);
                 } else {
-                    // Create a new user
-                    $newUser = User::create([
-                        'name' => $googleUser->getName(),
-                        'email' => $googleUser->getEmail(),
-                        'google_id' => $googleUser->getId(),
-                        'role' => 'user', // default role
-                        // password is nullable so we don't set it
-                    ]);
-                    Auth::login($newUser);
+                    // Reject unregistered users
+                    return redirect()->route('login')->with('error', 'Akun Gmail Anda belum terdaftar. Silakan hubungi administrator.');
                 }
             }
 
