@@ -1,17 +1,13 @@
-<x-app-layout>
     <x-slot name="header">
         <div class="flex items-center space-x-3">
             <a href="{{ route('admin.categories.index') }}" class="text-slate-400 hover:text-alazhar transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             </a>
-            <h2 class="font-semibold text-xl text-slate-800 leading-tight">
-                {{ __('Tambah Kategori Baru') }}
-            </h2>
+            <h1 class="text-xl font-bold text-slate-900">Tambah Kategori Baru</h1>
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-xl border border-slate-200">
                 <div class="p-8">
                     <form action="{{ route('admin.categories.store') }}" method="POST">
@@ -50,6 +46,5 @@
                     </form>
                 </div>
             </div>
-        </div>
     </div>
 </x-app-layout>

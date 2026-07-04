@@ -3,11 +3,9 @@
         <div class="flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <a href="{{ route('admin.categories.index') }}" class="text-slate-400 hover:text-alazhar transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                 </a>
-                <h2 class="font-semibold text-xl text-slate-800 leading-tight">
-                    {{ __('Detail Kategori') }}
-                </h2>
+                <h1 class="text-xl font-bold text-slate-900">Detail Kategori</h1>
             </div>
             <a href="{{ route('admin.categories.edit', $category->id) }}" class="inline-flex items-center px-4 py-2 bg-white border border-slate-300 rounded-lg font-semibold text-xs text-alazhar uppercase tracking-widest hover:bg-slate-50 hover:border-alazhar hover:text-blue-700 shadow-sm transition-all duration-200">
                 <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
@@ -16,8 +14,7 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-xl border border-slate-200">
                 
                 <div class="p-8 border-b border-slate-100 flex flex-col md:flex-row md:items-center md:justify-between bg-slate-50/50">
@@ -81,6 +78,5 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </x-app-layout>

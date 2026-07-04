@@ -2,16 +2,13 @@
     <x-slot name="header">
         <div class="flex items-center space-x-3">
             <a href="{{ route('admin.documents.index') }}" class="text-slate-400 hover:text-alazhar transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             </a>
-            <h2 class="font-semibold text-xl text-slate-800 leading-tight truncate max-w-lg">
-                {{ __('Edit Artikel') }}: <span class="text-alazhar">{{ $document->title }}</span>
-            </h2>
+            <h1 class="text-xl font-bold text-slate-900 truncate max-w-lg">Edit: <span class="text-alazhar">{{ $document->title }}</span></h1>
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-xl border border-slate-200">
                 <div class="p-8">
                     <form action="{{ route('admin.documents.update', $document->id) }}" method="POST">
@@ -66,7 +63,6 @@
                     </form>
                 </div>
             </div>
-        </div>
     </div>
 
     @push('scripts')
