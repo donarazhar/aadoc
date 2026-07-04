@@ -14,6 +14,11 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
+  // Bypass request jika bukan method GET atau request menggunakan redirect: 'manual'
+  if (event.request.method !== 'GET' || event.request.redirect === 'manual') {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then(response => {
