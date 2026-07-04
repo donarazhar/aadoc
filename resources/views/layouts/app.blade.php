@@ -21,20 +21,9 @@
 
         <style>
             body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
-
-            /* Custom scrollbar for sidebar */
             #sidebar::-webkit-scrollbar { width: 4px; }
             #sidebar::-webkit-scrollbar-track { background: transparent; }
             #sidebar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 20px; }
-
-            /* Sidebar nav link active & hover states */
-            .nav-item { @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-blue-50 hover:text-alazhar transition-all duration-200; }
-            .nav-item.active { @apply bg-blue-50 text-alazhar font-semibold; }
-            .nav-item.active svg { @apply text-alazhar; }
-            .nav-item svg { @apply text-slate-400 group-hover:text-alazhar transition-colors; }
-
-            /* Sidebar overlay backdrop */
-            #sidebar-backdrop { transition: opacity 0.3s ease; }
         </style>
     </head>
     <body class="antialiased bg-slate-100 text-slate-800" x-data="{ sidebarOpen: false }">
@@ -71,37 +60,37 @@
                 <p class="px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Menu Utama</p>
 
                 <a href="{{ route('dashboard') }}"
-                   class="nav-item group {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                    <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                    Dashboard
+                   class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group {{ request()->routeIs('dashboard') ? 'bg-blue-50 text-alazhar font-semibold' : 'text-slate-600 hover:bg-blue-50 hover:text-alazhar' }}">
+                    <svg class="w-5 h-5 flex-shrink-0 {{ request()->routeIs('dashboard') ? 'text-alazhar' : 'text-slate-400 group-hover:text-alazhar' }} transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    <span>Dashboard</span>
                 </a>
 
                 @if(auth()->user()->isSuperadmin())
                     <a href="{{ route('admin.categories.index') }}"
-                       class="nav-item group {{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
-                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-                        Kategori
+                       class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group {{ request()->routeIs('admin.categories.*') ? 'bg-blue-50 text-alazhar font-semibold' : 'text-slate-600 hover:bg-blue-50 hover:text-alazhar' }}">
+                        <svg class="w-5 h-5 flex-shrink-0 {{ request()->routeIs('admin.categories.*') ? 'text-alazhar' : 'text-slate-400 group-hover:text-alazhar' }} transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                        <span>Kategori</span>
                     </a>
 
                     <a href="{{ route('admin.documents.index') }}"
-                       class="nav-item group {{ request()->routeIs('admin.documents.*') ? 'active' : '' }}">
-                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        Artikel / Dokumen
+                       class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group {{ request()->routeIs('admin.documents.*') ? 'bg-blue-50 text-alazhar font-semibold' : 'text-slate-600 hover:bg-blue-50 hover:text-alazhar' }}">
+                        <svg class="w-5 h-5 flex-shrink-0 {{ request()->routeIs('admin.documents.*') ? 'text-alazhar' : 'text-slate-400 group-hover:text-alazhar' }} transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        <span>Artikel / Dokumen</span>
                     </a>
 
                     <a href="{{ route('admin.users.index') }}"
-                       class="nav-item group {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
-                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        Pengguna
+                       class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group {{ request()->routeIs('admin.users.*') ? 'bg-blue-50 text-alazhar font-semibold' : 'text-slate-600 hover:bg-blue-50 hover:text-alazhar' }}">
+                        <svg class="w-5 h-5 flex-shrink-0 {{ request()->routeIs('admin.users.*') ? 'text-alazhar' : 'text-slate-400 group-hover:text-alazhar' }} transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <span>Pengguna</span>
                     </a>
                 @endif
 
                 <div class="pt-4 pb-2">
                     <p class="px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Lainnya</p>
                     <a href="{{ route('home') }}" target="_blank"
-                       class="nav-item group">
-                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                        Lihat Portal Publik
+                       class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-blue-50 hover:text-alazhar transition-all duration-200 group">
+                        <svg class="w-5 h-5 flex-shrink-0 text-slate-400 group-hover:text-alazhar transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        <span>Lihat Portal Publik</span>
                     </a>
                 </div>
             </nav>
