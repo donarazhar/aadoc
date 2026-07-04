@@ -50,7 +50,7 @@
             <div class="flex items-center gap-3 px-6 py-5 border-b border-slate-100 flex-shrink-0">
                 <img src="{{ asset('img/logo.png') }}" class="h-9 w-9 object-contain flex-shrink-0" alt="Logo Al Azhar">
                 <div>
-                    <p class="text-sm font-bold text-slate-900 leading-tight">Al-Azhar Apps Docs</p>
+                    <p class="text-sm font-bold text-slate-900 leading-tight">Al-Azhar Apps <span class="font-normal text-slate-400">Docs</span></p>
                     <p class="text-xs text-slate-400 font-medium">Admin Portal</p>
                 </div>
             </div>
