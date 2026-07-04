@@ -1,62 +1,82 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex items-center justify-between">
-            <h2 class="font-semibold text-xl text-slate-800 leading-tight">
-                {{ __('Preview Dokumen') }}
-            </h2>
-            <div class="flex space-x-3">
-                <a href="{{ route('docs.show', [$document->category->slug ?? 'uncategorized', $document->slug]) }}" target="_blank" class="inline-flex items-center px-4 py-2 bg-slate-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-slate-700 focus:bg-slate-700 active:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 transition ease-in-out duration-150 shadow-sm">
-                    Lihat di Portal
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="{{ route('admin.documents.index') }}" class="text-slate-400 hover:text-alazhar transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                 </a>
-                <a href="{{ route('admin.documents.index') }}" class="inline-flex items-center px-4 py-2 bg-white border border-slate-300 rounded-md font-semibold text-xs text-slate-700 uppercase tracking-widest shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-alazhar focus:ring-offset-2 transition ease-in-out duration-150">
-                    Kembali
-                </a>
+                <h2 class="font-semibold text-xl text-slate-800 leading-tight">
+                    {{ __('Pratinjau Artikel') }}
+                </h2>
             </div>
+            <a href="{{ route('admin.documents.edit', $document->id) }}" class="inline-flex items-center px-4 py-2 bg-white border border-slate-300 rounded-lg font-semibold text-xs text-alazhar uppercase tracking-widest hover:bg-slate-50 hover:border-alazhar hover:text-blue-700 shadow-sm transition-all duration-200">
+                <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                Edit Artikel
+            </a>
         </div>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-xl border border-slate-100">
+            <div class="bg-white overflow-hidden shadow-md sm:rounded-2xl border border-slate-200">
                 
-                <!-- Document Header -->
-                <div class="p-8 border-b border-slate-100 bg-slate-50/50">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded border border-blue-200">
-                            {{ $document->category->name ?? 'Tanpa Kategori' }}
-                        </span>
+                <!-- Article Header -->
+                <div class="p-8 md:p-10 border-b border-slate-100 bg-slate-50/50">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="px-2.5 py-1 bg-blue-100 text-alazhar text-xs font-bold uppercase tracking-wider rounded-md">{{ $document->category->name ?? 'Tanpa Kategori' }}</span>
                         @if($document->is_published)
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded border border-green-200 flex items-center">
-                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-1.5"></span> Published
+                            <span class="px-2.5 py-1 bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider rounded-md flex items-center">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-1.5"></span> Publik
                             </span>
                         @else
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded border border-yellow-200 flex items-center">
-                                <span class="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-1.5"></span> Draft
+                            <span class="px-2.5 py-1 bg-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider rounded-md flex items-center">
+                                <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mr-1.5"></span> Draft
                             </span>
                         @endif
                     </div>
                     
-                    <h1 class="text-3xl font-extrabold text-slate-900 mb-2">{{ $document->title }}</h1>
-                    <div class="flex items-center text-sm text-slate-500">
-                        <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        Diperbarui pada: {{ $document->updated_at->format('d M Y, H:i') }}
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-4">
+                        {{ $document->title }}
+                    </h1>
+                    
+                    <div class="flex items-center text-sm text-slate-500 space-x-4">
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                            {{ $document->author->name ?? 'Anonim' }}
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            Dibuat: {{ $document->created_at->format('d M Y, H:i') }}
+                        </div>
+                        @if($document->updated_at->gt($document->created_at))
+                            <div class="flex items-center text-slate-400">
+                                (Diperbarui: {{ $document->updated_at->format('d M Y') }})
+                            </div>
+                        @endif
                     </div>
                 </div>
 
-                <!-- Document Content -->
-                <div class="p-8">
-                    <div class="prose prose-slate max-w-none prose-a:text-alazhar prose-headings:text-slate-800">
-                        {!! $document->content !!}
-                    </div>
-
-                    <div class="mt-12 pt-6 border-t border-slate-100 flex justify-end">
-                        <a href="{{ route('admin.documents.edit', $document->id) }}" class="inline-flex items-center px-6 py-2 bg-alazhar border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-alazhar focus:ring-offset-2 transition ease-in-out duration-150 shadow-md shadow-blue-500/20">
-                            Edit Dokumen
-                        </a>
-                    </div>
+                <!-- Article Content -->
+                <div class="p-8 md:p-10 prose prose-slate max-w-none prose-headings:text-slate-800 prose-a:text-alazhar hover:prose-a:text-blue-700 prose-img:rounded-xl prose-img:shadow-md">
+                    {!! $document->content !!}
                 </div>
 
+                @if(trim(strip_tags($document->content)) == '')
+                    <div class="p-8 text-center text-slate-400 italic bg-slate-50 border-t border-slate-100">
+                        Konten artikel ini masih kosong.
+                    </div>
+                @endif
             </div>
+
+            <!-- Preview Link -->
+            @if($document->is_published && $document->category)
+            <div class="mt-6 text-center">
+                <a href="{{ route('docs.show', ['categorySlug' => $document->category->slug, 'documentSlug' => $document->slug]) }}" target="_blank" class="inline-flex items-center text-sm font-medium text-alazhar hover:text-blue-700 transition-colors">
+                    Lihat artikel ini di portal publik
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+            @endif
         </div>
     </div>
 </x-app-layout>
