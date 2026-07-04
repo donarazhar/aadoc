@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Login · Al-Azhar Apps</title>
+        <title>Login · Al-Azhar Apps Docs</title>
         <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
         <link rel="manifest" href="{{ asset('manifest.json') }}">
         <meta name="theme-color" content="#1885C4">
@@ -31,7 +31,7 @@
             <!-- Logo & Title -->
             <div class="text-center mb-8">
                 <img src="{{ asset('img/logo.png') }}" alt="Logo Al Azhar" class="w-20 h-20 object-contain mx-auto mb-4 drop-shadow-sm">
-                <h1 class="text-2xl font-bold text-slate-900">Al-Azhar Apps</h1>
+                <h1 class="text-2xl font-bold text-slate-900">Al-Azhar Apps Docs</h1>
                 <p class="text-sm text-slate-500 mt-1">Admin Portal</p>
             </div>
 
