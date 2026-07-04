@@ -199,7 +199,7 @@
             <a href="{{ route('home') }}" class="flex items-center gap-2.5 flex-shrink-0">
                 <img src="{{ asset('img/logo.png') }}" class="w-8 h-8 object-contain" alt="Logo Al Azhar">
                 <span class="font-bold text-[17px] text-slate-900 leading-none">
-                    Al-Azhar <span class="font-normal text-slate-400">Docs</span>
+                    Al Azhar Apps <span class="font-normal text-slate-400">Docs</span>
                 </span>
             </a>
 
