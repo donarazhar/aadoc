@@ -1,3 +1,4 @@
+<x-app-layout>
     <x-slot name="header">
         <div class="flex items-center space-x-3">
             <a href="{{ route('admin.categories.index') }}" class="text-slate-400 hover:text-alazhar transition-colors">
