@@ -67,7 +67,7 @@ class DocumentController extends Controller
             'category_id' => $request->category_id,
             'content' => $request->content,
             'is_published' => $request->has('is_published'),
-            'order' => $request->order ?? 0,
+            'order' => $request->order ?? $document->order,
         ]);
 
         return redirect()->route('admin.documents.index')->with('success', 'Dokumen berhasil diperbarui.');
