@@ -64,6 +64,7 @@ class DatabaseSeeder extends Seeder
             UiUxBackofficeDataMuridArticleSeeder::class,
             UiUxBackofficeProfileSekolahArticleSeeder::class,
             UiUxBackofficeTambahRombelArticleSeeder::class,
+            UiUxBackofficeTambahKurikulumArticleSeeder::class,
         ]);
     }
 }
