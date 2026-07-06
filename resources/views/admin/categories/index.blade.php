@@ -74,6 +74,11 @@
                         </tbody>
                     </table>
                 </div>
+                @if($categories->hasPages())
+                <div class="px-6 py-4 border-t border-slate-200">
+                    {{ $categories->links() }}
+                </div>
+                @endif
             </div>
     </div>
 
