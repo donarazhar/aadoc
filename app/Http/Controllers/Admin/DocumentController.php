@@ -10,9 +10,20 @@ class DocumentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $documents = \App\Models\Document::with(['category', 'author'])->orderBy('order')->orderBy('id', 'desc')->get();
+        $query = \App\Models\Document::with(['category', 'author']);
+
+        if ($request->has('sort') && $request->sort === 'category') {
+            $direction = $request->direction === 'desc' ? 'desc' : 'asc';
+            $query->join('categories', 'documents.category_id', '=', 'categories.id')
+                  ->orderBy('categories.name', $direction)
+                  ->select('documents.*');
+        } else {
+            $query->orderBy('order')->orderBy('id', 'desc');
+        }
+
+        $documents = $query->get();
         return view('admin.documents.index', compact('documents'));
     }
 

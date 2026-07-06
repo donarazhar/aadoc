@@ -27,7 +27,20 @@
                             <tr>
                                 <th scope="col" class="px-6 py-4 w-16 text-center text-slate-400">#</th>
                                 <th scope="col" class="px-6 py-4 font-semibold">Judul Dokumen</th>
-                                <th scope="col" class="px-6 py-4 font-semibold">Kategori</th>
+                                <th scope="col" class="px-6 py-4 font-semibold">
+                                    <a href="{{ route('admin.documents.index', ['sort' => 'category', 'direction' => request('sort') === 'category' && request('direction') === 'asc' ? 'desc' : 'asc']) }}" class="flex items-center hover:text-alazhar transition-colors">
+                                        Kategori
+                                        @if(request('sort') === 'category')
+                                            @if(request('direction') === 'asc')
+                                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+                                            @else
+                                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                            @endif
+                                        @else
+                                            <svg class="w-4 h-4 ml-1 opacity-30 hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path></svg>
+                                        @endif
+                                    </a>
+                                </th>
                                 <th scope="col" class="px-6 py-4 font-semibold">Status</th>
                                 <th scope="col" class="px-6 py-4 font-semibold">Penulis</th>
                                 <th scope="col" class="px-6 py-4 font-semibold text-right">Aksi</th>
