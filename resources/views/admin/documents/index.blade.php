@@ -98,6 +98,11 @@
                         </tbody>
                     </table>
                 </div>
+                @if($documents->hasPages())
+                <div class="px-6 py-4 border-t border-slate-200">
+                    {{ $documents->links() }}
+                </div>
+                @endif
             </div>
     </div>
 

@@ -23,7 +23,7 @@ class DocumentController extends Controller
             $query->orderBy('order')->orderBy('id', 'desc');
         }
 
-        $documents = $query->get();
+        $documents = $query->paginate(10)->withQueryString();
         return view('admin.documents.index', compact('documents'));
     }
 
