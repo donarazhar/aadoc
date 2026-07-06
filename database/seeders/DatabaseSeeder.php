@@ -67,6 +67,7 @@ class DatabaseSeeder extends Seeder
             UiUxBackofficeTambahKurikulumArticleSeeder::class,
             UiUxBackofficeModulSekolahMenuProgramArticleSeeder::class,
             UiUxBackofficeModulSekolahMenuPegawaiArticleSeeder::class,
+            UiUxBackofficeModulSekolahMenuAkademikKenaikanKelasArticleSeeder::class,
         ]);
     }
 }
