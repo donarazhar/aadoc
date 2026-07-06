@@ -58,6 +58,7 @@ class DatabaseSeeder extends Seeder
             AnalisaGambaranErdArticleSeeder::class,
             PanduanMembacaAlurArticleSeeder::class,
             UiUxBackofficeSummaryArticleSeeder::class,
+            UiUxBackofficeMuridArticleSeeder::class,
         ]);
     }
 }
