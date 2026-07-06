@@ -32,7 +32,7 @@
             <div class="text-center mb-8">
                 <img src="{{ asset('img/logo.png') }}" alt="Logo Al Azhar" class="w-20 h-20 object-contain mx-auto mb-4 drop-shadow-sm">
                 <h1 class="text-2xl font-bold text-slate-900">Al Azhar Apps <span class="font-normal text-slate-500">Docs</span></h1>
-                <p class="text-sm text-slate-500 mt-1">Admin Portal</p>
+                <p class="text-sm text-slate-500 mt-1">Silahkan login untuk melihat Docs</p>
             </div>
 
             <!-- Card -->
