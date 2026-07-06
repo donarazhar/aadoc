@@ -54,6 +54,7 @@ class DatabaseSeeder extends Seeder
             UpgradingSeeder::class,
             RegistrasiAkunSeeder::class,
             PmbWorkflowSeeder::class,
+            AnalisaModulBackofficeArticleSeeder::class,
         ]);
     }
 }
