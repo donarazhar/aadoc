@@ -30,103 +30,182 @@ class AnalisaGambaranErdArticleSeeder extends Seeder
 
 <pre><code class="language-mermaid">
 erDiagram
+    YAYASAN ||--o{ SEKOLAH : membina
+    SEKOLAH ||--o{ PEGAWAI : mempekerjakan
+    PEGAWAI ||--o| USER : "punya akun"
+    SEKOLAH ||--o{ TAHUN_AJARAN : "beroperasi pada"
+    SEKOLAH ||--o{ PROGRAM : menawarkan
+    SEKOLAH ||--o{ ROMBEL : memiliki
+    SEKOLAH ||--o{ RUANGAN : memiliki
+    SEKOLAH ||--o{ KURIKULUM : menetapkan
+    SEKOLAH ||--o{ SARANA_PRASARANA : memiliki
+    SEKOLAH ||--o{ EKSTRAKURIKULER : menyediakan
+    SEKOLAH ||--o{ GELOMBANG_PENDAFTARAN : membuka
+
+    TAHUN_AJARAN ||--o{ ROMBEL : "berlaku utk"
+    TAHUN_AJARAN ||--o{ MURID : "mendaftar pada"
+    TAHUN_AJARAN ||--o{ UANG_SEKOLAH : "berlaku utk"
+    TAHUN_AJARAN ||--o{ UANG_PANGKAL : "berlaku utk"
+    TAHUN_AJARAN ||--o{ UANG_DAFTAR_ULANG : "berlaku utk"
+    TAHUN_AJARAN ||--o{ GELOMBANG_PENDAFTARAN : "berlaku utk"
+
+    PROGRAM ||--o{ ROMBEL : mengelompokkan
+    PROGRAM ||--o{ MURID : diikuti
+    RUANGAN ||--o{ ROMBEL : ditempati
+    PEGAWAI ||--o{ ROMBEL : "jadi wali kelas"
+    KURIKULUM ||--o{ MATA_PELAJARAN : terdiri
+
+    ROMBEL ||--o{ MURID : menampung
+    MURID ||--o{ TRANSAKSI : melakukan
+    MURID ||--o{ TAGIHAN : menerima
+    MURID ||--o{ DISKON : mengajukan
+    MURID ||--o{ PRESTASI : mencatat
+    MURID ||--o{ KENAIKAN_KELAS : mengalami
+    MURID ||--o{ E_RAPOT : memiliki
+    MURID ||--o| IJAZAH : menerima
+    MURID ||--o{ EKSTRAKURIKULER_MURID : mengikuti
+    EKSTRAKURIKULER ||--o{ EKSTRAKURIKULER_MURID : diikuti
+
+    GELOMBANG_PENDAFTARAN ||--o{ JADWAL_UJIAN : mencakup
+    GELOMBANG_PENDAFTARAN ||--o{ CALON_MURID : menaungi
+    JADWAL_UJIAN ||--o{ PESERTA_UJIAN : melibatkan
+    CALON_MURID ||--o{ PESERTA_UJIAN : "ikut ujian sbg"
+    CALON_MURID ||--o| KELULUSAN_PESERTA : dievaluasi
+    CALON_MURID ||--o| MURID : "menjadi (jika diterima)"
+    CALON_MURID ||--o{ TRANSAKSI : "bayar formulir/DSP"
+
+    USER ||--o{ LOG_ACTIVITY : menghasilkan
+
     SEKOLAH {
-        int id_sekolah PK
+        id id
         string npsn
         string nama_sekolah
-        string tingkat_jenjang
+        string alamat
+        int yayasan_id
     }
-    TAHUN_AJARAN {
-        int id_tahun_ajaran PK
-        string nama_tahun_ajaran
+    MURID {
+        id id
+        string nis
+        string nisn
+        string nama
+        string status
+        int rombel_id
+        int program_id
+        int tahun_ajaran_id
     }
-    TINGKAT_KELAS {
-        int id_tingkat_kelas PK
-        string nama_tingkat_kelas
+    CALON_MURID {
+        id id
+        string no_registrasi
+        string nama
+        string jenjang
+        string status_pendaftaran
+        int gelombang_id
     }
-    PROGRAM {
-        int id_program PK
-        string nama_program
-    }
-    GELOMBANG_PMB {
-        int id_gelombang PK
-        int id_sekolah FK
-        int id_tahun_ajaran FK
+    GELOMBANG_PENDAFTARAN {
+        id id
         string nama_gelombang
         date tgl_buka
         date tgl_tutup
-    }
-    CALON_MURID {
-        int id_calon PK
-        int id_gelombang FK
-        int id_program FK
-        string no_registrasi
-        string nama_lengkap
-        string status_pendaftaran "Animo / Formulir / Lulus"
+        date jatuh_tempo
+        int target
     }
     JADWAL_UJIAN {
-        int id_ujian PK
-        int id_gelombang FK
+        id id
         string nama_ujian
         string tipe_ujian
+        int ruangan_id
     }
     PESERTA_UJIAN {
-        int id_peserta_ujian PK
-        int id_ujian FK
-        int id_calon FK
+        id id
+        int calon_murid_id
+        int jadwal_ujian_id
         float nilai
-        string status_kelulusan
     }
-    PEGAWAI {
-        int id_pegawai PK
-        string nip
-        string nama_lengkap
-        string jabatan
+    KELULUSAN_PESERTA {
+        id id
+        int peserta_ujian_id
+        string status
     }
-    ROMBEL {
-        int id_rombel PK
-        int id_tahun_ajaran FK
-        int id_tingkat_kelas FK
-        int id_pegawai FK "Wali Kelas"
-        string nama_rombel
+    UANG_SEKOLAH {
+        id id
+        int tahun_ajaran_id
+        string tingkat_kelas
+        int program_id
+        float nominal
     }
-    MURID {
-        int id_murid PK
-        int id_calon FK "Jika dari PMB"
-        int id_rombel FK
-        string nis
-        string nama_lengkap
-        string status_aktif
+    UANG_PANGKAL {
+        id id
+        int tahun_ajaran_id
+        string komponen
+        float nominal
     }
-    TAGIHAN_KEUANGAN {
-        int id_tagihan PK
-        int id_murid FK
-        string jenis_tagihan "Pangkal / SPP / Daftar Ulang"
-        float nominal_total
-        string no_virtual_account
-        string status_bayar
+    UANG_DAFTAR_ULANG {
+        id id
+        int tahun_ajaran_id
+        string komponen_biaya
+        float nominal
+        date jatuh_tempo
+    }
+    TAGIHAN {
+        id id
+        int murid_id
+        string jenis_biaya
+        float nominal
+        string status
+    }
+    TRANSAKSI {
+        id id
+        int murid_id
+        string no_reference
+        string va
+        float nominal
+        date tanggal
     }
     DISKON {
-        int id_diskon PK
-        int id_murid FK
-        string kategori_diskon
-        float persen_potongan
+        id id
+        int murid_id
+        string kategori
+        float besar_potongan
         string status_approval
     }
-    SEKOLAH ||--o{ GELOMBANG_PMB : membuka
-    TAHUN_AJARAN ||--o{ GELOMBANG_PMB : berlaku_pada
-    GELOMBANG_PMB ||--o{ CALON_MURID : menerima
-    PROGRAM ||--o{ CALON_MURID : dipilih
-    GELOMBANG_PMB ||--o{ JADWAL_UJIAN : memiliki
-    JADWAL_UJIAN ||--o{ PESERTA_UJIAN : diikuti_oleh
-    CALON_MURID ||--o{ PESERTA_UJIAN : menjadi
-    CALON_MURID ||--o| MURID : diterima_menjadi
-    TAHUN_AJARAN ||--o{ ROMBEL : memiliki
-    TINGKAT_KELAS ||--o{ ROMBEL : tingkatan
-    PEGAWAI ||--o{ ROMBEL : menjadi_wali_kelas
-    ROMBEL ||--o{ MURID : memiliki_anggota
-    MURID ||--o{ TAGIHAN_KEUANGAN : dibebankan
-    MURID ||--o{ DISKON : mendapatkan
+    PRESTASI {
+        id id
+        int murid_id
+        string bidang
+        string jenis_lomba
+        string juara
+        string tingkat
+    }
+    KENAIKAN_KELAS {
+        id id
+        int murid_id
+        int rombel_asal
+        int rombel_tujuan
+        string status
+    }
+    E_RAPOT {
+        id id
+        int murid_id
+        string term
+        string kelengkapan
+    }
+    IJAZAH {
+        id id
+        int murid_id
+        date tgl_lulus
+    }
+    USER {
+        id id
+        int pegawai_id
+        string role
+        string username
+    }
+    LOG_ACTIVITY {
+        id id
+        int user_id
+        string aktivitas
+        datetime waktu
+    }
 </code></pre>
 ',
                 'is_published' => true,
