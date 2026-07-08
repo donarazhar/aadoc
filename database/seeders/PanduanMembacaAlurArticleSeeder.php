@@ -28,31 +28,66 @@ class PanduanMembacaAlurArticleSeeder extends Seeder
 <hr>
 
 <h3>A. Alur PMB (Penerimaan Murid Baru)</h3>
-<p>Bayangkan ini seperti <strong>funnel/corong</strong> — dari banyak pendaftar, hanya yang lolos &amp; bayar yang akhirnya jadi murid resmi.</p>
+<p>Bayangkan ini seperti <strong>funnel/corong</strong> — dari banyak pendaftar, hanya yang lolos &amp; bayar yang akhirnya jadi murid resmi. Ada dua kemungkinan jalur pembayaran: <strong>Tanpa Cicilan (Reguler)</strong> dan <strong>Dengan Cicilan</strong>. Kedua jalur ini sama persis di awal, dan baru bercabang setelah calon murid dinyatakan lulus ujian.</p>
 
-<p><strong>1. Sekolah menyiapkan "pintu masuk" (Gelombang Pendaftaran)</strong><br>
-Admin membuat <code>GELOMBANG_PMB</code> — semacam periode pendaftaran (misal "Gelombang 1 Tahun Ajaran 2026/2027"). Ini terhubung ke <code>SEKOLAH</code> dan <code>TAHUN_AJARAN</code> mana yang dituju, plus target jumlah siswa dan tanggal buka-tutup.</p>
+<h4>A.1 Tahap Persiapan (dilakukan Backoffice/Sekolah)</h4>
+<p><strong>1. Setting komponen biaya &amp; Gelombang Pendaftaran</strong><br>
+Sebelum pendaftaran dibuka, tim Backoffice sekolah menyiapkan dua hal di sistem:</p>
+<ul>
+<li>Komponen <strong>Uang Pangkal</strong> dan <strong>Uang Sekolah (SPP)</strong> beserta rinciannya.</li>
+<li><code>GELOMBANG_PMB</code> — periode pendaftaran (tanggal buka/tutup) per jenjang dan <code>TAHUN_AJARAN</code>.</li>
+</ul>
 
+<h4>A.2 Tahap Pendaftaran Awal (dilakukan Orang Tua/Murid — OTM)</h4>
 <p><strong>2. Calon murid daftar (status: Animo)</strong><br>
-Orang tua mendaftarkan anaknya &rarr; masuk ke tabel <code>CALON_MURID</code> dengan status awal <strong>Animo</strong>. Mereka pilih jenjang &amp; <code>PROGRAM</code> (misal Reguler/Bilingual).</p>
+Orang tua melakukan pendaftaran awal melalui aplikasi &rarr; data masuk ke tabel <code>CALON_MURID</code> dengan status awal <strong>Animo</strong>.</p>
 
-<p><strong>3. Bayar Uang Formulir dulu (gerbang pertama)</strong> &#11088; <em>ini yang sebelumnya terlewat</em><br>
-Sebelum lanjut ke ujian, calon murid harus bayar <strong>Uang Formulir</strong>. Statusnya bergerak:<br>
-<code>Belum Bayar Formulir &rarr; Melengkapi Formulir</code><br>
-Kalau belum bayar, mereka "macet" di tahap ini dan tidak bisa lanjut ujian.</p>
+<p><strong>3. Bayar Uang Formulir (gerbang pertama)</strong><br>
+Sebelum lanjut ke tahap berikutnya, calon murid wajib membayar <strong>Uang Formulir</strong> melalui menu Tagihan di aplikasi (metode QRIS atau lainnya). Kalau belum bayar, status akan "macet" di sini dan tidak bisa lanjut.</p>
 
-<p><strong>4. Ikut ujian seleksi</strong><br>
-Setelah formulir lunas, admin memasukkan mereka ke <code>JADWAL_UJIAN</code> (buat jadwal, ruangan, tipe ujian) &rarr; mereka jadi <code>PESERTA_UJIAN</code>.</p>
+<p><strong>4. Lengkapi Identitas</strong><br>
+Setelah formulir lunas, OTM melengkapi data <strong>Asal Sekolah</strong> dan <strong>Profil Murid</strong> secara menyeluruh, lalu mengajukan data tersebut untuk diverifikasi sekolah.</p>
 
-<p><strong>5. Hasil ujian &amp; bayar Uang Pangkal (gerbang kedua)</strong> &#11088; <em>ini juga bagian yang dikoreksi</em><br>
-Nilai diinput &rarr; kalau lulus, statusnya:<br>
-<code>Waiting List &rarr; Menunggu Pembayaran DSP (Uang Pangkal) &rarr; Terdaftar</code><br>
-Jadi ada <strong>2 kali bayar</strong> sebelum resmi jadi murid: Uang Formulir (di awal) dan Uang Pangkal/DSP (setelah lulus ujian).</p>
+<h4 style="color:#1885C4;">A.3 Tahap Ujian Masuk</h4>
+<p><strong>5. Sekolah mengirimkan Kartu Ujian</strong><br>
+Setelah data disetujui, Backoffice mengirimkan <strong>Kartu Ujian</strong> ke akun OTM.</p>
 
-<p><strong>6. Resmi jadi Murid</strong><br>
-Setelah status "Terdaftar" dan lunas semua, sistem membuat record baru di tabel <code>MURID</code> dan langsung ditempatkan ke sebuah <code>ROMBEL</code>.</p>
+<p><strong>6. OTM mendapatkan kartu &amp; anak mengikuti ujian</strong><br>
+OTM mengunduh Kartu Peserta Ujian dari aplikasi (wajib ditunjukkan saat ujian berlangsung), lalu anak mengikuti tes sesuai jadwal.</p>
 
-<blockquote><strong>Intinya:</strong> Calon murid harus lolos 2 filter — bayar formulir, lalu bayar uang pangkal — baru resmi jadi "Murid" yang tercatat di sistem akademik.</blockquote>
+<h4>A.4 Tahap Penilaian &amp; Pengumuman Kelulusan (dilakukan Backoffice)</h4>
+<p><strong>7. Input &amp; Upload Nilai</strong><br>
+Tim Backoffice men-download template nilai, mengisi hasil ujian sesuai format, lalu mengunggah (upload) nilai tersebut ke sistem.</p>
+
+<p><strong>8. Meluluskan &amp; Mengirim Notifikasi</strong><br>
+Calon murid yang memenuhi syarat diluluskan (submit kelulusan) di sistem, lalu notifikasi kelulusan otomatis dikirim ke OTM.</p>
+
+<blockquote>Di titik inilah alur mulai <strong>bercabang menjadi dua jalur</strong>, tergantung skema pembayaran Uang Pangkal yang dipilih OTM: <strong>Tanpa Cicilan</strong> atau <strong>Dengan Cicilan</strong>.</blockquote>
+
+<h4 style="color:#22c55e;">A.5.a Jalur Tanpa Cicilan — Pembayaran Uang Pangkal (Gerbang Kedua)</h4>
+<p><strong>9. Terima notifikasi &amp; syarat ketentuan UP</strong><br>
+OTM menerima notifikasi lulus ujian sekaligus notifikasi syarat &amp; ketentuan Uang Pangkal (UP). OTM membuka menu tersebut untuk melihat komponen biaya UP, lalu menekan <strong>Setuju</strong> dan menerima file PDF rincian biaya.</p>
+
+<p><strong>10. Bayar Uang Pangkal secara penuh</strong><br>
+Tagihan UP muncul di menu Tagihan aplikasi. OTM membayar komponen UP secara <strong>lunas sekaligus</strong>.</p>
+
+<p><strong>11. Status berubah menjadi Aktif</strong><br>
+Setelah pembayaran terkonfirmasi, sistem membuat record baru di tabel <code>MURID</code> dengan status <strong>Aktif</strong>, dan siswa resmi terdaftar.</p>
+
+<h4 style="color:#7c3aed;">A.5.b Jalur Dengan Cicilan — Pengajuan Angsuran Uang Pangkal</h4>
+<p><strong>9. Terima notifikasi, baca syarat, lalu ajukan cicilan langsung ke sekolah</strong><br>
+Sama seperti jalur reguler, OTM menerima notifikasi syarat &amp; ketentuan UP dan menekan Setuju. Namun jika OTM ingin mencicil, OTM harus <strong>datang langsung ke sekolah (Tata Usaha)</strong> untuk mengajukan permohonan skema angsuran — proses ini dilakukan secara luring/tatap muka, bukan melalui aplikasi.</p>
+
+<p><strong>10. Persetujuan angsuran</strong><br>
+Tim Backoffice sekolah memproses permohonan sesuai ketentuan jumlah angsuran yang ditetapkan Yayasan. <strong>Jika permohonan lebih dari 3 kali angsuran</strong>, permohonan diteruskan ke <strong>Direktorat Keuangan</strong> untuk mendapat persetujuan (approval) khusus sebelum skema cicilan berlaku.</p>
+
+<p><strong>11. Pembayaran bertahap (minimal 50% di termin pertama)</strong><br>
+Setelah disetujui, tagihan UP muncul di menu Tagihan sudah disesuaikan dengan jadwal cicilan. <blockquote style="border-left-color:#eab308; background:#fef9c3;"><strong>Ketentuan penting:</strong> status anak baru diproses <strong>Aktif</strong> apabila pembayaran termin pertama sudah mencapai minimal <strong>50% dari total Uang Pangkal</strong>.</blockquote></p>
+
+<p><strong>12. Status Aktif &amp; penempatan Rombel</strong><br>
+Setelah syarat 50% terpenuhi, siswa berstatus Aktif dan Tata Usaha menempatkan siswa ke <code>ROMBEL</code> yang sesuai — sama seperti jalur reguler, hanya pelunasan sisa UP dilakukan bertahap sesuai akad yang disetujui.</p>
+
+<blockquote><strong>Intinya:</strong> Kedua jalur PMB sama-sama melewati 2 gerbang pembayaran — Uang Formulir (di awal) dan Uang Pangkal (setelah lulus ujian). Bedanya hanya pada <em>cara</em> membayar gerbang kedua: <strong>lunas sekaligus</strong> (jalur reguler, langsung via aplikasi) atau <strong>bertahap</strong> (jalur cicilan, butuh pengajuan tatap muka ke sekolah dan minimal 50% di termin pertama untuk aktivasi).</blockquote>
 <hr>
 
 <h3>B. Alur Akademik (Pengelolaan Kelas)</h3>
@@ -66,7 +101,7 @@ Sebelum tahun ajaran mulai, admin membuat <code>ROMBEL</code> (misal "TK B - Rom
 - <code>PEGAWAI</code> — siapa Wali Kelasnya</p>
 
 <p><strong>2. Isi Rombel dengan murid</strong><br>
-Murid (baik yang baru lulus PMB, atau murid lama naik kelas) dimasukkan ke dalam Rombel tersebut sesuai program &amp; tingkat kelasnya.</p>
+Murid (baik yang baru lulus PMB — dari jalur reguler maupun cicilan, atau murid lama naik kelas) dimasukkan ke dalam Rombel tersebut sesuai program &amp; tingkat kelasnya.</p>
 
 <p><strong>3. Di akhir tahun ajaran — dua kemungkinan jalan</strong><br>
 Fitur "Kenaikan Kelas &amp; Kelulusan" punya <strong>dua cabang</strong>, bukan cuma satu:</p>
@@ -92,12 +127,12 @@ Murid tidak "naik kelas" lagi, tapi statusnya jadi <strong>Lulus</strong> &rarr;
 <tr><th>Siapa yang ditagih</th><th>Jenis Tagihan</th><th>Kapan</th></tr>
 </thead>
 <tbody>
-<tr><td><code>CALON_MURID</code> (belum resmi murid)</td><td>Uang Formulir, Uang Pangkal (DSP)</td><td>Selama proses PMB</td></tr>
+<tr><td><code>CALON_MURID</code> (belum resmi murid)</td><td>Uang Formulir, Uang Pangkal (DSP) — lunas sekaligus atau bertahap (cicilan)</td><td>Selama proses PMB</td></tr>
 <tr><td><code>MURID</code> (sudah resmi &amp; aktif)</td><td>SPP bulanan (Uang Sekolah), Uang Daftar Ulang</td><td>Setiap bulan / setiap awal tahun ajaran</td></tr>
 </tbody>
 </table>
 
-<p>Jadi alurnya: Calon Murid dulu ditagih formulir &amp; pangkal &rarr; begitu resmi jadi Murid &rarr; baru ditagih SPP bulanan dan (di tahun berikutnya) Uang Daftar Ulang.</p>
+<p>Jadi alurnya: Calon Murid dulu ditagih formulir &amp; pangkal (baik lunas maupun cicilan) &rarr; begitu resmi jadi Murid Aktif &rarr; baru ditagih SPP bulanan dan (di tahun berikutnya) Uang Daftar Ulang.</p>
 
 <p><strong>2. Pengajuan Diskon (khusus untuk Murid aktif)</strong><br>
 Kalau seorang murid punya kriteria tertentu, admin ajukan diskon lewat 6 kategori:<br>
@@ -115,7 +150,7 @@ Saat tagihan (SPP/Daftar Ulang) mau ditampilkan ke orang tua:</p>
 <pre>Tagihan Akhir = Nominal Dasar - Potongan Diskon (jika ada)</pre>
 <p>Setiap tagihan dilengkapi <strong>Virtual Account (VA)</strong> dan <strong>No. Reference</strong>, supaya sistem otomatis tahu status: <strong>Lunas</strong> atau <strong>Piutang/Tunggakan</strong> — ini yang muncul di Dashboard Summary ("Total Piutang &amp; Tunggakan").</p>
 
-<blockquote><strong>Intinya:</strong> Ada 2 "kasir" berbeda dalam sistem — kasir untuk Calon Murid (formulir + pangkal) dan kasir untuk Murid aktif (SPP + daftar ulang). Diskon hanya berlaku untuk kasir Murid aktif, dan semua pembayaran dilacak otomatis lewat VA.</blockquote>
+<blockquote><strong>Intinya:</strong> Ada 2 "kasir" berbeda dalam sistem — kasir untuk Calon Murid (formulir + pangkal, lunas atau cicilan) dan kasir untuk Murid aktif (SPP + daftar ulang). Diskon hanya berlaku untuk kasir Murid aktif, dan semua pembayaran dilacak otomatis lewat VA.</blockquote>
 <hr>
 
 <h3>Peta Besar: Bagaimana Ketiga Alur Ini Saling Terhubung</h3>
@@ -124,11 +159,12 @@ Saat tagihan (SPP/Daftar Ulang) mau ditampilkan ke orang tua:</p>
 [PMB] Calon Murid daftar
    &rarr; bayar Formulir
    &rarr; ikut Ujian
-   &rarr; Lulus + bayar Uang Pangkal
-   &rarr; jadi MURID resmi
+   &rarr; Lulus, lalu pilih skema Uang Pangkal:
+        (a) Lunas sekaligus via aplikasi, ATAU
+        (b) Cicilan: ajukan ke sekolah &rarr; approval (+Direktorat Keuangan jika >3x) &rarr; bayar min. 50% termin pertama
+   &rarr; jadi MURID resmi (Aktif) &amp; ditempatkan ke ROMBEL
         &darr;
-[Akademik] Murid ditempatkan di ROMBEL
-   &rarr; belajar 1 tahun ajaran
+[Akademik] Murid belajar 1 tahun ajaran
    &rarr; akhir tahun: Naik Kelas (pindah rombel) ATAU Lulus (jadi Ijazah)
         &darr;
 [Keuangan] Selama jadi Murid aktif:
@@ -137,7 +173,7 @@ Saat tagihan (SPP/Daftar Ulang) mau ditampilkan ke orang tua:</p>
    &rarr; bayar via VA &rarr; status Lunas/Piutang terpantau di Dashboard
 </pre>
 
-<p>Dengan koreksi ini, workflow sudah <strong>90% tepat</strong> — hanya perlu memperjelas bahwa ada 2 gerbang pembayaran di PMB, 2 relasi tambahan di Rombel, dan pemisahan tagihan Calon Murid vs Murid aktif di modul Keuangan.</p>
+<p>Dengan koreksi ini, workflow sudah mencakup detail penting yang sebelumnya belum terlihat: adanya <strong>2 skema pembayaran Uang Pangkal</strong> (lunas vs cicilan) yang menentukan kapan status calon murid resmi berubah menjadi Aktif, lengkap dengan mekanisme approval berjenjang untuk pengajuan cicilan lebih dari 3 kali angsuran.</p>
 ',
                 'is_published' => true,
                 'order' => 3
