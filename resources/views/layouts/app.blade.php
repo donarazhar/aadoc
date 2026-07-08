@@ -83,6 +83,12 @@
                         <svg class="w-5 h-5 flex-shrink-0 {{ request()->routeIs('admin.users.*') ? 'text-alazhar' : 'text-slate-400 group-hover:text-alazhar' }} transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                         <span>Pengguna</span>
                     </a>
+
+                    <a href="{{ route('admin.backups.index') }}"
+                       class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group {{ request()->routeIs('admin.backups.*') ? 'bg-blue-50 text-alazhar font-semibold' : 'text-slate-600 hover:bg-blue-50 hover:text-alazhar' }}">
+                        <svg class="w-5 h-5 flex-shrink-0 {{ request()->routeIs('admin.backups.*') ? 'text-alazhar' : 'text-slate-400 group-hover:text-alazhar' }} transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                        <span>Backup & Restore</span>
+                    </a>
                 @endif
 
                 <div class="pt-4 pb-2">

@@ -33,6 +33,13 @@ Route::middleware('auth')->group(function () {
             Route::post('documents/reorder', [\App\Http\Controllers\Admin\DocumentController::class, 'reorder'])->name('documents.reorder');
             Route::resource('documents', \App\Http\Controllers\Admin\DocumentController::class);
             Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+            
+            // Backups
+            Route::get('backups', [\App\Http\Controllers\Admin\BackupController::class, 'index'])->name('backups.index');
+            Route::post('backups/generate', [\App\Http\Controllers\Admin\BackupController::class, 'generate'])->name('backups.generate');
+            Route::get('backups/download/{file}', [\App\Http\Controllers\Admin\BackupController::class, 'download'])->name('backups.download');
+            Route::post('backups/restore', [\App\Http\Controllers\Admin\BackupController::class, 'restore'])->name('backups.restore');
+            Route::delete('backups/{file}', [\App\Http\Controllers\Admin\BackupController::class, 'destroy'])->name('backups.destroy');
         });
     });
 });
