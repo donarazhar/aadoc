@@ -11,9 +11,10 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::orderBy('order')->paginate(10)->withQueryString();
+        $perPage = $request->input('per_page', 10);
+        $categories = Category::orderBy('order')->paginate($perPage)->withQueryString();
         return view('admin.categories.index', compact('categories'));
     }
 

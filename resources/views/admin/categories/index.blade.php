@@ -20,6 +20,18 @@
                 </div>
             @endif
 
+            <div class="mb-4 flex items-center text-sm text-slate-600">
+                <span class="mr-2">Tampilkan</span>
+                <select onchange="window.location.href=this.value" class="border-slate-300 focus:border-alazhar focus:ring focus:ring-alazhar focus:ring-opacity-50 rounded-md shadow-sm text-sm py-1.5 pl-3 pr-8">
+                    @foreach([10, 25, 50, 100] as $size)
+                        <option value="{{ request()->fullUrlWithQuery(['per_page' => $size]) }}" {{ request('per_page', 10) == $size ? 'selected' : '' }}>
+                            {{ $size }}
+                        </option>
+                    @endforeach
+                </select>
+                <span class="ml-2">data per halaman</span>
+            </div>
+
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-xl border border-slate-200">
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-slate-600">
