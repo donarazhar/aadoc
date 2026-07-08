@@ -88,6 +88,7 @@ class DatabaseSeeder extends Seeder
             UiUxBackofficeModulJurnalERapotMenuERapotArticleSeeder::class,
             UiUxBackofficeModulJurnalERapotMenuIjazahArticleSeeder::class,
             LmsMoodleArticleSeeder::class,
+            LmsMoodleDasarArticleSeeder::class,
         ]);
     }
 }
