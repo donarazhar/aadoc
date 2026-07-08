@@ -91,17 +91,6 @@ class DatabaseSeeder extends Seeder
             LmsMoodleDasarArticleSeeder::class,
             LmsMoodleTutorialCohortCourseArticleSeeder::class,
             LmsMoodleTutorialTeacherArticleSeeder::class,
-            KtsStrukturProyekArticleSeeder::class,
-            KtsTeknologiDependensiArticleSeeder::class,
-            KtsCodingStandardsArticleSeeder::class,
-            KtsDatabaseErdArticleSeeder::class,
-            KtsQueryKritisArticleSeeder::class,
-            KtsManajemenDataArticleSeeder::class,
-            KtsKoneksiStagingArticleSeeder::class,
-            KtsSetupGuideArticleSeeder::class,
-            KtsCiCdPipelineArticleSeeder::class,
-            KtsServerConfigurationArticleSeeder::class,
-            KtsDokumentasiApiArticleSeeder::class,
         ]);
     }
 }
