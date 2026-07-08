@@ -284,11 +284,11 @@
     </footer>
 
     <!-- Image Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/90 hidden items-center justify-center opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/90 hidden p-4 sm:p-8 items-center justify-center opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
         <button class="absolute top-4 right-4 text-white hover:text-slate-300 z-[101]" onclick="closeLightbox()">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
-        <img id="lightbox-img" src="" class="max-w-[95%] max-h-[95vh] object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300">
+        <img id="lightbox-img" src="" class="w-auto h-auto max-w-full max-h-full object-contain rounded-md shadow-2xl scale-95 transition-transform duration-300">
     </div>
 
     @stack('scripts')
