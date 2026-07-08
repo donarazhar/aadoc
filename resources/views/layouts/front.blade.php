@@ -179,6 +179,55 @@
             margin-bottom: 0.5rem;
             padding: 0 0.75rem;
         }
+
+        /* ===== LIGHTBOX ===== */
+        #lightbox {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 9999;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        #lightbox.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        #lightbox.show #lightbox-img {
+            transform: scale(1);
+        }
+        #lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            color: #fff;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            border-radius: 50%;
+            width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            z-index: 10000;
+        }
+        #lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
     </style>
 </head>
 <body class="antialiased" x-data="{ sidebarOpen: false }" :class="{ 'overflow-hidden lg:overflow-auto': sidebarOpen }">
@@ -284,11 +333,11 @@
     </footer>
 
     <!-- Image Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/90 hidden p-4 sm:p-8 items-center justify-center opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
-        <button class="absolute top-4 right-4 text-white hover:text-slate-300 z-[101]" onclick="closeLightbox()">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    <div id="lightbox" onclick="closeLightbox()">
+        <button id="lightbox-close" onclick="closeLightbox()" title="Tutup">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
-        <img id="lightbox-img" src="" class="w-auto h-auto max-w-full max-h-full object-contain rounded-md shadow-2xl scale-95 transition-transform duration-300">
+        <img id="lightbox-img" src="" alt="Zoomed Image">
     </div>
 
     @stack('scripts')
@@ -302,31 +351,21 @@
             img.addEventListener('click', function(e) {
                 e.stopPropagation();
                 lightboxImg.src = this.src;
-                lightbox.classList.remove('hidden');
-                lightbox.classList.add('flex');
-                // Trigger reflow
-                void lightbox.offsetWidth;
-                lightbox.classList.remove('opacity-0');
-                lightboxImg.classList.remove('scale-95');
-                lightboxImg.classList.add('scale-100');
+                lightbox.classList.add('show');
                 document.body.style.overflow = 'hidden';
             });
         });
 
         function closeLightbox() {
-            lightbox.classList.add('opacity-0');
-            lightboxImg.classList.remove('scale-100');
-            lightboxImg.classList.add('scale-95');
+            lightbox.classList.remove('show');
             setTimeout(() => {
-                lightbox.classList.add('hidden');
-                lightbox.classList.remove('flex');
                 document.body.style.overflow = '';
-            }, 300);
+            }, 300); // match css transition duration
         }
 
         // Close on escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+            if (e.key === 'Escape' && lightbox.classList.contains('show')) {
                 closeLightbox();
             }
         });
