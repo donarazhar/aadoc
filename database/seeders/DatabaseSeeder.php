@@ -90,6 +90,7 @@ class DatabaseSeeder extends Seeder
             LmsMoodleArticleSeeder::class,
             LmsMoodleDasarArticleSeeder::class,
             LmsMoodleTutorialCohortCourseArticleSeeder::class,
+            LmsMoodleTutorialTeacherArticleSeeder::class,
         ]);
     }
 }
