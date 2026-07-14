@@ -46,6 +46,17 @@ class DatabaseSeeder extends Seeder
         // Memanggil seeder lainnya agar datanya ikut masuk
         $this->call([
             GettingStartedSeeder::class,
+            AnalisisStrukturProyekSeeder::class,
+            AnalisisTeknologiDependensiSeeder::class,
+            AnalisisGayaPenulisanKodeSeeder::class,
+            AnalisisSkemaDatabaseSeeder::class,
+            AnalisisQueryKritisSeeder::class,
+            AnalisisManajemenDataSeeder::class,
+            AnalisisKoneksiStagingSeeder::class,
+            AnalisisSetupLingkunganSeeder::class,
+            AnalisisCICDPipelineSeeder::class,
+            AnalisisKonfigurasiServerSeeder::class,
+            AnalisisAPIEndpointSeeder::class,
         ]);
     }
 }
