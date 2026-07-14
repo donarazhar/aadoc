@@ -59,6 +59,9 @@ class DatabaseSeeder extends Seeder
             AnalisisAPIEndpointSeeder::class,
             AnalisisAlurBisnisSeeder::class,
             AnalisisOtorisasiRBACSeeder::class,
+            AnalisisKomunikasiAsinkronSeeder::class,
+            AnalisisTroubleshootingSeeder::class,
+            AnalisisETLSeeder::class,
         ]);
     }
 }
