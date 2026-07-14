@@ -46,19 +46,6 @@ class DatabaseSeeder extends Seeder
         // Memanggil seeder lainnya agar datanya ikut masuk
         $this->call([
             GettingStartedSeeder::class,
-            AnalisisArsitekturLMSSeeder::class,
-            AnalisisFrontendStateSeeder::class,
-            AnalisisMobileArchitectureSeeder::class,
-            AnalisisAutomatedTestingSeeder::class,
-            AnalisisObservabilitySeeder::class,
-            AnalisisThirdPartyWebhookSeeder::class,
-            AnalisisVersionControlSDLCSeeder::class,
-            PanduanMobileRegistrasiSeeder::class,
-            PanduanMobileKeuanganSeeder::class,
-            PanduanMobileAkademikSeeder::class,
-            PanduanWebDataSiswaSeeder::class,
-            PanduanWebTagihanSeeder::class,
-            PanduanWebLMSSeeder::class,
         ]);
     }
 }
