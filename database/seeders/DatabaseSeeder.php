@@ -47,6 +47,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GettingStartedSeeder::class,
             AnalisisArsitekturLMSSeeder::class,
+            AnalisisFrontendStateSeeder::class,
+            AnalisisMobileArchitectureSeeder::class,
+            AnalisisAutomatedTestingSeeder::class,
+            AnalisisObservabilitySeeder::class,
+            AnalisisThirdPartyWebhookSeeder::class,
+            AnalisisVersionControlSDLCSeeder::class,
         ]);
     }
 }
