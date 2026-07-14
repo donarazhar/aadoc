@@ -53,6 +53,12 @@ class DatabaseSeeder extends Seeder
             AnalisisObservabilitySeeder::class,
             AnalisisThirdPartyWebhookSeeder::class,
             AnalisisVersionControlSDLCSeeder::class,
+            PanduanMobileRegistrasiSeeder::class,
+            PanduanMobileKeuanganSeeder::class,
+            PanduanMobileAkademikSeeder::class,
+            PanduanWebDataSiswaSeeder::class,
+            PanduanWebTagihanSeeder::class,
+            PanduanWebLMSSeeder::class,
         ]);
     }
 }
