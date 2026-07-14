@@ -47,6 +47,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GettingStartedSeeder::class,
             PanduanRoleHierarkiSeeder::class,
+            PanduanERDSeeder::class,
             PanduanFiturMenuMobileSeeder::class,
             PanduanFiturMenuWebSeeder::class,
         ]);
