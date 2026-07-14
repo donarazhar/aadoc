@@ -57,6 +57,8 @@ class DatabaseSeeder extends Seeder
             AnalisisCICDPipelineSeeder::class,
             AnalisisKonfigurasiServerSeeder::class,
             AnalisisAPIEndpointSeeder::class,
+            AnalisisAlurBisnisSeeder::class,
+            AnalisisOtorisasiRBACSeeder::class,
         ]);
     }
 }
