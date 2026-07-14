@@ -46,11 +46,6 @@ class DatabaseSeeder extends Seeder
         // Memanggil seeder lainnya agar datanya ikut masuk
         $this->call([
             GettingStartedSeeder::class,
-            AnalisisArsitekturGlobalSeeder::class,
-            AnalisisBackendGolangSeeder::class,
-            AnalisisFrontendNextJSSeeder::class,
-            AnalisisKeamananSeeder::class,
-            AnalisisDevopsSeeder::class,
         ]);
     }
 }
