@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 use App\Models\Document;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 class AlazharappsAnalysisSeeder extends Seeder
@@ -15,6 +16,10 @@ class AlazharappsAnalysisSeeder extends Seeder
      */
     public function run(): void
     {
+        // Get Admin User
+        $admin = User::where('email', 'donarazhar@gmail.com')->first();
+        $adminId = $admin ? $admin->id : User::first()->id ?? 1;
+
         // 1. Create Category for Analysis
         $category = Category::firstOrCreate(
             ['slug' => 'analisis-arsitektur-sistem'],
@@ -48,7 +53,7 @@ HTML;
                 'title' => 'Analisis Arsitektur Global & Integrasi Sistem',
                 'content' => $content1,
                 'is_published' => true,
-                'created_by' => 1,
+                'created_by' => $adminId,
                 'order' => 1,
             ]
         );
@@ -83,7 +88,7 @@ HTML;
                 'title' => 'Pendalaman Backend: Golang (Go)',
                 'content' => $content2,
                 'is_published' => true,
-                'created_by' => 1,
+                'created_by' => $adminId,
                 'order' => 2,
             ]
         );
@@ -112,7 +117,7 @@ HTML;
                 'title' => 'Pendalaman Frontend: NextJS',
                 'content' => $content3,
                 'is_published' => true,
-                'created_by' => 1,
+                'created_by' => $adminId,
                 'order' => 3,
             ]
         );
@@ -141,7 +146,7 @@ HTML;
                 'title' => 'Keamanan & Autentikasi',
                 'content' => $content4,
                 'is_published' => true,
-                'created_by' => 1,
+                'created_by' => $adminId,
                 'order' => 4,
             ]
         );
@@ -167,7 +172,7 @@ HTML;
                 'title' => 'DevOps, Deployment, & Infrastruktur',
                 'content' => $content5,
                 'is_published' => true,
-                'created_by' => 1,
+                'created_by' => $adminId,
                 'order' => 5,
             ]
         );
