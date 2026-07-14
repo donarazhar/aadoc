@@ -50,6 +50,7 @@ HTML;
                 'title' => '4. Skema Database & Entitas Tabel Berdasarkan Migrasi',
                 'category_id' => $catAnalisis->id,
                 'content' => $content,
+                'is_published' => true,
                 'created_by' => $adminId,
             ]
         );

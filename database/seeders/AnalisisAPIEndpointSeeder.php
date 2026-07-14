@@ -54,6 +54,7 @@ HTML;
                 'title' => '11. Dokumentasi API (Endpoint Summary)',
                 'category_id' => $catAnalisis->id,
                 'content' => $content,
+                'is_published' => true,
                 'created_by' => $adminId,
             ]
         );

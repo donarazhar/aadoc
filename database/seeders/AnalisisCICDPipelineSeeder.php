@@ -48,6 +48,7 @@ HTML;
                 'title' => '9. Analisis Otomatisasi Deployment (CI/CD Pipeline)',
                 'category_id' => $catAnalisis->id,
                 'content' => $content,
+                'is_published' => true,
                 'created_by' => $adminId,
             ]
         );

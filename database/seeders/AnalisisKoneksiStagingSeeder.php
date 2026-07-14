@@ -47,6 +47,7 @@ HTML;
                 'title' => '7. Informasi Koneksi & Kredensial Staging',
                 'category_id' => $catAnalisis->id,
                 'content' => $content,
+                'is_published' => true,
                 'created_by' => $adminId,
             ]
         );

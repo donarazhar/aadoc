@@ -60,6 +60,7 @@ HTML;
                 'title' => '8. Panduan Setup Lingkungan & Build Aplikasi',
                 'category_id' => $catAnalisis->id,
                 'content' => $content,
+                'is_published' => true,
                 'created_by' => $adminId,
             ]
         );

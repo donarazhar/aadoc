@@ -58,6 +58,7 @@ HTML;
                 'title' => '3. Panduan Gaya Penulisan Kode (Coding Standards)',
                 'category_id' => $catAnalisis->id,
                 'content' => $content,
+                'is_published' => true,
                 'created_by' => $adminId,
             ]
         );

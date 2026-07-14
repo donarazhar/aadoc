@@ -65,6 +65,7 @@ HTML;
                 'title' => '1. Struktur Proyek & Arsitektur Microservices',
                 'category_id' => $catAnalisis->id,
                 'content' => $content,
+                'is_published' => true,
                 'created_by' => $adminId,
             ]
         );

@@ -60,6 +60,7 @@ HTML;
                 'title' => '2. Dokumentasi Teknologi & Dependensi',
                 'category_id' => $catAnalisis->id,
                 'content' => $content,
+                'is_published' => true,
                 'created_by' => $adminId,
             ]
         );

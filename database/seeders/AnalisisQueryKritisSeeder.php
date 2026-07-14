@@ -50,6 +50,7 @@ HTML;
                 'title' => '5. Analisis Query Kritis & Logika Database',
                 'category_id' => $catAnalisis->id,
                 'content' => $content,
+                'is_published' => true,
                 'created_by' => $adminId,
             ]
         );

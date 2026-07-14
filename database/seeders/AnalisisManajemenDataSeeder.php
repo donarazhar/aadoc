@@ -52,6 +52,7 @@ HTML;
                 'title' => '6. Strategi Manajemen Data (Backup & Archiving)',
                 'category_id' => $catAnalisis->id,
                 'content' => $content,
+                'is_published' => true,
                 'created_by' => $adminId,
             ]
         );
