@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 use App\Models\Document;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 class GettingStartedSeeder extends Seeder
@@ -15,6 +16,10 @@ class GettingStartedSeeder extends Seeder
      */
     public function run(): void
     {
+        // Get Admin User
+        $admin = User::where('email', 'donarazhar@gmail.com')->first();
+        $adminId = $admin ? $admin->id : User::first()->id ?? 1;
+
         // 1. Create Category
         $category = Category::firstOrCreate(
             ['slug' => 'getting-started'],
@@ -65,7 +70,7 @@ HTML;
                 'title' => 'Instalasi Mobile App',
                 'content' => $content,
                 'is_published' => true,
-                'created_by' => 1,
+                'created_by' => $adminId,
                 'order' => 1,
             ]
         );
@@ -110,7 +115,7 @@ HTML;
                 'title' => 'Akses Halaman Backoffice',
                 'content' => $backofficeContent,
                 'is_published' => true,
-                'created_by' => 1, // Assuming user 1 is the admin
+                'created_by' => $adminId, // Assuming user 1 is the admin
                 'order' => 2,
             ]
         );
