@@ -16,8 +16,13 @@ class AnalisisAutomatedTestingSeeder extends Seeder
         $adminId = $admin ? $admin->id : User::first()->id;
 
         $catAnalisis = Category::firstOrCreate(
-            ['slug' => Str::slug('Analisis Sistem ALAZHARAPPS')],
-            ['name' => 'Analisis Sistem ALAZHARAPPS']
+            ['slug' => Str::slug('Quality Assurance & SDLC')],
+            [
+                'name' => 'Quality Assurance & SDLC',
+                'description' => 'Standar pengujian mutu dan siklus pengembangan',
+                'order' => 4,
+                'is_hidden' => false,
+            ]
         );
 
         $content = <<<HTML

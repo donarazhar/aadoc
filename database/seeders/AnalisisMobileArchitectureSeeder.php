@@ -16,8 +16,13 @@ class AnalisisMobileArchitectureSeeder extends Seeder
         $adminId = $admin ? $admin->id : User::first()->id;
 
         $catAnalisis = Category::firstOrCreate(
-            ['slug' => Str::slug('Analisis Sistem ALAZHARAPPS')],
-            ['name' => 'Analisis Sistem ALAZHARAPPS']
+            ['slug' => Str::slug('Frontend & Mobile Apps')],
+            [
+                'name' => 'Frontend & Mobile Apps',
+                'description' => 'Arsitektur klien untuk Web dan Aplikasi Genggam',
+                'order' => 3,
+                'is_hidden' => false,
+            ]
         );
 
         $content = <<<HTML

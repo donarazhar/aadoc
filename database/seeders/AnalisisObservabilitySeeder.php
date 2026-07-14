@@ -16,8 +16,13 @@ class AnalisisObservabilitySeeder extends Seeder
         $adminId = $admin ? $admin->id : User::first()->id;
 
         $catAnalisis = Category::firstOrCreate(
-            ['slug' => Str::slug('Analisis Sistem ALAZHARAPPS')],
-            ['name' => 'Analisis Sistem ALAZHARAPPS']
+            ['slug' => Str::slug('Observabilitas & Monitoring')],
+            [
+                'name' => 'Observabilitas & Monitoring',
+                'description' => 'Pemantauan, metrik, dan agregasi log sistem',
+                'order' => 5,
+                'is_hidden' => false,
+            ]
         );
 
         $content = <<<HTML

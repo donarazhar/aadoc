@@ -16,8 +16,13 @@ class AnalisisThirdPartyWebhookSeeder extends Seeder
         $adminId = $admin ? $admin->id : User::first()->id;
 
         $catAnalisis = Category::firstOrCreate(
-            ['slug' => Str::slug('Analisis Sistem ALAZHARAPPS')],
-            ['name' => 'Analisis Sistem ALAZHARAPPS']
+            ['slug' => Str::slug('Integrasi Eksternal')],
+            [
+                'name' => 'Integrasi Eksternal',
+                'description' => 'Tata kelola koneksi Webhook dan Pihak Ketiga',
+                'order' => 6,
+                'is_hidden' => false,
+            ]
         );
 
         $content = <<<HTML
