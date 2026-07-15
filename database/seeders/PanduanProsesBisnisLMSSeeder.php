@@ -21,66 +21,86 @@ class PanduanProsesBisnisLMSSeeder extends Seeder
         );
 
         $content = <<<HTML
-<p>Dokumen ini memetakan alur kerja (<em>Business Process</em>) dari ujung ke ujung (*end-to-end*) khusus untuk ekosistem <strong>LMSALAZHARAPPS</strong>. Ekosistem ini berfokus pada denyut nadi harian sekolah: <strong>Kegiatan Belajar Mengajar (KBM)</strong>, <strong>Ujian (CBT)</strong>, dan <strong>Penilaian Akademik (E-Rapot)</strong>.</p>
+<p>Dokumen ini memetakan alur kerja (<em>Business Process</em>) dari ujung ke ujung ekosistem <strong>LMSALAZHARAPPS</strong>, yang kini disempurnakan dengan <strong>Peta Navigasi UI/UX</strong> (Panduan *Klik*). Dokumen ini berfungsi sebagai SOP Utama bagi Kepala Sekolah, Wali Kelas, dan Guru Mata Pelajaran.</p>
 
-<h3>Diagram Alur Proses Bisnis LMSALAZHARAPPS</h3>
-<pre><code class="language-mermaid">
-flowchart TD
-    A[Awal Tahun Ajaran] --> B(Penyusunan RPP & Jadwal Pelajaran)
-    B --> C(KBM Harian & Jurnal Guru)
-    C --> D{Presensi Siswa}
-    D -->|Hadir/Izin| E[Notifikasi Mobile Orang Tua]
-    D -->|Alpa| F[Teguran Wali Kelas]
-    
-    C --> G(Tugas & Ujian CBT)
-    G --> H{Aplikasi SEB Mobile}
-    H -->|Ujian Selesai| I(Penilaian Otomatis)
-    
-    I --> J[Rekapitulasi Nilai]
-    D --> J
-    J --> K(E-Rapot & Penguncian)
-    K --> L[Cetak PDF / Ijazah]
-</code></pre>
-
-<h3>1. Proses Hulu: Perencanaan Akademik (Awal Tahun)</h3>
-<p>Proses ini terjadi sebelum siswa masuk ke dalam kelas pada hari pertama sekolah.</p>
+<h3>1. Proses Hulu: Persiapan Kelas (Awal Tahun/Semester)</h3>
+<p>Siklus administratif sebelum kegiatan belajar fisik dimulai.</p>
 <ul>
-    <li><strong>Tahap 1 (Pemetaan Kelas & Wali):</strong> Kepala Sekolah atau Kurikulum membagi siswa ke dalam Rombongan Belajar (Rombel) dan menunjuk Wali Kelas.</li>
-    <li><strong>Tahap 2 (Pembuatan Jadwal Pelajaran):</strong> Admin Kurikulum menyusun matriks jadwal. Kapan Guru Matematika mengajar di Kelas 7A, dan kapan Guru Agama mengajar di 7B. Jadwal ini yang nantinya akan di-<em>consume</em> (dibaca) oleh Aplikasi Mobile Siswa dan Orang Tua.</li>
-    <li><strong>Tahap 3 (Rencana Pelajaran/RPP):</strong> Guru menyiapkan materi pembelajaran (Modul/PDF/Video) yang diunggah ke *course-service* agar bisa diakses siswa dari rumah.</li>
+    <li><strong>Tahap 1: Pembuatan Rombel & Pemetaan Guru</strong>
+        <ul>
+            <li><strong>Jejak UI (Kepala Sekolah):</strong> Masuk Web Backoffice &rarr; Sidebar Kiri &rarr; <code>Sekolah</code> &rarr; <code>Rombel</code>.</li>
+            <li><strong>Aksi UX:</strong> Gunakan form <strong>Dual Listbox</strong> (Dua kolom daftar nama). Klik dan pindahkan nama-nama siswa dari kolom "Belum Punya Kelas" (kiri) ke kolom "Anggota Kelas 7A" (kanan). Cari nama Guru di <em>Dropdown</em> untuk ditunjuk sebagai "Wali Kelas".</li>
+        </ul>
+    </li>
+    <li><strong>Tahap 2: Jadwal Pelajaran (Schedule Matrix)</strong>
+        <ul>
+            <li><strong>Aksi UX:</strong> Admin Kurikulum menggunakan tabel matriks hari dan jam untuk menempatkan Guru Mata Pelajaran ke kelas-kelas yang telah dibuat. Jadwal ini akan memicu kemunculan menu di HP Guru.</li>
+        </ul>
+    </li>
 </ul>
 
-<h3>2. Proses Inti: KBM Harian (Kegiatan Belajar Mengajar)</h3>
-<p>Ini adalah rutinitas yang terjadi setiap hari (Senin - Jumat).</p>
+<h3>2. Proses Inti: Rutinitas KBM & Presensi Harian</h3>
+<p>Denyut nadi operasional sekolah sehari-hari yang menghubungkan Guru di kelas dengan Orang Tua di rumah.</p>
 <ul>
-    <li><strong>Tahap 1 (Jurnal Mengajar Guru):</strong> Saat bel masuk berbunyi, Guru membuka aplikasi/web, memilih jadwal kelasnya hari itu, dan mengisi "Jurnal Mengajar" (Materi apa yang diajarkan hari ini).</li>
-    <li><strong>Tahap 2 (Presensi Harian):</strong> Guru memanggil nama siswa satu per satu. Di dalam sistem (<em>jurnal-service</em>), Guru mencentang status kehadiran (Hadir, Sakit, Izin, Alpa).</li>
-    <li><strong>Tahap 3 (Notifikasi Real-time):</strong> Saat Guru menekan tombol "Simpan Presensi", sistem langsung menembakkan *Push Notification* ke HP Orang Tua yang memberitahukan bahwa anak mereka sudah berada di dalam kelas dengan selamat (atau sebaliknya, membolos).</li>
+    <li><strong>Tahap 1: Pengisian Jurnal & Presensi (Guru)</strong>
+        <ul>
+            <li><strong>Jejak UI (Guru):</strong> Buka Aplikasi Mobile Guru (Atau akses Web) &rarr; Beranda &rarr; Klik kotak jadwal <code>Mengajar Kelas 7A Jam 08:00</code>.</li>
+            <li><strong>Aksi UX:</strong> Layar memunculkan daftar nama siswa. Guru mencentang (*Checkbox*) atau menekan tombol (*Radio Button*) pada status: <code>Hadir / Sakit / Izin / Alpa</code>. Pada kotak teks di bawahnya, Guru mengetik <code>Jurnal Mengajar</code> (Topik: Bab 1 Matematika). Tekan <strong>Submit</strong>.</li>
+        </ul>
+    </li>
+    <li><strong>Tahap 2: Keajaiban Notifikasi (Orang Tua)</strong>
+        <ul>
+            <li><strong>Jejak UX (Orang Tua):</strong> Di saat yang bersamaan, HP Android/iOS milik orang tua bergetar. Menampilkan pesan *Push Notification* <strong>"Ananda Budi telah hadir di pelajaran Matematika"</strong>.</li>
+            <li><strong>Aksi UI:</strong> Orang tua bisa membuka menu <code>Akademik</code> &rarr; <code>Jadwal & Absensi</code> di HP mereka untuk melihat grafik pie (<em>Doughnut Chart</em>) statistik kehadiran anak selama satu semester.</li>
+        </ul>
+    </li>
 </ul>
 
-<h3>3. Proses Evaluasi: E-Learning & CBT (Ujian)</h3>
-<p>Proses penilaian harian, UTS, hingga UAS.</p>
+<h3>3. Proses Evaluasi: CBT (Computer Based Test)</h3>
+<p>Proses penyelenggaraan Ulangan Harian, UTS, dan UAS bebas kecurangan.</p>
 <ul>
-    <li><strong>Tahap 1 (Pembuatan Bank Soal):</strong> Guru menyusun soal (Pilihan Ganda / Esai) di dalam Bank Soal sistem LMS.</li>
-    <li><strong>Tahap 2 (Penjadwalan CBT - Computer Based Test):</strong> Guru menerbitkan ujian dengan batas waktu (<em>Timer</em>) yang ketat (Misalnya: Mulai jam 08:00, selesai 09:30).</li>
-    <li><strong>Tahap 3 (Pelaksanaan Ujian Anti-Nyontek):</strong> Siswa membuka ujian tersebut menggunakan Aplikasi Mobile Android. Sistem memaksa mereka masuk ke <em>Safe Exam Browser (SEB) Mode</em> (Layar terkunci, tidak bisa buka Google, tidak bisa <em>Screenshot</em>, dan navigasi HP dimatikan). Jika ketahuan mencoba keluar aplikasi, ujian akan tertutup otomatis.</li>
-    <li><strong>Tahap 4 (Kalkulasi Nilai Otomatis):</strong> Segera setelah waktu habis, sistem otomatis memeriksa jawaban pilihan ganda dan memunculkan skor. Menghemat waktu koreksi guru hingga 90%.</li>
+    <li><strong>Tahap 1: Pembuatan Soal (Guru)</strong>
+        <ul>
+            <li><strong>Jejak UI (Guru):</strong> Web Backoffice &rarr; Sidebar <code>LMS</code> &rarr; <code>Bank Soal</code> &rarr; <code>Ujian</code>.</li>
+            <li><strong>Aksi UX:</strong> Guru membuat soal menggunakan <em>Rich Text Editor</em>, mengatur batas waktu mundur (<em>Countdown Timer</em>), dan menekan <strong>Terbitkan Ujian</strong>.</li>
+        </ul>
+    </li>
+    <li><strong>Tahap 2: Mengerjakan Ujian Anti-Nyontek (Siswa)</strong>
+        <ul>
+            <li><strong>Jejak UI (Siswa):</strong> Buka Aplikasi Mobile Siswa &rarr; Menu <code>Jadwal Ujian</code> &rarr; Klik tombol <strong>Mulai Kerjakan</strong>.</li>
+            <li><strong>Reaksi UX Sistem:</strong> Aplikasi mendeteksi ini adalah ujian penting. UI aplikasi seketika berubah masuk ke dalam mode <strong>Safe Exam Browser (SEB)</strong>. Layar HP siswa akan dibekukan (<em>Locked Screen</em>), tombol kembali/Home dinonaktifkan, dan fungsi *Screenshot* dicekal oleh OS Android. Siswa baru bisa keluar aplikasi jika menekan tombol <strong>Selesai Ujian</strong>.</li>
+            <li><strong>Kalkulasi:</strong> Sistem LMS otomatis memunculkan angka skor pilihan ganda ke layar HP siswa saat itu juga.</li>
+        </ul>
+    </li>
 </ul>
 
-<h3>4. Proses Hilir: E-Rapot & Pencetakan Kelulusan</h3>
-<p>Siklus administratif yang terjadi di akhir Semester atau akhir Tahun Ajaran.</p>
+<h3>4. Proses Hilir: E-Rapot (Penilaian Akhir)</h3>
+<p>Siklus puncak di mana nilai KBM dan Ujian CBT dilebur menjadi satu dokumen sah.</p>
 <ul>
-    <li><strong>Tahap 1 (Input Nilai Akhir):</strong> Guru mata pelajaran menggabungkan nilai tugas harian, nilai UTS, dan UAS (dari CBT di atas) ke dalam tabel (<em>Grid</em>) E-Rapot di Backoffice. Jika nilai di bawah KKM, sistem memberikan indikator peringatan visual.</li>
-    <li><strong>Tahap 2 (Validasi Wali Kelas):</strong> Wali kelas memeriksa kembali seluruh nilai dari semua guru mata pelajaran untuk anak walinya, lalu menambahkan catatan/deskripsi sikap (Karakter).</li>
-    <li><strong>Tahap 3 (Penguncian / Locking):</strong> Kepala Sekolah mengecek rekapitulasi. Jika sudah benar, Kepala Sekolah menekan tombol "Gembok" (<em>Lock</em>). Artinya, guru tidak bisa lagi diam-diam mengubah nilai siswanya.</li>
-    <li><strong>Tahap 4 (Pencetakan Massal):</strong> Sistem me-<em>generate</em> (membuat) ratusan file PDF (Buku Rapor atau Ijazah kelulusan) sekaligus. File PDF ini bisa langsung diakses oleh Orang Tua dari Aplikasi Mobile tanpa harus menunggu pembagian rapor fisik di sekolah.</li>
+    <li><strong>Tahap 1: Input Nilai Guru Mata Pelajaran</strong>
+        <ul>
+            <li><strong>Jejak UI (Guru):</strong> Web Backoffice &rarr; Sidebar <code>Jurnal & E-Rapot</code> &rarr; <code>E-Rapot</code>.</li>
+            <li><strong>Aksi UX:</strong> Guru berhadapan dengan UI <em>Grid</em> panjang (seperti <em>Spreadsheet Excel</em>). Berkat fitur <em>Inline Editing</em>, Guru tinggal klik kotak kosong dan mengetikkan angka. Jika Guru mengetik angka 55 (di bawah KKM), kotak tersebut seketika berubah menjadi <strong>MERAH</strong> sebagai peringatan otomatis (*Auto-Formatting*).</li>
+        </ul>
+    </li>
+    <li><strong>Tahap 2: Validasi & Penguncian (Locking)</strong>
+        <ul>
+            <li><strong>Jejak UI (Kepala Sekolah):</strong> Masuk ke menu E-Rapot yang sama.</li>
+            <li><strong>Aksi UX:</strong> Kepala Sekolah mengecek rekapitulasi. Jika sudah *Final*, ia menekan ikon tombol <strong>Gembok (Lock)</strong>. UX merespon dengan men-<em>disable</em> (membuat warna abu-abu) seluruh kotak inputan tadi agar nilai tidak bisa lagi dimodifikasi secara diam-diam.</li>
+        </ul>
+    </li>
+    <li><strong>Tahap 3: Panen Ijazah PDF</strong>
+        <ul>
+            <li><strong>Aksi UX:</strong> Admin menekan <strong>"Generate Ijazah"</strong>. Di latar belakang sistem (<em>Background Worker</em>), puluhan file PDF dibuat massal dan indikator *Progress Bar* (0% - 100%) berjalan di layar Admin. Setelah 100%, file-file PDF Ijazah ini langsung muncul dan bisa diunduh dari Aplikasi Mobile Orang Tua.</li>
+        </ul>
+    </li>
 </ul>
 HTML;
 
         Document::updateOrCreate(
-            ['slug' => Str::slug('Panduan Proses Bisnis Inti LMSALAZHARAPPS')],
+            ['slug' => Str::slug('Panduan SOP Proses Bisnis LMSALAZHARAPPS')],
             [
-                'title' => 'Panduan Proses Bisnis: Siklus Akademik & CBT LMSALAZHARAPPS',
+                'title' => 'Panduan SOP Proses Bisnis (UI/UX Lengkap) - LMSALAZHARAPPS',
                 'category_id' => $catPanduan->id,
                 'content' => $content,
                 'is_published' => true,

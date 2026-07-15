@@ -21,64 +21,82 @@ class PanduanProsesBisnisALAZHARSeeder extends Seeder
         );
 
         $content = <<<HTML
-<p>Dokumen ini memetakan alur kerja (<em>Business Process</em>) dari ujung ke ujung (*end-to-end*) khusus untuk ekosistem <strong>ALAZHARAPPS</strong>. Ekosistem ini berfokus pada dua tulang punggung utama yayasan: <strong>Administrasi Siswa (PMB)</strong> dan <strong>Mesin Keuangan (Financial Engine)</strong>.</p>
-
-<h3>Diagram Alur Proses Bisnis ALAZHARAPPS</h3>
-<pre><code class="language-mermaid">
-flowchart TD
-    A[Masyarakat / Orang Tua] -->|Melihat Info| B(Animo PMB)
-    B -->|Membeli Formulir| C(Calon Murid)
-    C -->|Ikut Tes Seleksi| D{Ujian Masuk}
-    D -->|Lulus| E[Diterima / Data Calon Murid]
-    D -->|Gagal| Z[Ditolak]
-    
-    E -->|Tagihan Muncul| F(Uang Pangkal)
-    F -->|Bayar via DOKU| G{Payment Gateway}
-    G -->|Webhook Sukses| H[Murid Aktif]
-    
-    H -->|Siklus Bulanan| I(Tagihan SPP)
-    H -->|Siklus Tahunan| J(Naik Kelas & Tagihan Daftar Ulang)
-    J -->|Akhir Jenjang| K(Kelulusan / Alumni)
-</code></pre>
+<p>Dokumen ini memetakan alur kerja (<em>Business Process</em>) dari ujung ke ujung ekosistem <strong>ALAZHARAPPS</strong>, yang kini disempurnakan dengan <strong>Peta Navigasi UI/UX</strong> (Panduan *Klik*). Dokumen ini berfungsi sebagai SOP Utama bagi Admin Tata Usaha dan Bendahara.</p>
 
 <h3>1. Proses Hulu: Penerimaan Murid Baru (PMB)</h3>
-<p>Proses ini mengubah masyarakat umum menjadi siswa resmi sekolah.</p>
+<p>Siklus mengubah masyarakat umum menjadi siswa resmi sekolah.</p>
 <ul>
-    <li><strong>Tahap 1 (Setup Gelombang):</strong> Admin Pusat / Sekolah membuka "Keran" pendaftaran dengan mengatur nama gelombang, rentang tanggal pendaftaran, dan biaya formulir masuk.</li>
-    <li><strong>Tahap 2 (Animo/Peminat):</strong> Orang tua mendaftar di portal web/mobile. Mereka baru sebatas membuat akun. Status anaknya di sistem disebut sebagai <strong>Animo</strong> (Peminat).</li>
-    <li><strong>Tahap 3 (Pembelian Formulir):</strong> Orang tua melakukan pembayaran biaya formulir (biasanya via <em>Virtual Account</em>). Setelah lunas, status anak naik level menjadi <strong>Calon Murid</strong>. Di titik ini, mereka mendapatkan nomor ujian.</li>
-    <li><strong>Tahap 4 (Seleksi & Ujian):</strong> Sekolah mengatur <em>Jadwal Ujian</em>. Calon murid datang untuk tes (tertulis/wawancara). Setelah tes selesai, Panitia PMB merapatkan hasil ujian.</li>
-    <li><strong>Tahap 5 (Yudisium Kelulusan):</strong> Admin menekan tombol "Lulus" di sistem. Selamat! Anak tersebut kini siap menjadi warga sekolah, <strong>NAMUN</strong> statusnya belum aktif sepenuhnya sebelum ia menyelesaikan administrasi keuangan tahap awal.</li>
-</ul>
-
-<h3>2. Proses Inti: Mesin Keuangan & Payment Gateway</h3>
-<p>Ini adalah siklus perputaran uang (*Cashflow*) yang diotomasikan oleh sistem.</p>
-<ul>
-    <li><strong>Tahap 1 (Kewajiban Uang Pangkal):</strong> Segera setelah siswa dinyatakan lulus PMB, sistem secara otomatis me-<em>generate</em> (menerbitkan) tagihan raksasa bernama <strong>Uang Pangkal</strong> (terdiri dari Uang Gedung, Seragam, Buku, dll).</li>
-    <li><strong>Tahap 2 (Proses Pembayaran DOKU):</strong> Orang tua membuka Aplikasi Mobile, melihat tagihan Uang Pangkal (berwarna merah). Mereka memilih bank (Misal: Mandiri VA) lalu mentransfer uangnya.</li>
-    <li><strong>Tahap 3 (Mekanisme Webhook):</strong> Server Bank memberi tahu server DOKU, lalu DOKU mengirim "Pesan Gaib" (*Webhook*) ke server <code>transaction-service</code> ALAZHARAPPS. Sistem memvalidasi *Signature* (Tanda tangan keamanan). Jika valid, status tagihan di *database* diubah menjadi Lunas (Hijau). <strong>Siswa tersebut kini resmi menjadi Murid Aktif.</strong></li>
-    <li><strong>Tahap 4 (Siklus Berulang / Recurring Billing):</strong>
+    <li><strong>Tahap 1: Pembukaan Pendaftaran (Setup Gelombang)</strong>
         <ul>
-            <li><strong>Bulanan (SPP):</strong> Pada tanggal 1 setiap bulannya, sistem keuangan (*Cron Job / Scheduler*) otomatis menembakkan tagihan SPP ke HP seluruh orang tua.</li>
-            <li><strong>Tunggakan & Notifikasi:</strong> Jika melewati batas Jatuh Tempo, sistem menembakkan notifikasi peringatan (*Push Notification*) ke HP penunggak secara berkala.</li>
+            <li><strong>Jejak UI (Admin):</strong> Masuk *Backoffice* &rarr; Sidebar Kiri &rarr; <code>Administrasi</code> &rarr; <code>PMB</code> &rarr; <code>Gelombang Pendaftaran</code>.</li>
+            <li><strong>Aksi UX:</strong> Klik tombol biru <strong>"Tambah"</strong>. Isi rentang tanggal (<em>Date Picker</em>) dan nominal Harga Formulir, lalu tekan <strong>"Simpan"</strong>.</li>
+        </ul>
+    </li>
+    <li><strong>Tahap 2: Pantau Animo & Calon Murid</strong>
+        <ul>
+            <li><strong>Jejak UI (Admin):</strong> Sidebar &rarr; <code>Administrasi</code> &rarr; <code>PMB</code> &rarr; <code>Animo</code> (Bagi yang belum bayar formulir) ATAU <code>Data Calon Murid</code> (Bagi yang sudah bayar formulir).</li>
+            <li><strong>Aksi UX:</strong> Halaman berupa *Data Grid* tabel. Admin memantau pergerakan data *real-time*. Jika orang tua komplain gagal bayar via DOKU, Admin bisa beralih ke Sidebar <code>Transaksi</code> &rarr; <code>PMB</code> untuk melakukan aksi klik <strong>Ikon Uang (Force Paid)</strong> dan mengunggah bukti transfer manual.</li>
+        </ul>
+    </li>
+    <li><strong>Tahap 3: Pelaksanaan Ujian (Entrance Test)</strong>
+        <ul>
+            <li><strong>Jejak UI (Admin):</strong> Sidebar &rarr; <code>Administrasi</code> &rarr; <code>PMB</code> &rarr; <code>Jadwal Ujian</code> (Buat jadwalnya) lalu <code>Peserta Ujian</code> (Masukkan anak ke jadwal tersebut).</li>
+        </ul>
+    </li>
+    <li><strong>Tahap 4: Yudisium Kelulusan Masuk</strong>
+        <ul>
+            <li><strong>Jejak UI (Admin):</strong> Sidebar &rarr; <code>Administrasi</code> &rarr; <code>PMB</code> &rarr; <code>Kelulusan Peserta</code>.</li>
+            <li><strong>Aksi UX:</strong> Pilih nama siswa dari tabel, tekan tombol hijau <strong>"Luluskan"</strong>. Sistem memindahkan data anak ini menjadi calon murid siap bayar uang pangkal.</li>
         </ul>
     </li>
 </ul>
 
-<h3>3. Proses Hilir: Mutasi & Promosi (Akhir Tahun Ajaran)</h3>
-<p>Siklus ini terjadi setiap bulan Juni/Juli saat pergantian tahun ajaran baru.</p>
+<h3>2. Proses Inti: Mesin Keuangan (Tagihan & Pembayaran)</h3>
+<p>Siklus perputaran uang (<em>Cashflow</em>) yang terotomatisasi penuh.</p>
 <ul>
-    <li><strong>Tahap 1 (Pembuatan Tahun Ajaran Baru):</strong> Admin menonaktifkan Tahun Ajaran lama dan mengaktifkan yang baru di menu Master Data.</li>
-    <li><strong>Tahap 2 (Kenaikan Kelas Massal):</strong> Admin masuk ke menu "Kenaikan Kelas", memilih rombongan belajar lama (Misal: Kelas 1A) lalu memindahkan seluruh siswanya ke kelas baru (Misal: Kelas 2A).</li>
-    <li><strong>Tahap 3 (Tagihan Daftar Ulang):</strong> Bersamaan dengan naiknya kelas siswa, Admin Keuangan menerbitkan tagihan tahunan <strong>Uang Daftar Ulang</strong>.</li>
-    <li><strong>Tahap 4 (Kelulusan / Alumni):</strong> Untuk siswa tingkat akhir (Kelas 6, 9, 12), Admin mengeksekusi menu Kelulusan. Sistem memindahkan data mereka dari tabel "Siswa Aktif" menjadi "Alumni", sehingga mereka tidak akan pernah lagi ditagihkan SPP di bulan-bulan berikutnya.</li>
+    <li><strong>Tahap 1: Setup Uang Pangkal & SPP</strong>
+        <ul>
+            <li><strong>Jejak UI (Bendahara):</strong> Sidebar &rarr; <code>Administrasi</code> &rarr; <code>Biaya</code> &rarr; <code>Uang Sekolah</code> ATAU <code>Uang Pangkal</code>.</li>
+            <li><strong>Aksi UX:</strong> Pilih Tahun Ajaran dan Kelas. Tekan tombol dinamis <strong>"+ Tambah Komponen Biaya"</strong> berulang kali untuk memecah tagihan (Gedung, Seragam, dll). Perhatikan spanduk (<em>Banner</em>) <strong>Total Biaya</strong> di bagian bawah yang berhitung otomatis.</li>
+        </ul>
+    </li>
+    <li><strong>Tahap 2: Pengajuan Diskon (Bila Ada)</strong>
+        <ul>
+            <li><strong>Jejak UI (Kepala Sekolah):</strong> Sidebar &rarr; <code>Administrasi</code> &rarr; <code>Biaya</code> &rarr; <code>Pengajuan Diskon</code>.</li>
+            <li><strong>Aksi UX:</strong> Tekan ikon <strong>"Ceklis Hijau" (Approve)</strong> di kolom aksi. UX sistem akan seketika mengubah nominal <em>Grand Total</em> tagihan di *database* anak tersebut.</li>
+        </ul>
+    </li>
+    <li><strong>Tahap 3: Pembayaran & Webhook (Tanpa Sentuhan Admin)</strong>
+        <ul>
+            <li><strong>Jejak UI (Orang Tua):</strong> Buka Aplikasi Mobile Android/iOS &rarr; Menu Utama &rarr; <code>Transaksi / Keuangan</code>.</li>
+            <li><strong>Aksi UX:</strong> Orang tua melihat tagihan merah, memilih <strong>Mandiri VA (DOKU)</strong>, menyalin nomor, dan transfer dari <em>M-Banking</em>.</li>
+            <li><strong>Reaksi UX Sistem:</strong> Dalam hitungan detik (*Webhook*), Aplikasi HP akan berubah menjadi centang hijau. Di Backoffice, tagihan pindah dari tabel <em>Unpaid</em> ke <em>History</em>.</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>3. Proses Hilir: Mutasi Tahunan (Akhir Tahun Ajaran)</h3>
+<p>Siklus bulan Juni/Juli untuk menaikkan kelas siswa lama.</p>
+<ul>
+    <li><strong>Tahap 1: Kenaikan Kelas Massal</strong>
+        <ul>
+            <li><strong>Jejak UI (Admin):</strong> Sidebar &rarr; <code>Sekolah</code> &rarr; <code>Akademik</code> &rarr; <code>Kenaikan Kelas & Kelulusan</code>.</li>
+            <li><strong>Aksi UX:</strong> Pilih Kelas Asal, pilih Kelas Tujuan. Gunakan <em>Checkbox</em> masal untuk mencentang 30 nama siswa sekaligus, lalu klik <strong>"Proses Naik Kelas"</strong>.</li>
+        </ul>
+    </li>
+    <li><strong>Tahap 2: Eksekusi Tagihan Daftar Ulang Tahunan</strong>
+        <ul>
+            <li><strong>Jejak UI (Bendahara):</strong> Sidebar &rarr; <code>Administrasi</code> &rarr; <code>Biaya</code> &rarr; <code>Uang Daftar Ulang</code>.</li>
+            <li><strong>Aksi UX:</strong> Isi <strong>"Tanggal Jatuh Tempo"</strong> pada form (*Sangat Krusial!*). Setelah disimpan, sistem *Cron Job* akan menagihkan biaya ini dan mengirim <em>Push Notification</em> ke HP orang tua jika telat membayar.</li>
+        </ul>
+    </li>
 </ul>
 HTML;
 
         Document::updateOrCreate(
-            ['slug' => Str::slug('Panduan Proses Bisnis Inti ALAZHARAPPS')],
+            ['slug' => Str::slug('Panduan SOP Proses Bisnis ALAZHARAPPS')],
             [
-                'title' => 'Panduan Proses Bisnis: Siklus Administratif & Finansial ALAZHARAPPS',
+                'title' => 'Panduan SOP Proses Bisnis (UI/UX Lengkap) - ALAZHARAPPS',
                 'category_id' => $catPanduan->id,
                 'content' => $content,
                 'is_published' => true,
