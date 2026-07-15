@@ -47,6 +47,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GettingStartedSeeder::class,
             MigrasiKategoriSeeder::class,
+            UpdateArtikelUIUXSeeder::class,
         ]);
     }
 }
