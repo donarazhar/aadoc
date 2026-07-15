@@ -54,6 +54,7 @@ class DatabaseSeeder extends Seeder
             PanduanWorkflowDokuSeeder::class,
             PanduanUIUXSeeder::class,
             PanduanDashboardBackofficeSeeder::class,
+            PanduanMenuBackofficeSeeder::class,
         ]);
     }
 }
