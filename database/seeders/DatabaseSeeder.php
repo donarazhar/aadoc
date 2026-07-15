@@ -55,6 +55,11 @@ class DatabaseSeeder extends Seeder
             PanduanUIUXSeeder::class,
             PanduanDashboardBackofficeSeeder::class,
             PanduanMenuBackofficeSeeder::class,
+            PanduanUIUX_01_DashboardTransaksiSeeder::class,
+            PanduanUIUX_02_LaporanSeeder::class,
+            PanduanUIUX_03_SekolahSeeder::class,
+            PanduanUIUX_04_AdministrasiSeeder::class,
+            PanduanUIUX_05_ManajemenUserJurnalSeeder::class,
         ]);
     }
 }
