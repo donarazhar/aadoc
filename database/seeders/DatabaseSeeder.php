@@ -50,6 +50,10 @@ class DatabaseSeeder extends Seeder
             PanduanWorkflowAuthSeeder::class,
             PanduanWorkflowFinanceSeeder::class,
             PanduanWorkflowLMSSeeder::class,
+            PanduanWorkflowPresenceSeeder::class,
+            PanduanWorkflowNotificationSeeder::class,
+            PanduanWorkflowMutationSeeder::class,
+            PanduanWorkflowETLSeeder::class,
         ]);
     }
 }
