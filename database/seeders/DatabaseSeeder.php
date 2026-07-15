@@ -46,16 +46,6 @@ class DatabaseSeeder extends Seeder
         // Memanggil seeder lainnya agar datanya ikut masuk
         $this->call([
             GettingStartedSeeder::class,
-            PanduanWorkflowPMBSeeder::class,
-            PanduanWorkflowAuthSeeder::class,
-            PanduanWorkflowFinanceSeeder::class,
-            PanduanWorkflowLMSSeeder::class,
-            PanduanWorkflowPresenceSeeder::class,
-            PanduanWorkflowNotificationSeeder::class,
-            PanduanWorkflowMutationSeeder::class,
-            PanduanWorkflowETLSeeder::class,
-            PanduanWorkflowDiscountInstallmentSeeder::class,
-            PanduanWorkflowManualSettlementSeeder::class,
         ]);
     }
 }
