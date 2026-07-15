@@ -48,6 +48,7 @@ class DatabaseSeeder extends Seeder
             GettingStartedSeeder::class,
             MigrasiKategoriSeeder::class,
             UpdateArtikelUIUXSeeder::class,
+            CleanupDuplicateArtikelSeeder::class,
         ]);
     }
 }
