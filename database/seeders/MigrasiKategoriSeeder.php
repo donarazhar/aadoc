@@ -154,6 +154,8 @@ class MigrasiKategoriSeeder extends Seeder
             ]
         ];
 
+        $newCategoryIds = [];
+
         foreach ($map as $catName => $titles) {
             // 1. Buat Kategori Baru jika belum ada
             $category = Category::firstOrCreate(
@@ -161,10 +163,17 @@ class MigrasiKategoriSeeder extends Seeder
                 ['name' => $catName]
             );
 
+            $newCategoryIds[] = $category->id;
+
             // 2. Update massal artikel-artikel agar masuk ke kategori ini
             Document::whereIn('title', $titles)->update([
                 'category_id' => $category->id
             ]);
+        }
+
+        // Hapus (Delete) semua kategori lama yang sudah usang dan tidak terpakai lagi
+        if (count($newCategoryIds) > 0) {
+            Category::whereNotIn('id', $newCategoryIds)->delete();
         }
     }
 }
