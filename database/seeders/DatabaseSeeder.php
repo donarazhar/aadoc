@@ -55,6 +55,7 @@ class DatabaseSeeder extends Seeder
             PanduanWorkflowMutationSeeder::class,
             PanduanWorkflowETLSeeder::class,
             PanduanWorkflowDiscountInstallmentSeeder::class,
+            PanduanWorkflowManualSettlementSeeder::class,
         ]);
     }
 }
