@@ -47,6 +47,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GettingStartedSeeder::class,
             PanduanWorkflowDiscountInstallmentSeeder::class,
+            PanduanUserOrangTuaSeeder::class,
+            PanduanUserBackofficeSeeder::class,
         ]);
     }
 }
