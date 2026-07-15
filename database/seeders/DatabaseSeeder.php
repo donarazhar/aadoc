@@ -46,6 +46,20 @@ class DatabaseSeeder extends Seeder
         // Memanggil seeder lainnya agar datanya ikut masuk
         $this->call([
             GettingStartedSeeder::class,
+            PanduanWorkflowDiscountInstallmentSeeder::class,
+            PanduanUserOrangTuaSeeder::class,
+            PanduanUserBackofficeSeeder::class,
+            PanduanWorkflowReportCardSeeder::class,
+            PanduanWorkflowLearningAgendaSeeder::class,
+            PanduanWorkflowDokuSeeder::class,
+            PanduanUIUXSeeder::class,
+            PanduanDashboardBackofficeSeeder::class,
+            PanduanMenuBackofficeSeeder::class,
+            PanduanUIUX_01_DashboardTransaksiSeeder::class,
+            PanduanUIUX_02_LaporanSeeder::class,
+            PanduanUIUX_03_SekolahSeeder::class,
+            PanduanUIUX_04_AdministrasiSeeder::class,
+            PanduanUIUX_05_ManajemenUserJurnalSeeder::class,
         ]);
     }
 }
