@@ -46,6 +46,7 @@ class DatabaseSeeder extends Seeder
         // Memanggil seeder lainnya agar datanya ikut masuk
         $this->call([
             GettingStartedSeeder::class,
+            PanduanWorkflowPMBSeeder::class,
         ]);
     }
 }
