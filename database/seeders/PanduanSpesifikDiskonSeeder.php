@@ -35,6 +35,12 @@ class PanduanSpesifikDiskonSeeder extends Seeder
             <li><strong>Skenario:</strong> Orang tua siswa datang ke TU membawa berkas persyaratan (Kartu Keluarga untuk bukti Saudara Kandung, atau Piagam Lomba untuk bukti Prestasi).</li>
             <li><strong>Jejak UI:</strong> TU membuka Web Backoffice &rarr; Sidebar <code>Administrasi</code> &rarr; <code>Biaya</code> &rarr; <code>Pengajuan Diskon</code>.</li>
             <li><strong>Aksi UX:</strong> TU menekan tombol <strong>Tambah Pengajuan</strong>. TU memilih nama siswa, memilih <em>Jenis Diskon</em> (Misal: Saudara Kandung = 10%), lalu sistem akan meminta TU mengunggah (*upload*) dokumen pendukung berupa file PDF/Foto.</li>
+            <li><strong>Syarat Teknis Sistem (Validasi Upload):</strong> 
+                <ul>
+                    <li>Batas maksimal ukuran *file* yang diizinkan adalah **1MB**. Jika ukuran melebihi limit, UI akan memberikan peringatan dan *Upload* ditolak.</li>
+                    <li>Sistem *Backend* menerapkan teknologi **Auto-Timeout 30 Detik** ke *Cloud Server* (AWS S3). Jika koneksi internet TU lambat atau terputus di tengah jalan, sistem tidak akan *hang/loading* selamanya, melainkan langsung membatalkan proses dengan rapi.</li>
+                </ul>
+            </li>
             <li><strong>Status:</strong> Tagihan siswa saat ini masih utuh (Belum terpotong), dan status pengajuan menjadi <strong>Menunggu Persetujuan (Pending)</strong>.</li>
         </ul>
     </li>

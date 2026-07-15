@@ -30,6 +30,12 @@ class PanduanProsesBisnisALAZHARSeeder extends Seeder
         <ul>
             <li><strong>Jejak UI (Admin):</strong> Masuk *Backoffice* &rarr; Sidebar Kiri &rarr; <code>Administrasi</code> &rarr; <code>PMB</code> &rarr; <code>Gelombang Pendaftaran</code>.</li>
             <li><strong>Aksi UX:</strong> Klik tombol biru <strong>"Tambah"</strong>. Isi rentang tanggal (<em>Date Picker</em>) dan nominal Harga Formulir, lalu tekan <strong>"Simpan"</strong>.</li>
+            <li><strong>Sistem Validasi Ketat (Anti-Overcapacity):</strong> Sistem *Backend* kini dilengkapi sensor cerdas. Ia akan menolak (<em>Error BadRequest</em>) dan menggagalkan pembuatan Gelombang Baru apabila:
+                <ol type="a">
+                    <li>Gelombang sebelumnya masih berstatus Aktif di jenjang pendidikan yang sama.</li>
+                    <li>Kuota pendaftar sekolah tersebut sudah menyentuh limit maksimal (Target).</li>
+                </ol>
+            </li>
         </ul>
     </li>
     <li><strong>Tahap 2: Pantau Animo & Calon Murid</strong>
@@ -47,6 +53,7 @@ class PanduanProsesBisnisALAZHARSeeder extends Seeder
         <ul>
             <li><strong>Jejak UI (Admin):</strong> Sidebar &rarr; <code>Administrasi</code> &rarr; <code>PMB</code> &rarr; <code>Kelulusan Peserta</code>.</li>
             <li><strong>Aksi UX:</strong> Pilih nama siswa dari tabel, tekan tombol hijau <strong>"Luluskan"</strong>. Sistem memindahkan data anak ini menjadi calon murid siap bayar uang pangkal.</li>
+            <li><strong>Penerbitan NIS Otomatis:</strong> Di balik layar, sistem men-<em>generate</em> Nomor Induk Siswa (NIS) secara matematis yang selalu mengambil 3 digit belakang dari ID Siswa di *database*, memastikan keamanan data dari kesalahan *Truncated* (terpotong) saat data siswa menyentuh angka ribuan.</li>
         </ul>
     </li>
 </ul>
@@ -54,10 +61,11 @@ class PanduanProsesBisnisALAZHARSeeder extends Seeder
 <h3>2. Proses Inti: Mesin Keuangan (Tagihan & Pembayaran)</h3>
 <p>Siklus perputaran uang (<em>Cashflow</em>) yang terotomatisasi penuh.</p>
 <ul>
-    <li><strong>Tahap 1: Setup Uang Pangkal & SPP</strong>
+    <li><strong>Tahap 1: Setup Uang Pangkal & SPP (Hak Akses Terpusat)</strong>
         <ul>
-            <li><strong>Jejak UI (Bendahara):</strong> Sidebar &rarr; <code>Administrasi</code> &rarr; <code>Biaya</code> &rarr; <code>Uang Sekolah</code> ATAU <code>Uang Pangkal</code>.</li>
-            <li><strong>Aksi UX:</strong> Pilih Tahun Ajaran dan Kelas. Tekan tombol dinamis <strong>"+ Tambah Komponen Biaya"</strong> berulang kali untuk memecah tagihan (Gedung, Seragam, dll). Perhatikan spanduk (<em>Banner</em>) <strong>Total Biaya</strong> di bagian bawah yang berhitung otomatis.</li>
+            <li><strong>Jejak UI (Bendahara Yayasan):</strong> Sidebar &rarr; <code>Administrasi</code> &rarr; <code>Biaya</code> &rarr; <code>Uang Sekolah</code> ATAU <code>Uang Pangkal</code>.</li>
+            <li><strong>Aksi UX:</strong> Pilih Tahun Ajaran dan Kelas. Tekan tombol dinamis <strong>"+ Tambah Komponen Biaya"</strong>. Perhatikan spanduk (<em>Banner</em>) <strong>Total Biaya</strong> yang berhitung otomatis.</li>
+            <li><strong>Pengetatan Hak Akses (Role-Based Restriction):</strong> Tombol-tombol krusial untuk Mengedit, Menghapus (<em>Trash</em>), dan Men-<em>generate</em> tagihan <strong>telah disembunyikan total</strong> dari layar Admin Unit Daerah. Seluruh kekuasaan eksekusi tagihan ini secara eksklusif hanya muncul (di-<em>render</em>) jika diakses oleh akun tingkat Pusat (Superadmin / <code>role_id = 1</code>). Admin Daerah hanya bersifat *Read-Only*.</li>
         </ul>
     </li>
     <li><strong>Tahap 2: Pengajuan Diskon (Bila Ada)</strong>

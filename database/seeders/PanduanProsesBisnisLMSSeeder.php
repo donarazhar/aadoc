@@ -45,7 +45,8 @@ class PanduanProsesBisnisLMSSeeder extends Seeder
     <li><strong>Tahap 1: Pengisian Jurnal & Presensi (Guru)</strong>
         <ul>
             <li><strong>Jejak UI (Guru):</strong> Buka Aplikasi Mobile Guru (Atau akses Web) &rarr; Beranda &rarr; Klik kotak jadwal <code>Mengajar Kelas 7A Jam 08:00</code>.</li>
-            <li><strong>Aksi UX:</strong> Layar memunculkan daftar nama siswa. Guru mencentang (*Checkbox*) atau menekan tombol (*Radio Button*) pada status: <code>Hadir / Sakit / Izin / Alpa</code>. Pada kotak teks di bawahnya, Guru mengetik <code>Jurnal Mengajar</code> (Topik: Bab 1 Matematika). Tekan <strong>Submit</strong>.</li>
+            <li><strong>Aksi UX:</strong> Layar memunculkan daftar nama siswa. Guru mencentang (*Checkbox*) atau menekan tombol (*Radio Button*) pada status: <code>Hadir / Sakit / Izin / Alpa</code>. Pada kotak teks di bawahnya, Guru mengetik <code>Jurnal Mengajar</code> (Topik: Bab 1 Matematika).</li>
+            <li><strong>Unggah Dokumentasi KBM:</strong> Guru diwajibkan mengunggah foto kegiatan kelas sebagai bukti. Demi efisiensi *server* penyimpanan, ukuran foto dibatasi **maksimal 1MB** (Jika lebih dari 1MB, sistem akan menolak unggahan). Tekan <strong>Submit</strong>.</li>
         </ul>
     </li>
     <li><strong>Tahap 2: Keajaiban Notifikasi (Orang Tua)</strong>
