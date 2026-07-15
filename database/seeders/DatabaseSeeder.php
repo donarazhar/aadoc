@@ -51,6 +51,7 @@ class DatabaseSeeder extends Seeder
             PanduanUserBackofficeSeeder::class,
             PanduanWorkflowReportCardSeeder::class,
             PanduanWorkflowLearningAgendaSeeder::class,
+            PanduanWorkflowDokuSeeder::class,
         ]);
     }
 }
