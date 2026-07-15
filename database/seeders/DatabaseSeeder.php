@@ -46,12 +46,6 @@ class DatabaseSeeder extends Seeder
         // Memanggil seeder lainnya agar datanya ikut masuk
         $this->call([
             GettingStartedSeeder::class,
-            PanduanProsesBisnisALAZHARSeeder::class,
-            PanduanProsesBisnisLMSSeeder::class,
-            PanduanSpesifikDiskonSeeder::class,
-            PanduanSpesifikAngsuranSeeder::class,
-            PanduanSpesifikPembatalanSeeder::class,
-            PanduanSpesifikTunggakanSeeder::class,
         ]);
     }
 }
