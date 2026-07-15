@@ -50,6 +50,8 @@ class DatabaseSeeder extends Seeder
             PanduanProsesBisnisLMSSeeder::class,
             PanduanSpesifikDiskonSeeder::class,
             PanduanSpesifikAngsuranSeeder::class,
+            PanduanSpesifikPembatalanSeeder::class,
+            PanduanSpesifikTunggakanSeeder::class,
         ]);
     }
 }
