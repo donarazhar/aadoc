@@ -48,6 +48,8 @@ class DatabaseSeeder extends Seeder
             GettingStartedSeeder::class,
             PanduanWorkflowPMBSeeder::class,
             PanduanWorkflowAuthSeeder::class,
+            PanduanWorkflowFinanceSeeder::class,
+            PanduanWorkflowLMSSeeder::class,
         ]);
     }
 }
