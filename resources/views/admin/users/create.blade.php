@@ -37,11 +37,17 @@
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
-                        <div class="mb-8">
+                        <div class="mb-6">
                             <x-input-label for="password" :value="__('Kata Sandi')" class="text-slate-700 font-semibold mb-1" />
                             <x-text-input type="password" name="password" id="password" class="mt-1 block w-full rounded-lg border-slate-300 shadow-sm focus:ring-alazhar focus:border-alazhar transition-colors" required />
                             <p class="mt-1 text-xs text-slate-500">Minimal 8 karakter.</p>
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        </div>
+                        
+                        <div class="mb-8">
+                            <x-input-label for="password_confirmation" :value="__('Konfirmasi Kata Sandi')" class="text-slate-700 font-semibold mb-1" />
+                            <x-text-input type="password" name="password_confirmation" id="password_confirmation" class="mt-1 block w-full rounded-lg border-slate-300 shadow-sm focus:ring-alazhar focus:border-alazhar transition-colors" required />
+                            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                         </div>
                         
                         <div class="mb-8 p-4 bg-slate-50 rounded-lg border border-slate-100 flex items-start">

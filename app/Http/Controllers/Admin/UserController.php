@@ -36,14 +36,15 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'role' => ['required', Rule::in(['superadmin', 'admin', 'user'])],
         ]);
+
+        $role = $request->has('is_superadmin') ? 'superadmin' : 'admin';
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'role' => $role,
         ]);
 
         return redirect()->route('admin.users.index')->with('success', 'Pengguna berhasil ditambahkan.');
@@ -74,7 +75,6 @@ class UserController extends Controller
         $rules = [
             'name' => 'required|string|max:255',
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'role' => ['required', Rule::in(['superadmin', 'admin', 'user'])],
         ];
 
         // Only validate password if it's filled
@@ -87,8 +87,11 @@ class UserController extends Controller
         $data = [
             'name' => $request->name,
             'email' => $request->email,
-            'role' => $request->role,
         ];
+
+        if (auth()->id() !== $user->id) {
+            $data['role'] = $request->has('is_superadmin') ? 'superadmin' : 'admin';
+        }
 
         if ($request->filled('password')) {
             $data['password'] = Hash::make($request->password);
