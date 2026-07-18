@@ -77,18 +77,38 @@
                     {!! $document->content !!}
                 </div>
 
-                {{-- Footer Meta --}}
-                <div class="mt-12 pt-6 border-t border-slate-100 flex items-center justify-between flex-wrap gap-4">
-                    <div class="flex items-center gap-2 text-xs text-slate-400">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        Terakhir diperbarui {{ $document->updated_at->locale('id')->diffForHumans() }}
-                    </div>
-                    <a href="{{ route('home') }}" class="doc-nav-btn text-xs">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                        Kembali ke Beranda
-                    </a>
+                {{-- Prev / Next Navigation --}}
+                <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    @if(isset($prevDocument))
+                        <a href="{{ route('docs.show', [$prevDocument->category->slug, $prevDocument->slug]) }}" class="group flex flex-col w-full sm:w-1/2 text-left p-4 rounded-xl border border-slate-200 hover:border-brand hover:shadow-sm transition-all">
+                            <span class="text-xs text-slate-400 mb-1 flex items-center gap-1">
+                                <svg class="w-3 h-3 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                Sebelumnya
+                            </span>
+                            <span class="font-semibold text-slate-800 group-hover:text-brand transition-colors line-clamp-1">{{ $prevDocument->title }}</span>
+                        </a>
+                    @else
+                        <div class="w-full sm:w-1/2"></div>
+                    @endif
+
+                    @if(isset($nextDocument))
+                        <a href="{{ route('docs.show', [$nextDocument->category->slug, $nextDocument->slug]) }}" class="group flex flex-col w-full sm:w-1/2 text-right p-4 rounded-xl border border-slate-200 hover:border-brand hover:shadow-sm transition-all text-right sm:items-end">
+                            <span class="text-xs text-slate-400 mb-1 flex items-center justify-end gap-1">
+                                Selanjutnya
+                                <svg class="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </span>
+                            <span class="font-semibold text-slate-800 group-hover:text-brand transition-colors line-clamp-1">{{ $nextDocument->title }}</span>
+                        </a>
+                    @else
+                        <div class="w-full sm:w-1/2"></div>
+                    @endif
                 </div>
 
+                {{-- Footer Meta --}}
+                <div class="mt-8 flex items-center gap-2 text-xs text-slate-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Terakhir diperbarui {{ $document->updated_at->locale('id')->diffForHumans() }}
+                </div>
             @else
                 {{-- Category fallback --}}
                 <div class="breadcrumb">

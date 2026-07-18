@@ -50,7 +50,22 @@ class DocumentController extends Controller
                 $q->where('is_published', true)->orderBy('order');
             }])->orderBy('order')->get();
 
-        return view('front.show', compact('category', 'document', 'allCategories'));
+        $allDocs = collect();
+        foreach ($allCategories as $cat) {
+            foreach ($cat->documents as $doc) {
+                $doc->category = $cat; 
+                $allDocs->push($doc);
+            }
+        }
+
+        $currentIndex = $allDocs->search(function ($doc) use ($document) {
+            return $doc->id === $document->id;
+        });
+
+        $prevDocument = $currentIndex > 0 ? $allDocs->get($currentIndex - 1) : null;
+        $nextDocument = $currentIndex !== false && $currentIndex < $allDocs->count() - 1 ? $allDocs->get($currentIndex + 1) : null;
+
+        return view('front.show', compact('category', 'document', 'allCategories', 'prevDocument', 'nextDocument'));
     }
 
     public function search(Request $request)
