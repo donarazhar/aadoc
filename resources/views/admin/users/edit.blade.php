@@ -38,18 +38,6 @@
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
-                        <div class="mb-6">
-                            <x-input-label for="password" :value="__('Kata Sandi Baru (Opsional)')" class="text-slate-700 font-semibold mb-1" />
-                            <x-text-input type="password" name="password" id="password" class="mt-1 block w-full rounded-lg border-slate-300 shadow-sm focus:ring-alazhar focus:border-alazhar transition-colors" placeholder="Biarkan kosong jika tidak ingin mengubah sandi" />
-                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                        </div>
-
-                        <div class="mb-8">
-                            <x-input-label for="password_confirmation" :value="__('Konfirmasi Kata Sandi Baru')" class="text-slate-700 font-semibold mb-1" />
-                            <x-text-input type="password" name="password_confirmation" id="password_confirmation" class="mt-1 block w-full rounded-lg border-slate-300 shadow-sm focus:ring-alazhar focus:border-alazhar transition-colors" placeholder="Biarkan kosong jika tidak ingin mengubah sandi" />
-                            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-                        </div>
-
                         <!-- Jangan izinkan superadmin menghapus role-nya sendiri -->
                         @if(auth()->id() !== $user->id)
                             <div class="mb-8 p-4 bg-slate-50 rounded-lg border border-slate-100 flex items-start">

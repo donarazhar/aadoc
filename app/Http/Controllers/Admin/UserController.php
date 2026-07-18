@@ -35,7 +35,6 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
         ]);
 
         $role = $request->has('is_superadmin') ? 'superadmin' : 'admin';
@@ -43,7 +42,6 @@ class UserController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
             'role' => $role,
         ]);
 
@@ -77,11 +75,6 @@ class UserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
         ];
 
-        // Only validate password if it's filled
-        if ($request->filled('password')) {
-            $rules['password'] = 'required|string|min:8|confirmed';
-        }
-
         $request->validate($rules);
 
         $data = [
@@ -91,10 +84,6 @@ class UserController extends Controller
 
         if (auth()->id() !== $user->id) {
             $data['role'] = $request->has('is_superadmin') ? 'superadmin' : 'admin';
-        }
-
-        if ($request->filled('password')) {
-            $data['password'] = Hash::make($request->password);
         }
 
         $user->update($data);
