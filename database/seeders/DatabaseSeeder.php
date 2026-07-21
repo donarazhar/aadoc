@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             WorkflowAdministratorSeeder::class,
             PerbedaanKelasDanRombelSeeder::class,
             PanduanTambahProgramSeeder::class,
+            PanduanTambahKurikulumMapelSeeder::class,
         ]);
     }
 }
