@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             PerbedaanKelasDanRombelSeeder::class,
             PanduanTambahProgramSeeder::class,
             PanduanTambahKurikulumMapelSeeder::class,
+            PanduanTambahDiskonPrestasiSeeder::class,
         ]);
     }
 }
