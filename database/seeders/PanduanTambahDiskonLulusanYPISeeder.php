@@ -51,6 +51,10 @@ class PanduanTambahDiskonLulusanYPISeeder extends Seeder
                     <li>Jika sekolah yang Anda pilih adalah jenjang <strong>Toddler / TK (Jenjang 1)</strong>, maka kolom ini akan aktif berupa <em>Dropdown</em> sehingga Anda bisa memilih kelas secara spesifik.</li>
                     <li>Jika sekolah yang Anda pilih berada pada jenjang selain Toddler (SD, SMP, SMA), maka kolom ini akan otomatis terkunci (*disabled*) dan akan diisi secara otomatis oleh sistem menyesuaikan sekolahnya.</li>
                 </ul>
+                <div style="background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem; margin-top: 1rem; margin-bottom: 0.5rem; border-radius: 0.25rem;">
+                    <strong>Mengapa Form Terlihat Kosong?</strong><br>
+                    Jika Anda melihat dropdown <strong>Nama Sekolah</strong> kosong, itu adalah hal yang wajar. Anda <strong>wajib mengetik huruf/nama sekolahnya terlebih dahulu</strong> untuk memicu pencarian ke server. Sedangkan untuk form <strong>Kelas</strong>, form ini baru akan terbuka/terisi otomatis <strong>setelah</strong> Anda memilih Nama Sekolah.
+                </div>
             </li>
             <li style="margin-bottom: 0.75rem;">
                 <strong>Kolom Status (Dropdown):</strong> 
