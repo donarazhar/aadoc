@@ -49,6 +49,14 @@ class PanduanTambahAngsuranSeeder extends Seeder
                 Sama seperti modul lainnya, jika sekolah jenjang TK maka kelas dapat dipilih secara manual, sedangkan untuk jenjang SD, SMP, dan SMA kelas akan otomatis terpilih.
             </li>
             <li style="margin-bottom: 0.75rem;">
+                <strong>Kolom Gelombang (Pencarian Otomatis):</strong> 
+                Pilih gelombang pendaftaran yang berlaku (Misal: Gelombang 1, Gelombang 2). 
+                <div style="background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem; margin-top: 1rem; margin-bottom: 0.5rem; border-radius: 0.25rem;">
+                    <strong>Mengapa Dropdown Gelombang Kosong?</strong><br>
+                    Jika pilihan Gelombang kosong, itu menandakan bahwa Anda belum pernah membuat atau mengaktifkan jadwal penerimaan murid baru (PMB) di menu pendaftaran untuk sekolah tersebut. Gelombang harus dibuat terlebih dahulu agar bisa dipilih saat mengatur angsuran.
+                </div>
+            </li>
+            <li style="margin-bottom: 0.75rem;">
                 <strong>Kolom Status (Dropdown):</strong> 
                 Atur status angsuran ini menjadi <strong>Aktif</strong> atau <strong>Tidak Aktif</strong>.
             </li>
