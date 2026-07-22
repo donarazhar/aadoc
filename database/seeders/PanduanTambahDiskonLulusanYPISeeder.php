@@ -67,6 +67,10 @@ class PanduanTambahDiskonLulusanYPISeeder extends Seeder
                     <li>Isikan nominal potongan dalam bentuk Rupiah (Rp) pada masing-masing program tersebut di kolom <strong>Besaran Potongan</strong>.</li>
                     <li><em>Contoh: Ketik "2000000" untuk potongan Rp 2.000.000 pada program Reguler.</em></li>
                 </ul>
+                <div style="background-color: #fef2f2; border-left: 4px solid #ef4444; padding: 1rem; margin-top: 1rem; margin-bottom: 0.5rem; border-radius: 0.25rem;">
+                    <strong>Kenapa Tabel Program Tidak Muncul?</strong><br>
+                    Jika setelah Anda memilih Nama Sekolah dan Kelas tabel program di bawahnya <strong>tidak muncul sama sekali</strong>, itu berarti Administrator belum memetakan program pendidikan (seperti Reguler/Bilingual) ke sekolah tersebut di menu pengaturan sekolah. Sistem mewajibkan sekolah tersebut memiliki setidaknya satu program agar form diskon ini bisa disimpan.
+                </div>
             </li>
             <li style="margin-bottom: 0.75rem;">
                 <strong>Simpan Data:</strong> 
