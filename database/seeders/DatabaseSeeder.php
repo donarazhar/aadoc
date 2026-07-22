@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             PanduanTambahProgramSeeder::class,
             PanduanTambahKurikulumMapelSeeder::class,
             PanduanTambahDiskonPrestasiSeeder::class,
+            PanduanTambahDiskonRaportSeeder::class,
         ]);
     }
 }
