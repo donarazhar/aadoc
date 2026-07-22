@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             PanduanTambahDiskonAnakPegawaiSeeder::class,
             PanduanTambahDiskonAnakPegawaiSPPSeeder::class,
             PanduanTambahDiskonLulusanYPISeeder::class,
+            PanduanTambahDiskonMuridPindahanSeeder::class,
         ]);
     }
 }
