@@ -51,7 +51,17 @@ class PanduanTambahSekolahSeeder extends Seeder
             </li>
             <li style="margin-bottom: 0.75rem;">
                 <strong>Identitas Institusi (Wajib):</strong> 
-                Lengkapi nama institusi (Misal: SD Islam Al-Azhar 1), NPSN, NSM (jika ada), NPWP, serta informasi tahun berdiri dan tahun akreditasi terakhir.
+                Lengkapi nama institusi (Misal: SD Islam Al-Azhar 1), beserta kode-kode identitas resmi sekolah.
+                <div style="background-color: #f8fafc; border-left: 4px solid #94a3b8; padding: 1rem; margin-top: 1rem; margin-bottom: 0.5rem; border-radius: 0.25rem;">
+                    <strong>Glosarium Singkatan Identitas Sekolah:</strong>
+                    <ul style="margin-top: 0.5rem; margin-bottom: 0;">
+                        <li><strong>NPSN (Nomor Pokok Sekolah Nasional):</strong> Kode unik standar yang ditetapkan oleh Kemendikbud untuk mengenali setiap satuan pendidikan secara nasional.</li>
+                        <li><strong>NSS (Nomor Statistik Sekolah):</strong> Nomor unik yang diberikan oleh dinas pendidikan tingkat provinsi/kabupaten sebagai data statistik sekolah.</li>
+                        <li><strong>No IJOP (Izin Operasional):</strong> Nomor surat izin sah beroperasinya sekolah yang dikeluarkan oleh pemerintah daerah atau instansi terkait.</li>
+                        <li><strong>NIS (Nomor Induk Sekolah):</strong> Nomor registrasi internal atau identitas yang diberikan kepada sekolah itu sendiri.</li>
+                        <li><strong>NPWP (Nomor Pokok Wajib Pajak):</strong> Nomor identitas pajak atas nama institusi/yayasan sekolah tersebut.</li>
+                    </ul>
+                </div>
             </li>
             <li style="margin-bottom: 0.75rem;">
                 <strong>Profil Pimpinan (Wajib):</strong> 
