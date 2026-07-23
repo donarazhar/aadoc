@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             PanduanTambahDiskonLulusanYPISeeder::class,
             PanduanTambahDiskonMuridPindahanSeeder::class,
             PanduanTambahAngsuranSeeder::class,
+            PanduanTambahSumberInformasiSeeder::class,
         ]);
     }
 }
