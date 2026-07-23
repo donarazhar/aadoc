@@ -41,7 +41,15 @@ class SetupKeuanganAdministratorSeeder extends Seeder
         <ol style="margin-left: 1.5rem; margin-bottom: 2rem;">
             <li style="margin-bottom: 1rem;">
                 <strong>Uang Pangkal & Uang Sekolah (SPP)</strong><br>
-                Ini adalah komponen biaya pokok pendidikan. Anda perlu menentukan besaran/nominal tagihan bulanan (SPP) dan tagihan satu kali di awal masuk (Uang Pangkal). Konfigurasi ini biasanya dibedakan untuk masing-masing jenjang atau unit sekolah.
+                Ini adalah komponen biaya pokok pendidikan. Anda perlu menentukan besaran/nominal tagihan bulanan (SPP) dan tagihan satu kali di awal masuk (Uang Pangkal).
+                <div style="background-color: #f0fdf4; padding: 1rem; border-left: 4px solid #22c55e; margin-top: 1rem; margin-bottom: 0.5rem; border-radius: 0.25rem;">
+                    <strong>Penting (Konsep Pusat vs Unit):</strong> Konfigurasi Uang Sekolah dibagi menjadi dua tingkat wewenang:
+                    <ul style="margin-top: 0.5rem; margin-bottom: 0;">
+                        <li><strong>Uang Sekolah Pusat (<code>admin/spp/pusat</code>):</strong> Diakses khusus oleh Administrator Pusat. Ini adalah dapur utamanya tempat Anda membuat Master/Template nominal SPP secara terpusat (berdasarkan jenjang TK/SD/SMP/SMA). Terdapat fitur "Generate SPP" untuk menurunkan nominal tersebut ke cabang.</li>
+                        <li><strong>Uang Sekolah Unit (<code>admin/spp/sekolah</code>):</strong> Diakses khusus oleh Admin Sekolah. Halaman ini hanya menampilkan data tagihan rill yang sudah diturunkan dari Pusat ke unit mereka sendiri. Admin sekolah tidak bisa mengubah nominal master.</li>
+                    </ul>
+                    Oleh karena itu, karena Anda adalah Administrator, fokus kerja Anda ada di menu Uang Sekolah Pusat.
+                </div>
             </li>
             <li style="margin-bottom: 1rem;">
                 <strong>Uang Daftar Ulang & Ekstrakurikuler</strong><br>

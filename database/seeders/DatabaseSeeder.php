@@ -36,6 +36,9 @@ class DatabaseSeeder extends Seeder
             SetupKeuanganAdministratorSeeder::class,
             PanduanTagihanPokokSeeder::class,
             PanduanTagihanTambahanSeeder::class,
+            SetupPmbAdministratorSeeder::class,
+            PanduanGelombangPmbSeeder::class,
+            PanduanJadwalUjianPmbSeeder::class,
         ]);
     }
 }
