@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             PanduanTambahDiskonMuridPindahanSeeder::class,
             PanduanTambahAngsuranSeeder::class,
             PanduanTambahSumberInformasiSeeder::class,
+            SetupManajemenUnitSekolahSeeder::class,
         ]);
     }
 }
