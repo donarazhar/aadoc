@@ -34,7 +34,7 @@ class PanduanUangPangkalSeeder extends Seeder
         
         <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;">Langkah Konfigurasi Uang Pangkal:</h4>
         <ol style="margin-left: 1.5rem; margin-bottom: 2rem;">
-            <li>Navigasi ke menu <strong>Administrasi &gt; Biaya &gt; Tagihan Uang Pangkal</strong>.</li>
+            <li>Navigasi ke menu <strong>Administrasi &gt; Biaya &gt; Tagihan Uang Pangkal</strong> (URL route: <code>admin/tagihan-uang-pangkal</code>).</li>
             <li>Klik tombol <strong>Tambah Uang Pangkal</strong>.</li>
             <li><strong>Tahun Ajaran Masuk:</strong> Pastikan Anda memilih Tahun Ajaran yang sesuai untuk angkatan baru.</li>
             <li><strong>Jenjang & Program:</strong> Tentukan jenjang pendidikan dan program (Reguler/Bilingual) karena besaran uang pangkal umumnya berbeda per program.</li>

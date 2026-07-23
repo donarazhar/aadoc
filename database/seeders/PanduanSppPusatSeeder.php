@@ -34,8 +34,8 @@ class PanduanSppPusatSeeder extends Seeder
         
         <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;">Langkah Konfigurasi Uang Sekolah Pusat:</h4>
         <ol style="margin-left: 1.5rem; margin-bottom: 2rem;">
-            <li>Navigasi ke menu <strong>Administrasi &gt; Biaya &gt; Uang Sekolah</strong> lalu pilih tab <strong>admin/spp/pusat</strong>.</li>
-            <li>Klik tombol <strong>Tambah Uang Sekolah</strong>.</li>
+            <li>Navigasi ke menu <strong>Administrasi &gt; Biaya &gt; Uang Sekolah</strong> lalu pilih tab Pusat (URL route: <code>admin/spp/pusat</code>).</li>
+            <li>Klik tombol <strong>Tambah Uang Sekolah</strong> untuk membuat tagihan baru.</li>
             <li><strong>Jenjang:</strong> Pilih jenjang pendidikan (TK, SD, SMP, atau SMA). Nominal yang Anda masukkan di sini akan menjadi standar untuk seluruh cabang di jenjang tersebut.</li>
             <li><strong>Program:</strong> Tentukan program (Reguler, Bilingual, dsb.) karena program yang berbeda mungkin memiliki nominal SPP yang berbeda pula.</li>
             <li><strong>Tahun Ajaran:</strong> Pilih Tahun Ajaran yang berlaku untuk master SPP ini.</li>
