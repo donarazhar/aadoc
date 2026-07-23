@@ -32,6 +32,10 @@ class PanduanGelombangPmbSeeder extends Seeder
         <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1rem;">Setup Gelombang Pendaftaran PMB</h1>
         <p style="font-size: 1.125rem; margin-bottom: 2rem;">Artikel ini memandu Administrator Pusat dalam membuat jadwal buka-tutup pendaftaran penerimaan murid baru, yang dikenal sebagai <strong>Gelombang PMB</strong>.</p>
         
+        <div style="background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem; margin-bottom: 2rem; border-radius: 0.25rem;">
+            <strong>Akses URL:</strong> Halaman ini dapat diakses melalui menu <a href="/admin/master/gelombang/add-gelombang/add" style="color: #2563eb; font-family: monospace; font-weight: bold; text-decoration: underline;">admin/master/gelombang/add-gelombang/add</a>.
+        </div>
+
         <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;">Langkah-langkah Penambahan Gelombang:</h4>
         <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
             <li>Masuk ke menu <strong>Master Data &gt; Gelombang</strong> (atau Administrasi &gt; PMB &gt; Gelombang).</li>
