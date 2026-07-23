@@ -31,49 +31,29 @@ class SetupManajemenUnitSekolahSeeder extends Seeder
         // 2. Konten Artikel Panduan
         $htmlContent = '
         <div style="font-family: sans-serif; line-height: 1.6; color: #334155;">
-        <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1rem;">Manajemen Unit Sekolah (Tahap 2)</h1>
-        <p style="font-size: 1.125rem; margin-bottom: 2rem;">Setelah konfigurasi Master Data selesai (Tahap 1), alur kerja (<em>workflow</em>) administrator berlanjut ke <strong>Tahap 2: Manajemen Unit Sekolah</strong>. Pada tahap ini, Anda bertugas untuk mendefinisikan seluruh unit-unit sekolah (cabang) yang berada di bawah naungan Yayasan Pesantren Islam (YPI) Al-Azhar, beserta pembagian ruang kelas riil (rombongan belajar) di dalamnya.</p>
+        <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1rem;">Workflow Manajemen Unit Sekolah Role Administrator</h1>
+        <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">Selamat datang di <strong>Tahap 2: Manajemen Unit Sekolah</strong>. Setelah Anda menyelesaikan konfigurasi Master Data, tahap krusial selanjutnya bagi seorang Administrator adalah mendefinisikan infrastruktur dan hierarki cabang sekolah di dalam sistem.</p>
         
         <div style="background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem; margin-bottom: 2rem; border-radius: 0.25rem;">
-            <strong>Tujuan Utama:</strong> Membangun struktur hierarki cabang sekolah di dalam sistem agar seluruh transaksi, pendaftaran, dan kegiatan akademik dapat terpetakan dengan akurat ke masing-masing unit/gedung sekolah yang dituju.
+            <strong>Fungsi Utama Workflow Ini:</strong> Membangun struktur hierarki cabang sekolah agar seluruh transaksi pendaftaran (PMB) dan kegiatan akademik (seperti pembagian kelas) dapat terpetakan dengan akurat ke masing-masing unit atau gedung sekolah yang dituju.
         </div>
 
-        <h3 style="color: #0f172a; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Langkah 1: Setup Profil Sekolah</h3>
-        <p style="margin-bottom: 1rem;">Menu pertama yang harus Anda kelola adalah pendaftaran setiap unit sekolah secara fisik.</p>
-        <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+        <h3 style="color: #0f172a; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Apa Saja yang Perlu Dilakukan?</h3>
+        <p style="margin-bottom: 1rem;">Dalam workflow ini, ada 2 (dua) entitas utama yang wajib Anda kelola secara berurutan:</p>
+        <ol style="margin-left: 1.5rem; margin-bottom: 2rem;">
             <li style="margin-bottom: 0.75rem;">
-                <strong>Akses Menu:</strong> Buka menu <strong>Sekolah &gt; Profil Sekolah</strong> dari layar admin utama.
+                <strong>Mendaftarkan Profil Unit Sekolah</strong><br>
+                Anda harus mendaftarkan setiap unit sekolah fisik (cabang) yang ada di bawah naungan yayasan (Misalnya: TKIA 1, SDIA 1, SMPIA 2). Data ini sangat penting karena mencakup identitas resmi (NPSN, dsb), penanggung jawab (Kepala Sekolah), dan lokasi fisik.
             </li>
             <li style="margin-bottom: 0.75rem;">
-                <strong>Tambah Unit Sekolah:</strong> Masukkan data profil lengkap untuk masing-masing cabang. Contoh: <em>SDIA 1</em>, <em>SMPIA 2</em>, atau <em>SMAIA 3</em>.
-            </li>
-            <li style="margin-bottom: 0.75rem;">
-                <strong>Tautkan Jenjang Pendidikan:</strong> Pastikan Anda memilih Jenjang Pendidikan yang tepat untuk unit tersebut (Misal: TK, SD, SMP, atau SMA). Sistem akan menggunakan jenjang ini untuk menampilkan pilihan otomatis pada menu-menu yang lain.
-            </li>
-            <li style="margin-bottom: 0.75rem;">
-                <strong>Identitas Resmi:</strong> Lengkapi juga nomor pokok statistik sekolah (NPSN), nama kepala sekolah, alamat, serta detail kontak agar profil sekolah valid secara administrasi.
+                <strong>Membentuk Rombongan Belajar (Rombel)</strong><br>
+                Setelah unit sekolah dibuat, Anda harus memecah kelas umum menjadi ruangan-ruangan kelas yang nyata (Misalnya: Kelas 1A, Kelas 1B) untuk menampung murid, dan menautkannya dengan Tahun Ajaran yang berlaku.
             </li>
         </ol>
 
-        <h3 style="color: #0f172a; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Langkah 2: Pembuatan Rombel (Rombongan Belajar)</h3>
-        <p style="margin-bottom: 1rem;">Setelah unit sekolah berdiri di dalam sistem, sekolah tersebut tentu membutuhkan ruang-ruang kelas fisik (Rombel) untuk menampung murid.</p>
-        <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-            <li style="margin-bottom: 0.75rem;">
-                <strong>Akses Menu:</strong> Buka menu <strong>Sekolah &gt; Rombel</strong>.
-            </li>
-            <li style="margin-bottom: 0.75rem;">
-                <strong>Definisikan Ruang Kelas Riil:</strong> Jika di Master Data Anda hanya membuat nama kelas umum (seperti "Kelas 1"), di menu Rombel ini Anda memecahnya menjadi ruang kelas nyata (Misalnya: <em>Kelas 1A</em>, <em>Kelas 1B</em>, <em>Kelas 1 Makkah</em>, atau <em>Kelas 1 Madinah</em>).
-            </li>
-            <li style="margin-bottom: 0.75rem;">
-                <strong>Tautkan ke Tahun Ajaran:</strong> Rombongan belajar sangat bergantung pada masa berlaku. Pastikan Anda menautkan Rombel yang dibuat dengan <strong>Tahun Ajaran</strong> yang sedang berjalan. Dengan begitu, sistem tahu bahwa "Kelas 1A" ini adalah rombongan untuk angkatan tahun ajaran tersebut.
-            </li>
-            <li style="margin-bottom: 0.75rem;">
-                <strong>Kapasitas Kelas (Wali Kelas):</strong> Tentukan juga batas maksimal siswa (kapasitas ruangan) dan tunjuk guru atau staf yang bertanggung jawab sebagai Wali Kelas untuk rombongan belajar tersebut.
-            </li>
-        </ol>
-
-        <div style="background-color: #fefce8; padding: 1rem; border-left: 4px solid #eab308; border-radius: 0.25rem; margin-top: 2rem;">
-            <strong>Penting:</strong> Tanpa adanya unit sekolah yang didaftarkan, Anda tidak akan bisa melanjutkan ke modul Penerimaan Murid Baru (PMB). Dan tanpa adanya Rombel, murid yang sudah lulus pendaftaran nantinya tidak akan bisa ditempatkan ke dalam kelas manapun. Lakukan kedua hal ini secara berurutan!
+        <div style="background-color: #f8fafc; border-left: 4px solid #94a3b8; padding: 1rem; margin-top: 2rem; border-radius: 0.25rem;">
+            <strong>Panduan Teknis Pengisian Form:</strong><br>
+            Artikel ini hanya memberikan gambaran umum (<em>overview</em>) dari alur kerja Anda. Untuk mengetahui tata cara atau <em>step-by-step</em> pengisian (<em>input</em>) datanya di dalam sistem, <strong>silakan baca artikel panduan terpisah</strong> untuk masing-masing formulir (misalnya: artikel <em>"Panduan Menambahkan Profil Sekolah"</em>).
         </div>
         </div>
         ';
