@@ -14,8 +14,11 @@ class PanduanTambahPegawaiSeeder extends Seeder
     {
         // Pastikan category dan user ada untuk menghindari error foreign key
         $category = Category::firstOrCreate(
-            ['slug' => 'setup-panduan'],
-            ['name' => 'Setup & Panduan', 'description' => 'Panduan instalasi dan setup lokal aplikasi']
+            ['slug' => Str::slug('Setup Akses Pengguna Role Administrator')],
+            [
+                'name' => 'Setup Akses Pengguna Role Administrator',
+                'description' => 'Panduan tahap ketiga terkait pembuatan akses pengguna (Manajemen User) oleh Administrator.'
+            ]
         );
         $categoryId = $category->id;
 
@@ -73,14 +76,16 @@ class PanduanTambahPegawaiSeeder extends Seeder
         </div>
         ';
 
-        Document::create([
-            'category_id' => $categoryId,
-            'title' => 'Panduan Pembuatan Akun Pegawai',
-            'slug' => Str::slug('Panduan Pembuatan Akun Pegawai'),
-            'content' => trim($htmlContent),
-            'is_published' => true,
-            'created_by' => $userId,
-            'order' => 2,
-        ]);
+        Document::updateOrCreate(
+            ['slug' => Str::slug('Panduan Pembuatan Akun Pegawai')],
+            [
+                'category_id' => $categoryId,
+                'title' => 'Panduan Pembuatan Akun Pegawai',
+                'content' => trim($htmlContent),
+                'is_published' => true,
+                'created_by' => $userId,
+                'order' => 21,
+            ]
+        );
     }
 }

@@ -12,10 +12,12 @@ class PanduanTambahUserSeeder extends Seeder
 {
     public function run()
     {
-        // Pastikan category dan user ada untuk menghindari error foreign key
         $category = Category::firstOrCreate(
-            ['slug' => 'setup-panduan'],
-            ['name' => 'Setup & Panduan', 'description' => 'Panduan instalasi dan setup lokal aplikasi']
+            ['slug' => Str::slug('Setup Akses Pengguna Role Administrator')],
+            [
+                'name' => 'Setup Akses Pengguna Role Administrator',
+                'description' => 'Panduan tahap ketiga terkait pembuatan akses pengguna (Manajemen User) oleh Administrator.'
+            ]
         );
         $categoryId = $category->id;
 
@@ -113,14 +115,16 @@ class PanduanTambahUserSeeder extends Seeder
         </div>
         ';
 
-        Document::create([
-            'category_id' => $categoryId,
-            'title' => 'Panduan Pembuatan/Tambah User',
-            'slug' => Str::slug('Panduan Pembuatan Tambah User'),
-            'content' => trim($htmlContent),
-            'is_published' => true,
-            'created_by' => $userId,
-            'order' => 1,
-        ]);
+        Document::updateOrCreate(
+            ['slug' => Str::slug('Panduan Pembuatan Tambah User')],
+            [
+                'category_id' => $categoryId,
+                'title' => 'Panduan Pembuatan/Tambah User',
+                'content' => trim($htmlContent),
+                'is_published' => true,
+                'created_by' => $userId,
+                'order' => 20,
+            ]
+        );
     }
 }

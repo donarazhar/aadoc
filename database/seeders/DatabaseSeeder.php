@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             SetupManajemenUnitSekolahSeeder::class,
             PanduanTambahSekolahSeeder::class,
             PanduanRombelAdministratorSeeder::class,
+            SetupAksesPenggunaAdministratorSeeder::class,
         ]);
     }
 }
