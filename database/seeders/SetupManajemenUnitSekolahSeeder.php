@@ -47,7 +47,17 @@ class SetupManajemenUnitSekolahSeeder extends Seeder
             </li>
             <li style="margin-bottom: 0.75rem;">
                 <strong>Membentuk Rombongan Belajar (Rombel)</strong><br>
-                Setelah unit sekolah dibuat, Anda harus memecah kelas umum menjadi ruangan-ruangan kelas yang nyata (Misalnya: Kelas 1A, Kelas 1B) untuk menampung murid, dan menautkannya dengan Tahun Ajaran yang berlaku.
+                Setelah unit sekolah dibuat, Anda harus memecah kelas umum menjadi ruangan-ruangan kelas yang nyata (Misalnya: Kelas 1A, Kelas 1B) untuk menampung murid, dan menautkannya dengan Tahun Ajaran yang berlaku.<br><br>
+                
+                <div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 1rem; margin-top: 0.5rem; border-radius: 0.25rem;">
+                    <strong>Penting: Perbedaan Hierarki Rombel (Pusat vs Sekolah)</strong><br>
+                    Secara arsitektur sistem, Rombel wajib terikat pada satu Unit Sekolah spesifik. Oleh karena itu, terdapat perbedaan tampilan dan fungsi menu Rombel berdasarkan hak akses Anda:
+                    <ul style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                        <li><strong>Menu Rombel Sekolah (Admin Sekolah)</strong>: Menampilkan langsung daftar Rombel (contoh: 1A, 1B). Tombol "Tambah" di sini otomatis menautkan Rombel baru ke unit sekolah milik admin yang login.</li>
+                        <li><strong>Menu Rombel Pusat (Admin Pusat)</strong>: Menampilkan daftar Unit Sekolah (bukan Rombel). Untuk melihat Rombel, Anda harus mengklik salah satu Sekolah terlebih dahulu.</li>
+                    </ul>
+                    <em>Catatan Keamanan:</em> Jika Anda login sebagai <strong>Pusat</strong> dan mencoba mengklik tombol Tambah di halaman Rombel Sekolah, sistem akan secara otomatis mengarahkan Anda (<em>redirect</em>) ke form penambahan Pusat. Proteksi rute (berdasarkan <code>role_id</code>) ini mencegah Admin Pusat membuat Rombel "menggantung" tanpa unit sekolah, menjaga integritas struktur data.
+                </div>
             </li>
         </ol>
 
