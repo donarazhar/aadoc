@@ -41,6 +41,8 @@ class DatabaseSeeder extends Seeder
             SetupPmbAdministratorSeeder::class,
             PanduanGelombangPmbSeeder::class,
             PanduanJadwalUjianPmbSeeder::class,
+            PanduanTambahDaftarUlangSeeder::class,
+            PanduanTambahEkstrakurikulerSeeder::class,
         ]);
     }
 }
