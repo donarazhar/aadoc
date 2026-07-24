@@ -60,6 +60,7 @@ class PanduanJadwalUjianPmbSeeder extends Seeder
             <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0;">
                 <li><strong>Gelombang:</strong> Mengambil data dari endpoint <code style="background-color: #dcfce7; padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-size: 0.875em; color: #166534;">/school-new/batch</code>. (Data ini berasal dari menu Master Data &gt; Gelombang atau Administrasi &gt; PMB &gt; Gelombang yang sebelumnya telah diinputkan oleh user/panitia).</li>
                 <li><strong>Tingkat Kelas:</strong> Mengambil data dari endpoint <code style="background-color: #dcfce7; padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-size: 0.875em; color: #166534;">/school-new/master/class</code>. (Data ini adalah referensi master kelas yang ditarik secara spesifik berdasarkan jenjang sekolah dari akun yang sedang login. Misalnya akun SD otomatis hanya akan ditarik kelas 1 s.d. 6).</li>
+                <li><strong>Ruangan (Fasilitas):</strong> Mengambil data dari endpoint <code style="background-color: #dcfce7; padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-size: 0.875em; color: #166534;">/school-new/facilities</code>. (Data ini berasal dari menu Administrasi &gt; Sekolah &gt; Sarana Prasarana. Opsi ruangan harus di-input terlebih dahulu melalui menu tersebut sebelum dapat dipilih pada form Jadwal Ujian).</li>
             </ul>
         </div>
         </div>
