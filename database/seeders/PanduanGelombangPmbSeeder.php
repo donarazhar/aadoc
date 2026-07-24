@@ -40,7 +40,7 @@ class PanduanGelombangPmbSeeder extends Seeder
         <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
             <li>Masuk ke menu <strong>Master Data &gt; Gelombang</strong> (atau Administrasi &gt; PMB &gt; Gelombang).</li>
             <li>Klik tombol <strong>Tambah Gelombang</strong>.</li>
-            <li><strong>Nama Gelombang:</strong> Isikan nama periode pendaftaran, misalnya <em>Gelombang 1</em>, <em>Gelombang 2</em>, atau <em>Jalur Prestasi</em>.</li>
+            <li><strong>Nama Gelombang:</strong> Isikan dengan angka periode pendaftaran (contoh: <em>1</em>, <em>2</em>, <em>3</em>, dst). <em>Jangan menuliskan kata "Gelombang" lagi, cukup tuliskan angkanya saja.</em></li>
             <li><strong>Jenjang:</strong> Pilih jenjang pendidikan yang memberlakukan gelombang ini (misalnya SD).</li>
             <li><strong>Tahun Ajaran:</strong> Pilih Tahun Ajaran target (biasanya tahun ajaran berikutnya).</li>
             <li><strong>Tanggal Mulai & Selesai:</strong> Ini adalah parameter paling krusial! Tentukan kapan persisnya portal PMB dibuka dan ditutup untuk gelombang ini. Saat melewati "Tanggal Selesai", sistem akan otomatis menutup akses pendaftaran.</li>
