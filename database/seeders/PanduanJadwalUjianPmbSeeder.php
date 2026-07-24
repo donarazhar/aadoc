@@ -56,7 +56,11 @@ class PanduanJadwalUjianPmbSeeder extends Seeder
         </ol>
 
         <div style="background-color: #f0fdf4; border-left: 4px solid #4ade80; padding: 1rem; margin-top: 1.5rem; border-radius: 0.25rem;">
-            <strong>Catatan Penting:</strong> Pastikan Anda telah membuat data <strong>Gelombang</strong> dan <strong>Fasilitas Ruangan</strong> terlebih dahulu sebelum membuat Jadwal Ujian, karena data tersebut merupakan referensi wajib (dropdown) pada form ini.
+            <strong>Catatan Penting (Sumber Data):</strong> Pastikan Anda telah membuat data referensi terlebih dahulu sebelum membuat Jadwal Ujian.
+            <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0;">
+                <li><strong>Gelombang:</strong> Mengambil data dari endpoint <code style="background-color: #dcfce7; padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-size: 0.875em; color: #166534;">/school-new/batch</code>. (Data ini berasal dari menu Master Data &gt; Gelombang atau Administrasi &gt; PMB &gt; Gelombang yang sebelumnya telah diinputkan oleh user/panitia).</li>
+                <li><strong>Tingkat Kelas:</strong> Mengambil data dari endpoint <code style="background-color: #dcfce7; padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-size: 0.875em; color: #166534;">/school-new/master/class</code>. (Data ini adalah referensi master kelas yang ditarik secara spesifik berdasarkan jenjang sekolah dari akun yang sedang login. Misalnya akun SD otomatis hanya akan ditarik kelas 1 s.d. 6).</li>
+            </ul>
         </div>
         </div>
         ';
