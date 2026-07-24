@@ -37,7 +37,7 @@ class PanduanJadwalUjianPmbSeeder extends Seeder
             <li>Akses form penambahan jadwal melalui menu <strong>Administrasi &gt; PMB &gt; Jadwal Ujian</strong> lalu klik Tambah, atau akses langsung melalui link: <code style="background-color: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; color: #db2777;">/admin/master/jadwal-ujian/add-jadwal/add?tab=entrance_exam</code>.</li>
             <li><strong>Nama Ujian:</strong> Masukkan nama kegiatan ujian (contoh: "Ujian Gelombang 1 - Tahap 1").</li>
             <li><strong>Jenjang:</strong> Kolom ini akan terisi dan terkunci secara otomatis sesuai dengan unit sekolah akun Anda. <em>(Pengecualian: Khusus untuk peran Administrator, dropdown ini terbuka dan dapat dipilih secara bebas)</em>.</li>
-            <li><strong>Tingkat Kelas &amp; Gelombang:</strong> Pilih kelas tujuan dan tautkan ujian ini ke Gelombang PMB yang sedang dibuka.</li>
+            <li><strong>Tingkat Kelas &amp; Gelombang:</strong> Pilih kelas tujuan dan tautkan ujian ini ke Gelombang PMB yang sedang dibuka. <em>(Daftar pilihan pada kedua dropdown ini akan difilter secara cerdas dan otomatis mengikuti <strong>Jenjang</strong> yang sedang terpilih)</em>.</li>
             <li><strong>Tipe Ujian:</strong> Pilih mode pelaksanaan ujian (<strong>Offline</strong> atau <strong>Online</strong>). <em>Catatan: Untuk unit TK/SD, tipe ujian umumnya akan otomatis terkunci ke Offline.</em></li>
             <li><strong>Ruangan / Link Ujian:</strong>
                 <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
