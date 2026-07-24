@@ -30,22 +30,33 @@ class PanduanJadwalUjianPmbSeeder extends Seeder
         $htmlContent = '
         <div style="font-family: sans-serif; line-height: 1.6; color: #334155;">
         <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1rem;">Setup Jadwal Ujian/Observasi Masuk</h1>
-        <p style="font-size: 1.125rem; margin-bottom: 2rem;">Setelah membuat Gelombang PMB, langkah persiapan krusial yang terakhir adalah mengatur kuota dan jadwal Ujian Saringan Masuk (untuk SMP/SMA) atau Observasi (untuk TK/SD). Calon pendaftar wajib memilih jadwal ujian ini saat melengkapi data pendaftaran online.</p>
+        <p style="font-size: 1.125rem; margin-bottom: 2rem;">Langkah penting dalam persiapan PMB adalah membuat Jadwal Ujian Saringan Masuk atau Observasi. Jadwal ini nantinya akan dipilih oleh calon pendaftar saat mereka melengkapi formulir pendaftaran.</p>
         
         <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;">Langkah-langkah Penambahan Jadwal Ujian:</h4>
         <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-            <li>Buka menu <strong>Master Data &gt; Jadwal Ujian</strong> (atau Administrasi &gt; PMB &gt; Jadwal Ujian).</li>
-            <li>Klik tombol <strong>Tambah Jadwal Ujian</strong> atau akses langsung melalui link <code style="background-color: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; color: #db2777;">/admin/master/jadwal-ujian/add-jadwal/add?tab=entrance_exam</code>.</li>
-            <li><strong>Jenjang & Gelombang:</strong> Tautkan jadwal ujian ini untuk pendaftar di Jenjang dan Gelombang mana.</li>
-            <li><strong>Hari & Tanggal Pelaksanaan:</strong> Tentukan tanggal pasti kapan ujian/observasi tersebut akan dilangsungkan.</li>
-            <li><strong>Waktu Mulai & Selesai:</strong> Masukkan jam mulainya ujian dan estimasi selesai (misal: 08:00 - 11:30).</li>
-            <li><strong>Kuota Ujian:</strong> Masukkan batasan maksimal peserta (misalnya: 50). Sistem pendaftaran akan otomatis mencegah calon pendaftar memilih jadwal ini jika kuotanya sudah habis dipesan oleh pendaftar lain.</li>
-            <li><strong>Ruangan / Tempat Ujian:</strong> Tuliskan nama ruangan ujian atau tautan *online meeting* jika seleksi dilakukan secara jarak jauh.</li>
-            <li>Klik tombol <strong>Simpan</strong>.</li>
+            <li>Akses form penambahan jadwal melalui menu <strong>Administrasi &gt; PMB &gt; Jadwal Ujian</strong> lalu klik Tambah, atau akses langsung melalui link: <code style="background-color: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; color: #db2777;">/admin/master/jadwal-ujian/add-jadwal/add?tab=entrance_exam</code>.</li>
+            <li><strong>Nama Ujian:</strong> Masukkan nama kegiatan ujian (contoh: "Ujian Gelombang 1 - Tahap 1").</li>
+            <li><strong>Jenjang:</strong> Kolom ini akan terisi dan terkunci secara otomatis sesuai dengan unit sekolah akun Anda.</li>
+            <li><strong>Tingkat Kelas &amp; Gelombang:</strong> Pilih kelas tujuan dan tautkan ujian ini ke Gelombang PMB yang sedang dibuka.</li>
+            <li><strong>Tipe Ujian:</strong> Pilih mode pelaksanaan ujian (<strong>Offline</strong> atau <strong>Online</strong>). <em>Catatan: Untuk unit TK/SD, tipe ujian umumnya akan otomatis terkunci ke Offline.</em></li>
+            <li><strong>Ruangan / Link Ujian:</strong>
+                <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                    <li>Jika Anda memilih <em>Offline</em>, kolom <strong>Ruangan</strong> akan muncul. Pilih ruangan dari daftar fasilitas sekolah.</li>
+                    <li>Jika Anda memilih <em>Online</em>, kolom <strong>Link Online</strong> akan muncul. Masukkan tautan *meeting* jarak jauh (misal: link Zoom).</li>
+                </ul>
+            </li>
+            <li><strong>Keterangan:</strong> Tuliskan deskripsi atau instruksi tambahan bagi peserta (contoh: "Harap membawa pensil 2B dan papan dada").</li>
+            <li><strong>Waktu Pelaksanaan:</strong>
+                <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                    <li>Pilih <strong>Tanggal Ujian Masuk</strong>.</li>
+                    <li>Tentukan <strong>Jam Ujian Mulai</strong> dan <strong>Jam Ujian Selesai</strong> secara spesifik.</li>
+                </ul>
+            </li>
+            <li>Setelah semua data dipastikan benar, klik tombol <strong>Simpan</strong> di bagian bawah halaman.</li>
         </ol>
 
-        <div style="background-color: #f8fafc; border-left: 4px solid #94a3b8; padding: 1rem; margin-top: 1.5rem; border-radius: 0.25rem;">
-            <strong>Tips Operasional:</strong> Disarankan membuat beberapa opsi jadwal pada tanggal dan jam yang berbeda (atau ruang yang berbeda) jika antusiasme pendaftar pada gelombang tersebut diprediksi sangat tinggi. Ini membantu mengurai kepadatan panitia seleksi.
+        <div style="background-color: #f0fdf4; border-left: 4px solid #4ade80; padding: 1rem; margin-top: 1.5rem; border-radius: 0.25rem;">
+            <strong>Catatan Penting:</strong> Pastikan Anda telah membuat data <strong>Gelombang</strong> dan <strong>Fasilitas Ruangan</strong> terlebih dahulu sebelum membuat Jadwal Ujian, karena data tersebut merupakan referensi wajib (dropdown) pada form ini.
         </div>
         </div>
         ';
