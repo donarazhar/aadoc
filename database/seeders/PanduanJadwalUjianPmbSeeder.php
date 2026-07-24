@@ -35,7 +35,7 @@ class PanduanJadwalUjianPmbSeeder extends Seeder
         <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;">Langkah-langkah Penambahan Jadwal Ujian:</h4>
         <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
             <li>Buka menu <strong>Master Data &gt; Jadwal Ujian</strong> (atau Administrasi &gt; PMB &gt; Jadwal Ujian).</li>
-            <li>Klik tombol <strong>Tambah Jadwal Ujian</strong>.</li>
+            <li>Klik tombol <strong>Tambah Jadwal Ujian</strong> atau akses langsung melalui link <code style="background-color: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; color: #db2777;">/admin/master/jadwal-ujian/add-jadwal/add?tab=entrance_exam</code>.</li>
             <li><strong>Jenjang & Gelombang:</strong> Tautkan jadwal ujian ini untuk pendaftar di Jenjang dan Gelombang mana.</li>
             <li><strong>Hari & Tanggal Pelaksanaan:</strong> Tentukan tanggal pasti kapan ujian/observasi tersebut akan dilangsungkan.</li>
             <li><strong>Waktu Mulai & Selesai:</strong> Masukkan jam mulainya ujian dan estimasi selesai (misal: 08:00 - 11:30).</li>
