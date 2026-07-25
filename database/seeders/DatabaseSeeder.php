@@ -31,14 +31,19 @@ class DatabaseSeeder extends Seeder
             PanduanTambahSumberInformasiSeeder::class,
             SetupManajemenUnitSekolahSeeder::class,
             PanduanTambahSekolahSeeder::class,
-            PanduanRombelAdministratorSeeder::class,
-            SetupAksesPenggunaAdministratorSeeder::class,
+            // Workflow PMB
+            WorkflowAdministratorSeeder::class,
+            TahapanLanjutanWorkflowPMBSeeder::class,
+
+            // PMB
+            SetupPmbAdministratorSeeder::class,
             SetupKeuanganAdministratorSeeder::class,
             PanduanSppPusatSeeder::class,
             PanduanSppSekolahSeeder::class,
             PanduanUangPangkalSeeder::class,
             PanduanTagihanTambahanSeeder::class,
-            SetupPmbAdministratorSeeder::class,
+            PanduanRombelAdministratorSeeder::class,
+            SetupAksesPenggunaAdministratorSeeder::class,
             PanduanGelombangPmbSeeder::class,
             PanduanJadwalUjianPmbSeeder::class,
             PanduanTambahDaftarUlangSeeder::class,
