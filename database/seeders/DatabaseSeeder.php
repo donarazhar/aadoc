@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             PanduanTambahSekolahSeeder::class,
             // Workflow PMB
             WorkflowAdministratorSeeder::class,
+            WorkflowOrangTuaPMBSeeder::class,
             TahapanLanjutanWorkflowPMBSeeder::class,
 
             // PMB
