@@ -14,8 +14,8 @@ class TahapanLanjutanWorkflowPMBSeeder extends Seeder
     {
         // Pastikan category dan user ada untuk menghindari error foreign key
         $category = Category::firstOrCreate(
-            ['slug' => Str::slug('Panduan Workflow Admin Sekolah & Orang Tua')],
-            ['name' => 'Panduan Workflow Admin Sekolah & Orang Tua', 'description' => 'Panduan alur operasional sekolah']
+            ['slug' => Str::slug('Panduan Workflow Admin Sekolah')],
+            ['name' => 'Panduan Workflow Admin Sekolah', 'description' => 'Panduan alur operasional untuk admin sekolah']
         );
         $categoryId = $category->id;
 

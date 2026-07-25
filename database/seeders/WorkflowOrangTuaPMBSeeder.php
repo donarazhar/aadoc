@@ -14,8 +14,8 @@ class WorkflowOrangTuaPMBSeeder extends Seeder
     {
         // Pastikan category dan user ada
         $category = Category::firstOrCreate(
-            ['slug' => Str::slug('Panduan Workflow Admin Sekolah & Orang Tua')],
-            ['name' => 'Panduan Workflow Admin Sekolah & Orang Tua', 'description' => 'Panduan alur operasional sekolah']
+            ['slug' => Str::slug('Panduan Workflow Orang Tua')],
+            ['name' => 'Panduan Workflow Orang Tua', 'description' => 'Panduan pendaftaran untuk orang tua wali murid']
         );
         $categoryId = $category->id;
 
