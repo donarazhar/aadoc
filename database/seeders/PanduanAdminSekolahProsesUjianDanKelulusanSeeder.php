@@ -30,8 +30,8 @@ class PanduanAdminSekolahProsesUjianDanKelulusanSeeder extends Seeder
 
         $htmlContent = '
         <div style="font-family: sans-serif; line-height: 1.6; color: #334155;">
-        <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1rem;">Lanjutan PMB: Proses Ujian, Kelulusan, dan Uang Pangkal</h1>
-        <p style="font-size: 1.125rem; margin-bottom: 2rem;">Setelah Orang Tua melengkapi formulir pendaftaran secara daring, calon murid akan memasuki tahapan evaluasi dan penerimaan. Proses ini mencakup pengelolaan peserta ujian, penginputan nilai kelulusan, dan terakhir penerbitan tagihan uang pangkal.</p>
+        <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1rem;">Panduan Workflow Admin Sekolah (Part 2): Ujian, Kelulusan, dan Uang Pangkal</h1>
+        <p style="font-size: 1.125rem; margin-bottom: 2rem;">Setelah Orang Tua melengkapi formulir pendaftaran secara daring, calon murid akan memasuki tahapan evaluasi dan penerimaan. Proses ini mencakup pengelolaan peserta ujian, penginputan nilai kelulusan, dan terakhir penerbitan tagihan Uang Pangkal (DSP).</p>
         
         <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">4. Fase Persiapan Ujian (Menu: Daftar Peserta Ujian)</h4>
         <p><strong>Kondisi:</strong> Formulir telah di-submit oleh Orang Tua, dan status calon murid kini berada pada fase <strong>"Menunggu Ujian"</strong>.</p>
@@ -81,9 +81,9 @@ class PanduanAdminSekolahProsesUjianDanKelulusanSeeder extends Seeder
         ';
 
         Document::updateOrCreate(
-            ['slug' => Str::slug('Lanjutan PMB: Proses Ujian, Kelulusan, dan Uang Pangkal')],
+            ['slug' => Str::slug('Panduan Workflow Admin Sekolah (Part 2): Ujian, Kelulusan, dan Uang Pangkal')],
             [
-                'title' => 'Lanjutan PMB: Proses Ujian, Kelulusan, dan Uang Pangkal',
+                'title' => 'Panduan Workflow Admin Sekolah (Part 2): Ujian, Kelulusan, dan Uang Pangkal',
                 'content' => trim($htmlContent),
                 'category_id' => $categoryId,
                 'created_by' => $userId,

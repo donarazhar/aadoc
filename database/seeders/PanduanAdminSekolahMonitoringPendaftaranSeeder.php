@@ -30,7 +30,7 @@ class PanduanAdminSekolahMonitoringPendaftaranSeeder extends Seeder
 
         $htmlContent = '
         <div style="font-family: sans-serif; line-height: 1.6; color: #334155;">
-        <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1rem;">Monitoring Pendaftaran: Dari Animo hingga Pembayaran Formulir</h1>
+        <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1rem;">Panduan Workflow Admin Sekolah (Part 1): Pendaftaran Awal & Pembayaran Formulir</h1>
         <p style="font-size: 1.125rem; margin-bottom: 2rem;">Sebagai <strong>Admin Sekolah</strong>, salah satu peran krusial Anda pada masa Penerimaan Murid Baru (PMB) adalah memastikan bahwa setiap data pendaftar (Animo) yang masuk ke sistem dapat terpantau prosesnya hingga selesai.</p>
         <p style="margin-bottom: 1.5rem;">Workflow pendaftaran aplikasi Al-Azhar Apps dirancang sedemikian rupa agar seluruh pergerakan calon murid dapat dipantau secara otomatis, tanpa perlu rekapitulasi manual. Berikut adalah panduan tahap demi tahap mengenai alur yang akan Anda hadapi saat ada Orang Tua yang mendaftar.</p>
 
@@ -80,9 +80,9 @@ class PanduanAdminSekolahMonitoringPendaftaranSeeder extends Seeder
         ';
 
         Document::updateOrCreate(
-            ['slug' => Str::slug('Monitoring Pendaftaran: Dari Animo hingga Pembayaran Formulir')],
+            ['slug' => Str::slug('Panduan Workflow Admin Sekolah (Part 1): Pendaftaran Awal & Pembayaran Formulir')],
             [
-                'title' => 'Monitoring Pendaftaran: Dari Animo hingga Pembayaran Formulir',
+                'title' => 'Panduan Workflow Admin Sekolah (Part 1): Pendaftaran Awal & Pembayaran Formulir',
                 'content' => trim($htmlContent),
                 'category_id' => $categoryId,
                 'created_by' => $userId,
