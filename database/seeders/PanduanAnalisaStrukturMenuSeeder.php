@@ -46,13 +46,41 @@ class PanduanAnalisaStrukturMenuSeeder extends Seeder
         
         <div style="background-color: #f8fafc; padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; margin-bottom: 1.5rem;">
             <ol style="margin-left: 1rem; font-weight: 500; color: #1e293b;">
-                <li style="margin-bottom: 0.75rem;"><strong>Dashboard</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Berisi Summary Kinerja dan statistik umum.</span></li>
-                <li style="margin-bottom: 0.75rem;"><strong>Penerimaan Murid Baru (PMB)</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Menampung seluruh operasional penerimaan (PMB) dan kelola Data Calon Murid secara terpusat dalam satu grup.</span></li>
-                <li style="margin-bottom: 0.75rem;"><strong>Keuangan & Transaksi</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Penyatuan seluruh fungsi finansial mulai dari Tagihan Uang Pangkal, Uang Sekolah/SPP, Biaya, hingga Pengajuan Diskon dan Angsuran.</span></li>
-                <li style="margin-bottom: 0.75rem;"><strong>Kesiswaan & Akademik</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Fokus pada operasional kesiswaan berjalan seperti Rombel, Murid, Ekstrakurikuler, Prestasi, dan Mutasi Akademik.</span></li>
-                <li style="margin-bottom: 0.75rem;"><strong>LMS (Guru & Pembelajaran)</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Memusatkan fungsionalitas harian guru seperti Jurnal, Leger, Submit Nilai, E-Rapot, dan Ijazah.</span></li>
-                <li style="margin-bottom: 0.75rem;"><strong>Laporan</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Menjadi satu-satunya pintu untuk menarik Laporan Keuangan dan Settlement.</span></li>
-                <li style="margin-bottom: 0.75rem;"><strong>Master Data & Konfigurasi</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Penyatuan besar-besaran untuk seluruh data fondasi sistem (seperti Tahun Ajaran, Kelas, Kurikulum, Kalender), Konfigurasi Sekolah, hingga Manajemen User dan Pegawai. Semua pengaturan ada di sini.</span></li>
+                <li style="margin-bottom: 1.25rem;"><strong>Dashboard</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Berisi Summary Kinerja dan statistik umum.</span>
+                    <ul style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem; margin-left: 1.5rem; list-style-type: circle;">
+                        <li><strong>Menu yang digabungkan:</strong> Summary, Sekolah, Murid, Keuangan, Marketing, Dashboard (LMS).</li>
+                    </ul>
+                </li>
+                <li style="margin-bottom: 1.25rem;"><strong>Penerimaan Murid Baru (PMB)</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Menampung seluruh operasional penerimaan (PMB) dan kelola Data Calon Murid secara terpusat dalam satu grup.</span>
+                    <ul style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem; margin-left: 1.5rem; list-style-type: circle;">
+                        <li><strong>Menu yang digabungkan:</strong> PMB, Data Calon Murid.</li>
+                    </ul>
+                </li>
+                <li style="margin-bottom: 1.25rem;"><strong>Keuangan & Transaksi</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Penyatuan seluruh fungsi finansial mulai dari Tagihan Uang Pangkal, Uang Sekolah/SPP, Biaya, hingga Pengajuan Diskon dan Angsuran.</span>
+                    <ul style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem; margin-left: 1.5rem; list-style-type: circle;">
+                        <li><strong>Menu yang digabungkan:</strong> Tagihan Uang Pangkal, Uang Sekolah, Biaya, Diskon, Penerimaan.</li>
+                    </ul>
+                </li>
+                <li style="margin-bottom: 1.25rem;"><strong>Kesiswaan & Akademik</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Fokus pada operasional kesiswaan berjalan seperti Rombel, Murid, Ekstrakurikuler, Prestasi, dan Mutasi Akademik.</span>
+                    <ul style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem; margin-left: 1.5rem; list-style-type: circle;">
+                        <li><strong>Menu yang digabungkan:</strong> Akademik, Rombel, Murid, Data Murid, Ekstrakulikuler, Prestasi.</li>
+                    </ul>
+                </li>
+                <li style="margin-bottom: 1.25rem;"><strong>LMS (Guru & Pembelajaran)</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Memusatkan fungsionalitas harian guru seperti Jurnal, Leger, Submit Nilai, E-Rapot, dan Ijazah.</span>
+                    <ul style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem; margin-left: 1.5rem; list-style-type: circle;">
+                        <li><strong>Menu yang digabungkan:</strong> Jurnal, Leger, Submit Nilai, E-Rapot, Ijazah.</li>
+                    </ul>
+                </li>
+                <li style="margin-bottom: 1.25rem;"><strong>Laporan</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Menjadi satu-satunya pintu untuk menarik Laporan Keuangan dan Settlement.</span>
+                    <ul style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem; margin-left: 1.5rem; list-style-type: circle;">
+                        <li><strong>Menu yang digabungkan:</strong> Keuangan (Laporan).</li>
+                    </ul>
+                </li>
+                <li style="margin-bottom: 1.25rem;"><strong>Master Data & Konfigurasi</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Penyatuan besar-besaran untuk seluruh data fondasi sistem (seperti Tahun Ajaran, Kelas, Kurikulum, Kalender), Konfigurasi Sekolah, hingga Manajemen User dan Pegawai. Semua pengaturan ada di sini.</span>
+                    <ul style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem; margin-left: 1.5rem; list-style-type: circle;">
+                        <li><strong>Menu yang digabungkan:</strong> Kelas, Program, Kurikulum, Mata Pelajaran, Tahun Ajaran, Diskon (Master), Angsuran, Sumber Informasi, Sekolah, Profile Sekolah, Sarana Prasarana, Kalender, User Back Office Pusat, User Sekolah, Log Activity, Pegawai.</li>
+                    </ul>
+                </li>
             </ol>
         </div>
 
