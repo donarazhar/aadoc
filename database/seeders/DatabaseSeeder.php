@@ -38,6 +38,9 @@ class DatabaseSeeder extends Seeder
             PanduanAdminSekolahProsesUjianDanKelulusanSeeder::class,
             TahapanLanjutanWorkflowPMBSeeder::class,
             PanduanAdminSekolahOperasionalSeeder::class,
+            
+            // Analisa UI/UX
+            PanduanAnalisaStrukturMenuSeeder::class,
 
             // PMB
             SetupPmbAdministratorSeeder::class,
