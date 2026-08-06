@@ -50,6 +50,7 @@ class TahapanLanjutanWorkflowPMBSeeder extends Seeder
             <li><strong>Tugas Admin Sekolah:</strong> 
                 <ul style="margin-left: 1.5rem; margin-top: 0.5rem; list-style-type: circle;">
                     <li>Buka menu Rombel Sekolah dan pastikan Anda sudah membuat <em>Study Group</em> (Kelas) untuk tahun ajaran baru.</li>
+                    <li><strong>Prasyarat Membuat Rombel:</strong> Pastikan Anda telah menginput <strong>Master Ruangan</strong> (di menu Sarana Prasarana) dan <strong>Master Pegawai/Guru</strong> (di menu Kepegawaian), karena saat membuat rombel Anda diwajibkan memilih *Nama Ruangan* dan *Nama Wali Kelas*.</li>
                     <li>Klik tombol <strong>Tambah Murid</strong> pada kelas yang dituju.</li>
                     <li>Sistem hanya akan menampilkan daftar anak yang berstatus "Terdaftar" atau murid aktif yang belum dialokasikan ke kelas mana pun.</li>
                     <li>Pilih nama-nama murid, simpan, dan mereka resmi menjadi anggota Rombel tersebut.</li>
