@@ -36,9 +36,9 @@ class PanduanAdminSekolahOperasionalSeeder extends Seeder
         <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;">A. Manajemen Keuangan & Tagihan Rutin (SPP)</h4>
         <p>Sistem dirancang untuk men-<em>generate</em> tagihan bulanan secara otomatis tanpa campur tangan manual setiap bulannya, selama setup tarif sudah benar.</p>
         <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-            <li><strong>SPP Bulanan:</strong> Setiap awal bulan (tanggal 1), sistem akan memunculkan tagihan SPP ke aplikasi Orang Tua. Anda bisa memantau pergerakan kas dan tunggakan melalui menu <strong>Keuangan &gt; SPP</strong>.</li>
-            <li><strong>Biaya Tambahan:</strong> Untuk kegiatan seperti ekskul, komite, atau catering, Anda dapat membuat tagihan khusus melalui menu <strong>Keuangan &gt; Tagihan Tambahan</strong>.</li>
-            <li><strong>Daftar Ulang:</strong> Di awal semester atau tahun ajaran baru, Anda bisa men-<em>generate</em> tagihan Daftar Ulang bagi seluruh murid aktif agar mereka bisa melanjutkan studi.</li>
+            <li><strong>SPP Bulanan:</strong> Setiap awal bulan (tanggal 1), sistem akan memunculkan tagihan SPP ke aplikasi Orang Tua. Anda bisa men-<em>setup</em> dan mengelola tagihan SPP melalui menu <strong>Administrasi &gt; Biaya &gt; Uang Sekolah</strong>. Untuk memantau pergerakan kas dan tunggakan, Anda dapat menggunakan menu <strong>Laporan &gt; Keuangan &gt; Keuangan Murid</strong>.</li>
+            <li><strong>Biaya Tambahan:</strong> Untuk kegiatan ekskul atau lainnya, Anda dapat membuat tagihan khusus melalui menu <strong>Administrasi &gt; Biaya &gt; Uang Ekstrakulikuler</strong>.</li>
+            <li><strong>Daftar Ulang:</strong> Di awal semester atau tahun ajaran baru, Anda bisa men-<em>generate</em> tagihan Daftar Ulang bagi seluruh murid aktif melalui menu <strong>Administrasi &gt; Biaya &gt; Uang Daftar Ulang</strong> agar mereka bisa melanjutkan studi.</li>
         </ul>
 
         <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;">B. Manajemen Pembelajaran (LMS) & Akademik</h4>
