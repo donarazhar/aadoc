@@ -41,24 +41,24 @@ class PanduanAnalisaStrukturMenuSeeder extends Seeder
             <li><strong>Tumpang Tindih Kategorisasi:</strong> Terdapat ambiguitas antara kategori <em>Sekolah</em> dan <em>Administrasi</em>. Beberapa fitur operasional kesiswaan dan keuangan terbagi secara tidak merata di kedua kategori ini.</li>
         </ul>
 
-        <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">2. Rekomendasi Restrukturisasi Berdasarkan Workflow</h4>
-        <p>Untuk menciptakan pengalaman pengguna yang intuitif, struktur menu sebaiknya dirancang sejalan dengan kronologi operasional sekolah dari awal tahun hingga akhir tahun. Berikut adalah usulan struktur hierarki <em>sidebar</em> yang ideal:</p>
+        <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">2. Restrukturisasi Berdasarkan Workflow (Tetap Mempertahankan Redaksi Asli)</h4>
+        <p>Untuk menciptakan pengalaman pengguna yang intuitif, struktur menu telah disusun ulang sejalan dengan kronologi operasional sekolah dari hulu ke hilir. Sebagai catatan penting, <strong>semua penamaan menu (redaksi/label) tetap dibiarkan persis sama</strong> seperti versi aslinya (misalnya "Sekolah" tidak diubah menjadi "Konfigurasi Sekolah") agar tidak mengganggu familiaritas pengguna lama. Semua menu tersebut kini dikelompokkan secara cerdas ke dalam 7 (Tujuh) Payung Utama berikut:</p>
         
         <div style="background-color: #f8fafc; padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; margin-bottom: 1.5rem;">
             <ol style="margin-left: 1rem; font-weight: 500; color: #1e293b;">
-                <li style="margin-bottom: 0.75rem;"><strong>Dashboard</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Berisi Summary, Grafik Kinerja, dan Statistik Umum.</span></li>
-                <li style="margin-bottom: 0.75rem;"><strong>Penerimaan Murid Baru (PMB)</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Penyatuan seluruh alur PMB mulai dari: Gelombang Pendaftaran &rarr; Data Animo &rarr; Jadwal Ujian &rarr; Kelulusan &rarr; Transaksi Uang Pangkal.</span></li>
-                <li style="margin-bottom: 0.75rem;"><strong>Kesiswaan & Akademik</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Fokus pada operasional harian: Data Murid Aktif, Rombel, LMS (Jurnal, Leger, Raport), Ekstrakurikuler, Prestasi, dan Mutasi Akademik.</span></li>
-                <li style="margin-bottom: 0.75rem;"><strong>Keuangan & Tagihan</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Penyatuan fungsi finansial: Tagihan SPP, Daftar Ulang, Biaya Tambahan, Pengajuan Diskon, dan Angsuran.</span></li>
-                <li style="margin-bottom: 0.75rem;"><strong>Laporan (Report)</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Kumpulan rekapitulasi data: Laporan Keuangan, Settlement, dan Log Aktivitas.</span></li>
-                <li style="margin-bottom: 0.75rem;"><strong>Manajemen Pengguna</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Pengaturan akses untuk Pegawai, User Pusat, dan User Sekolah.</span></li>
-                <li style="margin-bottom: 0.75rem;"><strong>Master Data (Konfigurasi)</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Fondasi sistem yang jarang diubah: Tahun Ajaran, Master Kelas, Program, Mata Pelajaran, dan Tarif Dasar.</span></li>
+                <li style="margin-bottom: 0.75rem;"><strong>Dashboard</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Berisi Summary Kinerja dan statistik umum.</span></li>
+                <li style="margin-bottom: 0.75rem;"><strong>Penerimaan Murid Baru (PMB)</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Menampung seluruh operasional penerimaan (PMB) dan kelola Data Calon Murid secara terpusat dalam satu grup.</span></li>
+                <li style="margin-bottom: 0.75rem;"><strong>Keuangan & Transaksi</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Penyatuan seluruh fungsi finansial mulai dari Tagihan Uang Pangkal, Uang Sekolah/SPP, Biaya, hingga Pengajuan Diskon dan Angsuran.</span></li>
+                <li style="margin-bottom: 0.75rem;"><strong>Kesiswaan & Akademik</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Fokus pada operasional kesiswaan berjalan seperti Rombel, Murid, Ekstrakurikuler, Prestasi, dan Mutasi Akademik.</span></li>
+                <li style="margin-bottom: 0.75rem;"><strong>LMS (Guru & Pembelajaran)</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Memusatkan fungsionalitas harian guru seperti Jurnal, Leger, Submit Nilai, E-Rapot, dan Ijazah.</span></li>
+                <li style="margin-bottom: 0.75rem;"><strong>Laporan</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Menjadi satu-satunya pintu untuk menarik Laporan Keuangan dan Settlement.</span></li>
+                <li style="margin-bottom: 0.75rem;"><strong>Master Data & Konfigurasi</strong> <br><span style="font-weight: 400; font-size: 0.95rem; color: #475569;">Penyatuan besar-besaran untuk seluruh data fondasi sistem (seperti Tahun Ajaran, Kelas, Kurikulum, Kalender), Konfigurasi Sekolah, hingga Manajemen User dan Pegawai. Semua pengaturan ada di sini.</span></li>
             </ol>
         </div>
 
         <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">3. Kesimpulan & Manfaat</h4>
-        <p>Dengan menerapkan struktur rekomendasi di atas, pengguna sistem (terutama Admin Sekolah yang intensitas penggunaannya tinggi) akan merasakan alur navigasi top-down yang selaras dengan kalender akademik. Saat musim penerimaan, mereka hanya berfokus pada menu nomor 2. Saat kegiatan belajar mengajar berjalan, fokus mereka secara natural akan turun ke menu nomor 3 dan 4.</p>
-        <p>Restrukturisasi ini dipercaya mampu menurunkan tingkat kebingungan pengguna baru (<em>learning curve</em>) secara signifikan, sekaligus meminimalisir kesalahan prosedur di lapangan akibat menu operasional yang tersebar.</p>
+        <p>Dengan menerapkan struktur rekomendasi yang solid tanpa memecah atau menghilangkan menu orisinal mana pun, pengguna sistem (terutama Admin Sekolah) kini dapat beroperasi dengan jauh lebih intuitif. Saat musim penerimaan, fokus mereka hanya ada di menu PMB (grup ke-2). Begitu tahun ajaran berjalan, fokus mereka secara natural akan bergeser ke menu Kesiswaan, Keuangan, dan LMS.</p>
+        <p>Pendekatan ini menjembatani dua kebutuhan penting sekaligus: <strong>kemudahan bagi user baru</strong> (lewat alur yang kronologis) dan <strong>mempertahankan kenyamanan user lama</strong> (dengan tidak mengubah nama-nama redaksi menu sama sekali).</p>
         </div>
         ';
 
