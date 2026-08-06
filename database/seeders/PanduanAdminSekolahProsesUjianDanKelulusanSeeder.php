@@ -31,51 +31,51 @@ class PanduanAdminSekolahProsesUjianDanKelulusanSeeder extends Seeder
         $htmlContent = '
         <div style="font-family: sans-serif; line-height: 1.6; color: #334155;">
         <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1rem;">Panduan Workflow Admin Sekolah (Part 2): Ujian, Kelulusan, dan Uang Pangkal</h1>
-        <p style="font-size: 1.125rem; margin-bottom: 2rem;">Setelah Orang Tua melengkapi formulir pendaftaran secara daring, calon murid akan memasuki tahapan evaluasi dan penerimaan. Proses ini mencakup pengelolaan peserta ujian, penginputan nilai kelulusan, dan terakhir penerbitan tagihan Uang Pangkal (DSP).</p>
+        <p style="font-size: 1.125rem; margin-bottom: 2rem;">Setelah Orang Tua melengkapi formulir pendaftaran dan berkas diverifikasi, calon murid akan memasuki tahapan penjadwalan dan evaluasi penerimaan. Proses ini mencakup pembuatan jadwal ujian, pengelolaan peserta, penginputan nilai kelulusan, dan terakhir penerbitan tagihan Uang Pangkal (DSP).</p>
         
-        <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">4. Fase Persiapan Ujian (Menu: Daftar Peserta Ujian)</h4>
-        <p><strong>Kondisi:</strong> Formulir telah di-submit oleh Orang Tua, dan status calon murid kini berada pada fase <strong>"Menunggu Ujian"</strong>.</p>
+        <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">4. Fase Penjadwalan & Persiapan Ujian (Menu: Ujian & Seleksi)</h4>
+        <p><strong>Kondisi:</strong> Formulir telah di-submit oleh Orang Tua, dan status calon murid berada pada fase <strong>"Menunggu Ujian"</strong>. Anda perlu menentukan kapan dan di mana ujian diselenggarakan.</p>
         <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-            <li><strong>Lokasi:</strong> Halaman <code>admin/peserta</code></li>
             <li><strong>Tugas Admin Sekolah:</strong>
                 <ul style="margin-left: 1.5rem; margin-top: 0.5rem; list-style-type: circle;">
-                    <li>Pada halaman <strong>Daftar Peserta Ujian</strong>, Anda dapat melihat seluruh kandidat yang akan mengikuti tahapan seleksi tes/observasi.</li>
-                    <li>Jika sekolah Anda menggunakan sistem ujian daring (CBT), Anda dapat mengeklik ikon <strong>Generate Akses</strong> untuk membuatkan <em>username</em> dan <em>password</em> ujian secara otomatis bagi murid.</li>
-                    <li>Orang Tua selanjutnya akan bisa melihat akses ujian tersebut di aplikasi <em>mobile</em> mereka.</li>
+                    <li>Buka menu <strong>Ujian & Seleksi &gt; Jadwal Ujian</strong> untuk membuat ruang atau slot waktu ujian baru. Atur kuota ruangan, tanggal, dan pengawas ujian (jika ada).</li>
+                    <li>Setelah jadwal terbuat, buka menu <strong>Peserta Ujian</strong> untuk melihat seluruh kandidat yang akan mengikuti tes.</li>
+                    <li>Lakukan <strong>Plotting</strong> (memasukkan) nama calon murid ke jadwal ujian yang telah Anda siapkan. Orang Tua akan otomatis mendapat notifikasi di aplikasi mereka terkait jadwal tes anak tersebut.</li>
+                    <li>Jika sekolah Anda menggunakan sistem ujian daring (CBT), Anda dapat mengeklik ikon <strong>Generate Akses</strong> untuk membuatkan <em>username</em> dan <em>password</em> ujian secara otomatis.</li>
                 </ul>
             </li>
         </ul>
 
-        <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">5. Fase Kelulusan & Input Nilai (Menu: Evaluasi Kelulusan)</h4>
+        <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">5. Fase Kelulusan & Input Nilai (Menu: Kelulusan)</h4>
         <p><strong>Kondisi:</strong> Ujian seleksi / observasi telah dilaksanakan. Sistem membutuhkan konfirmasi akhir dari sekolah mengenai hasil seleksi tersebut.</p>
         <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-            <li><strong>Lokasi:</strong> Halaman <code>admin/kelulusan</code></li>
+            <li><strong>Lokasi:</strong> Halaman <strong>Ujian & Seleksi &gt; Kelulusan</strong></li>
             <li><strong>Tugas Admin Sekolah:</strong>
                 <ul style="margin-left: 1.5rem; margin-top: 0.5rem; list-style-type: circle;">
-                    <li>Buka menu Kelulusan dan masuk ke tab <strong>"Belum Diproses"</strong> untuk melihat daftar anak yang baru saja selesai ujian (status <em>"Menunggu Hasil Ujian"</em>).</li>
-                    <li>Klik tombol <strong>Input Nilai</strong> pada nama calon murid. Anda dapat memasukkan nilai berdasarkan komponen tes (seperti aspek observasi visual, auditori, bahasa, dsb.).</li>
-                    <li>Tentukan keputusan akhir kelulusan dengan menekan tombol <strong>"Luluskan (Diterima)"</strong> atau <strong>"Tolak"</strong>.</li>
-                    <li>Setelah klik <em>Luluskan</em>, sistem akan otomatis mengirimkan notifikasi kelulusan ke aplikasi Orang Tua.</li>
+                    <li>Buka tab <strong>"Belum Diproses"</strong> untuk melihat daftar anak yang berstatus <em>"Menunggu Hasil Ujian"</em>.</li>
+                    <li>Klik tombol <strong>Input Nilai</strong> pada baris calon murid. Masukkan hasil seleksi akademik, wawancara, maupun tes kesehatan/psikologi.</li>
+                    <li>Tentukan keputusan akhir dengan menekan tombol <strong>"Luluskan (Diterima)"</strong> atau <strong>"Tolak"</strong>.</li>
+                    <li>Begitu status diubah menjadi <em>Luluskan</em>, sistem seketika mem-<em>publish</em> hasil kelulusan ke aplikasi Orang Tua.</li>
                 </ul>
             </li>
         </ul>
 
-        <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">6. Fase Pembayaran Uang Pangkal / Uang PMB (Menu: Transaksi PMB)</h4>
-        <p><strong>Kondisi:</strong> Calon murid telah dinyatakan "Diterima", yang berarti mereka resmi berstatus sebagai kandidat murid sekolah Anda. Orang Tua harus melunasi Uang Pangkal (Uang PMB) sebelum proses daftar ulang selesai.</p>
+        <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">6. Fase Pembayaran Uang Pangkal / Uang PMB (Menu: Transaksi Uang Pangkal)</h4>
+        <p><strong>Kondisi:</strong> Calon murid resmi "Diterima". Orang Tua wajib melunasi Uang Pangkal (DSP) sebagai syarat daftar ulang.</p>
         <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-            <li><strong>Lokasi:</strong> Halaman <code>admin/transaksi/pmb</code> (Tab: PMB)</li>
-            <li><strong>Tindakan Otomatis Sistem:</strong> Tepat setelah Anda menekan tombol "Luluskan" di fase sebelumnya, sistem secara ajaib <em>(otomatis)</em> menghitung besaran tagihan Uang Pangkal sesuai jenjang, program, dan diskon yang berlaku, lalu menagihkannya ke akun Orang Tua.</li>
+            <li><strong>Tindakan Otomatis Sistem:</strong> Tepat setelah tombol "Luluskan" ditekan, mesin tagihan sistem secara otomatis menghitung besaran Uang Pangkal berdasarkan Gelombang, Jenjang, Program, dan Diskon otomatis yang mungkin berlaku. Tagihan langsung muncul di akun Orang Tua.</li>
             <li><strong>Tugas Admin Sekolah:</strong>
                 <ul style="margin-left: 1.5rem; margin-top: 0.5rem; list-style-type: circle;">
-                    <li>Anda bisa masuk ke menu <strong>Transaksi PMB</strong> untuk memantau nilai pada kolom <strong>Uang PMB</strong> yang kini sudah terisi (sebelumnya kolom ini kosong atau <code>-</code> ketika anak masih Menunggu Ujian).</li>
-                    <li>Pantau status pembayarannya. Jika statusnya sudah lunas, maka murid tersebut sepenuhnya sudah menyelesaikan siklus PMB awal.</li>
+                    <li>Buka menu <strong>Transaksi Uang Pangkal &gt; Data PMB</strong> untuk memantau invoice yang terbit.</li>
+                    <li>Kolom "Uang PMB" yang tadinya kosong kini akan terisi angka riil.</li>
+                    <li>Jika status pembayaran telah Lunas, calon murid dipersilakan melanjutkan ke <strong>Fase Daftar Ulang (Part 3)</strong>.</li>
                 </ul>
             </li>
         </ul>
 
         <div style="background-color: #f0f9ff; padding: 1rem; border-left: 4px solid #0284c7; border-radius: 0.25rem; margin-bottom: 1.5rem; margin-top: 2rem;">
             <strong style="color: #0284c7;">Catatan Penting:</strong><br>
-            Jangan heran jika kolom "Uang PMB" kosong saat anak belum dievaluasi. Nominal tagihan uang pangkal hanya akan terbentuk (di-generate) <strong>setelah</strong> anak tersebut berstatus Diterima/Lulus.
+            Jangan heran jika kolom nominal "Uang PMB" di laporan Anda masih bernilai 0 (kosong) saat anak berstatus Menunggu Ujian. Nominal tagihan uang pangkal hanya akan di-<em>generate</em> secara sistematis <strong>setelah</strong> anak tersebut berstatus Diterima/Lulus.
         </div>
         </div>
         ';

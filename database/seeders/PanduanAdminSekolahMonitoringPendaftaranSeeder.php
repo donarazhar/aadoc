@@ -31,50 +31,44 @@ class PanduanAdminSekolahMonitoringPendaftaranSeeder extends Seeder
         $htmlContent = '
         <div style="font-family: sans-serif; line-height: 1.6; color: #334155;">
         <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1rem;">Panduan Workflow Admin Sekolah (Part 1): Pendaftaran Awal & Pembayaran Formulir</h1>
-        <p style="font-size: 1.125rem; margin-bottom: 2rem;">Sebagai <strong>Admin Sekolah</strong>, salah satu peran krusial Anda pada masa Penerimaan Murid Baru (PMB) adalah memastikan bahwa setiap data pendaftar (Animo) yang masuk ke sistem dapat terpantau prosesnya hingga selesai.</p>
-        <p style="margin-bottom: 1.5rem;">Workflow pendaftaran aplikasi Al-Azhar Apps dirancang sedemikian rupa agar seluruh pergerakan calon murid dapat dipantau secara otomatis, tanpa perlu rekapitulasi manual. Berikut adalah panduan tahap demi tahap mengenai alur yang akan Anda hadapi saat ada Orang Tua yang mendaftar.</p>
+        <p style="font-size: 1.125rem; margin-bottom: 2rem;">Sebagai <strong>Admin Sekolah</strong>, salah satu peran krusial Anda pada masa Penerimaan Murid Baru (PMB) adalah memastikan bahwa setiap data pendaftar (Animo) yang masuk ke sistem dapat terpantau prosesnya hingga selesai. Modul PMB Al-Azhar Apps mengotomatisasi seluruh pergerakan status pendaftar.</p>
 
         <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">1. Fase Animo (Pendaftaran Awal)</h4>
-        <p><strong>Kondisi:</strong> Orang Tua baru saja membuat akun di aplikasi Al-Azhar Apps dan menambahkan profil anak mereka ke dalam sistem, lalu memilih sekolah Anda (misalnya <em>TK Islam Al-Azhar 1</em>).</p>
+        <p><strong>Kondisi:</strong> Orang Tua membuat akun di aplikasi Al-Azhar Apps, menambahkan profil anak mereka, dan memilih pendaftaran pada unit sekolah Anda.</p>
         <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-            <li><strong>Tindakan Otomatis Sistem:</strong> Begitu Orang Tua menyimpan pilihan pendaftaran, data tersebut akan masuk ke <em>database</em> sistem sebagai <strong>Animo Baru</strong>. Sistem akan menghasilkan kode pendaftaran unik dan menerbitkan tagihan <strong>Uang Formulir</strong> secara otomatis.</li>
+            <li><strong>Tindakan Otomatis Sistem:</strong> Sistem langsung memasukkan data ke dalam <strong>Data Animo</strong>. Sebuah tagihan <strong>Uang Formulir</strong> langsung terbit dan dapat dilihat di aplikasi Orang Tua (disertai kode Virtual Account atau link payment gateway).</li>
             <li><strong>Tugas Admin Sekolah:</strong>
                 <ul style="margin-left: 1.5rem; margin-top: 0.5rem; list-style-type: circle;">
-                    <li>Buka menu <strong>Dashboard PMB</strong> pada portal sekolah.</li>
-                    <li>Anda akan melihat daftar nama calon murid yang baru saja mendaftar.</li>
-                    <li>Pada tahap ini, status mereka umumnya adalah <strong>"Menunggu Pembayaran Formulir"</strong>.</li>
-                    <li>Jika diperlukan (opsional), Anda dapat menghubungi nomor HP Orang Tua sebagai tindak lanjut (<em>follow-up</em>) batas waktu pembayaran pendaftaran.</li>
+                    <li>Buka menu <strong>PMB &gt; Data Animo & Calon Murid</strong>.</li>
+                    <li>Status pendaftar baru akan terlihat sebagai <span style="background: #fef08a; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #854d0e; font-size: 0.875rem;">Menunggu Pembayaran Formulir</span>.</li>
+                    <li>Jika ada calon murid yang tertahan pada status ini melewati batas waktu, Anda dapat melakukan <em>follow-up</em> langsung menggunakan kontak HP yang tertera.</li>
                 </ul>
             </li>
         </ul>
 
-        <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">2. Fase Pembayaran Uang Formulir</h4>
-        <p><strong>Kondisi:</strong> Orang Tua menyelesaikan pembayaran tagihan Uang Formulir pendaftaran menggunakan kanal pembayaran yang tersedia di aplikasi <em>mobile</em> mereka.</p>
+        <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">2. Fase Pembayaran Uang Formulir & Kelengkapan Biodata</h4>
+        <p><strong>Kondisi:</strong> Pembayaran Formulir selesai dilakukan oleh Orang Tua.</p>
         <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-            <li><strong>Tindakan Otomatis Sistem:</strong> Saat <em>payment gateway</em> mengonfirmasi dana telah masuk, sistem akan mengubah indikator pembayaran menjadi <strong>Lunas</strong> dan mengubah status pendaftar menjadi <strong>"Silahkan Lengkapi Formulir PMB"</strong>.</li>
-            <li><strong>Tugas Admin Sekolah:</strong>
-                <ul style="margin-left: 1.5rem; margin-top: 0.5rem; list-style-type: circle;">
-                    <li>Ketika Anda menyegarkan (refresh) halaman Dashboard PMB, status calon murid tersebut akan berubah secara otomatis.</li>
-                    <li>Anda tidak perlu mencetak kwitansi secara manual atau menandai lunas, karena sistem pendaftaran otomatis menyinkronkan data pembayaran.</li>
-                </ul>
-            </li>
+            <li><strong>Tindakan Otomatis Sistem:</strong> Sistem mendeteksi notifikasi sukses dari payment gateway, mengubah status tagihan menjadi Lunas, dan membuka kunci akses formulir pendaftaran lengkap di aplikasi Orang Tua. Status pendaftar berubah menjadi <span style="background: #bfdbfe; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #1e40af; font-size: 0.875rem;">Silahkan Lengkapi Formulir PMB</span>.</li>
+            <li><strong>Tugas Orang Tua:</strong> Melengkapi 3 bagian form utama (Gelombang, Biodata Lengkap Anak, dan Biodata Orang Tua/Wali) serta mengunggah dokumen persyaratan dasar (Akte Kelahiran, KK, Pas Foto).</li>
         </ul>
 
-        <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">3. Fase Pengisian Biodata Lengkap</h4>
-        <p><strong>Kondisi:</strong> Karena formulir sudah lunas, sistem akan membuka akses bagi Orang Tua untuk mengisi kelengkapan formulir pendaftaran.</p>
+        <h4 style="color: #1885c4; font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">3. Fase Verifikasi Berkas (Opsional namun Disarankan)</h4>
+        <p><strong>Kondisi:</strong> Orang Tua telah klik "Kirim Data" dan mengunggah berkas.</p>
         <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-            <li><strong>Tindakan Otomatis Sistem:</strong> Sistem akan menampilkan tombol <strong>"Lengkapi Formulir"</strong> bagi Orang Tua. Mereka diwajibkan mengisi secara detil data yang mencakup 3 bagian utama: Gelombang, Biodata Lengkap Anak, dan Biodata Orang Tua.</li>
+            <li><strong>Tindakan Otomatis Sistem:</strong> Status berubah menjadi <span style="background: #bbf7d0; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #166534; font-size: 0.875rem;">Formulir Selesai</span>. Calon murid kini resmi tercatat dalam daftar peserta siap seleksi.</li>
             <li><strong>Tugas Admin Sekolah:</strong>
                 <ul style="margin-left: 1.5rem; margin-top: 0.5rem; list-style-type: circle;">
-                    <li>Pada tahap ini, Admin Sekolah cukup memantau progres kelengkapan data.</li>
-                    <li>Setelah Orang Tua melakukan konfirmasi pengiriman (<em>submit</em>), status pendaftaran calon murid akan kembali diperbarui oleh sistem untuk proses selanjutnya.</li>
+                    <li>Klik ikon <strong>Detail (Mata)</strong> pada baris nama calon murid.</li>
+                    <li>Lakukan pemeriksaan terhadap lampiran berkas dan data yang diinput. Jika ada kesalahan minor, Admin dapat membantu merevisinya langsung.</li>
+                    <li>Jika berkas valid, Anda bisa bersiap untuk tahap selanjutnya yaitu proses Ujian/Observasi.</li>
                 </ul>
             </li>
         </ul>
 
         <div style="background-color: #f0f9ff; padding: 1rem; border-left: 4px solid #0284c7; border-radius: 0.25rem; margin-bottom: 1.5rem; margin-top: 2rem;">
             <strong style="color: #0284c7;">Praktek Terbaik (Best Practice):</strong><br>
-            Pantau menu pendaftaran setidaknya satu atau dua hari sekali pada musim PMB. Jika ada banyak calon murid yang tertahan pada status <strong>"Menunggu Pembayaran Formulir"</strong> lebih dari 3 hari, pertimbangkan untuk mengirimkan pesan pengingat kepada Orang Tua bersangkutan.
+            Selalu cek menu PMB setiap hari untuk mengidentifikasi hambatan (<em>bottleneck</em>) yang dialami pendaftar. Langkah selanjutnya setelah berkas lengkap adalah membuat Jadwal Ujian dan menempatkan calon murid ke dalam jadwal tersebut (diuraikan pada <strong>Part 2</strong>).
         </div>
         </div>
         ';
