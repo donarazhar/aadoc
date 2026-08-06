@@ -48,12 +48,22 @@ class TahapanLanjutanWorkflowPMBSeeder extends Seeder
         <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
             <li><strong>Lokasi:</strong> Halaman <strong>Kesiswaan & Akademik &gt; Pembagian Rombel</strong> (atau Master Rombel).</li>
             <li><strong>Tugas Admin Sekolah:</strong> 
-                <ul style="margin-left: 1.5rem; margin-top: 0.5rem; list-style-type: circle;">
-                    <li>Buka menu Rombel Sekolah dan pastikan Anda sudah membuat <em>Study Group</em> (Kelas) untuk tahun ajaran baru.</li>
-                    <li><strong>Prasyarat Membuat Rombel:</strong> Pastikan Anda telah menginput <strong>Master Ruangan</strong> (di menu Sarana Prasarana) dan <strong>Master Pegawai/Guru</strong> (di menu Kepegawaian), karena saat membuat rombel Anda diwajibkan memilih *Nama Ruangan* dan *Nama Wali Kelas*.</li>
-                    <li>Klik tombol <strong>Tambah Murid</strong> pada kelas yang dituju.</li>
-                    <li>Sistem hanya akan menampilkan daftar anak yang berstatus "Terdaftar" atau murid aktif yang belum dialokasikan ke kelas mana pun.</li>
-                    <li>Pilih nama-nama murid, simpan, dan mereka resmi menjadi anggota Rombel tersebut.</li>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem; list-style-type: decimal;">
+                    <li><strong>Langkah 1: Persiapan Prasyarat Data</strong><br/>
+                        Sebelum membuat <em>Study Group</em> (Rombel) baru, Anda wajib melengkapi Master Data berikut agar <em>dropdown</em> pilihan di form Rombel tidak kosong:
+                        <ul style="margin-left: 1.5rem; margin-top: 0.25rem; margin-bottom: 0.5rem; list-style-type: disc;">
+                            <li><strong>Input Master Ruangan:</strong> Masuk ke menu <strong>Sekolah &gt; Sarana Prasarana</strong>, lalu tambahkan fasilitas bangunan dengan kategori <strong>Ruangan</strong>.</li>
+                            <li><strong>Input Master Pegawai (Wali Kelas):</strong> Masuk ke menu <strong>Kepegawaian &gt; Pegawai</strong> (atau <em>Master Personnel</em>), lalu pastikan profil guru yang akan ditunjuk sebagai wali kelas telah terdaftar di sistem.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Langkah 2: Pembuatan Entitas Rombel</strong><br/>
+                        Setelah prasyarat terpenuhi, buka menu <strong>Master Rombel Sekolah</strong> dan klik tombol <strong>Tambah Rombel</strong>. Isi kelengkapan form, termasuk memilih <strong>Nama Ruangan</strong> dan <strong>Nama Wali Kelas</strong> (yang kini sudah bisa Anda pilih dari daftar).
+                    </li>
+                    <li><strong>Langkah 3: Mengalokasikan Murid ke Dalam Rombel</strong><br/>
+                        Setelah form Rombel disimpan, Anda akan melihat tombol <strong>Tambah Siswa</strong> pada detail Rombel tersebut. Klik tombol tersebut.
+                    </li>
+                    <li>Sistem secara otomatis memfilter dan <strong>hanya menampilkan daftar anak yang berstatus "Terdaftar"</strong> (sudah lunas DSP dan berkas lengkap) namun belum memiliki kelas.</li>
+                    <li>Pilih nama-nama murid yang bersangkutan melalui <em>checkbox</em>, lalu klik simpan. Mereka kini resmi menjadi anggota Rombel tersebut secara sistem.</li>
                 </ul>
             </li>
         </ul>
